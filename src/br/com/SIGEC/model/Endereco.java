@@ -3,9 +3,6 @@ package br.com.SIGEC.model;
 public class Endereco {
 	private int id;
 	private String rua;
-	
-	
-	
 	private String numero;
 	private String cep;
 	private String cidade;
