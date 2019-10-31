@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <title> SIGEC - Login </title>
+</h:head>
+
+<body>
+    <header>
+        <figure class="logo">
+            <img src="img/logo.png" alt="Logo SIGEC"/>
+        </figure>
+        <nav class="menu-principal">
+            <ul class="links-menu">
+                <div class="links-antes">
+                    <li>
+                        <a href="index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#">SOBRE</a>
+                    </li>
+                    <li>
+                        <a href="#">CONTATO</a>
+                    </li>
+                </div>
+                <div class="links-depois">
+                    <li>
+                        <a href="#">ENTRAR</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <figure class="banner_login">
+            <img src="img/banner_login.jpg" alt="Banner Login SIGEC"/>
+        </figure>
+
+        <h:form class="formulario_login">
+            <h1>Bem vindo!</h1>
+            <h:inputText value="" a:placeholder="Login" class="campo"/>
+            <h:inputText value="" a:placeholder="Senha" class="campo"/>
+            <h:commandButton class="botao_login" action="#{clienteMBean.cadastrar()}" value="Enviar"/>
+        </h:form>
+        
+    </div>
+</body>
+</html>
