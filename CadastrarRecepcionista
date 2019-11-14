@@ -1,36 +1,4 @@
-<!--<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-	<meta charset="UTF-8"/>
-    <title> Cadastro </title>
-    <link rel="stylesheet" type="text/css" href="css/cadastro_paciente.css">
-    <link rel="shortcut icon" href="imagens/LOGOPEQ.png"/>
-</head>
-    <body>
-        <div class="Cadastrar">
-
-           <h2> CADASTRAR PACIENTE</h2>
-            <form id="formulario">
-    	        <fieldset> 
-    		    <p> <label for="campNome"> Nome: </label> <input  type="text" name="tNome" id="
-                campNome"  maxlength="60" placeholder="Nome Completo"> </p> 
-
-    		    <p> <label for="campEmail"> Email: </label> <input type="email" name="tEmail" id="campEmail"> </p>
-
-    		    <p>    <label for="campTel"> Telefone: </label> <input type="email" name="tTel" id="campTel" maxlength="9" min="15" max="23"> </p>
-    			</fieldset>
-    		</form>
-        </div>
-
-    			
-        <footer>
-	       <p> <center> Copyright &copy; 2018 - <b> by Rayane Santos & George Costa </b>
-                Facebook | Linkedin  </center>
-            </p>
-        </footer> 
-    </body>-->
-
-    <!DOCTYPE html>
+ <!DOCTYPE html>
  <html>
  <head>
  <title>Cadastrar Recepcionista</title>
