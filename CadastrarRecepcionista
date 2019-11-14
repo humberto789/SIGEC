@@ -1,0 +1,89 @@
+<!--<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8"/>
+    <title> Cadastro </title>
+    <link rel="stylesheet" type="text/css" href="css/cadastro_paciente.css">
+    <link rel="shortcut icon" href="imagens/LOGOPEQ.png"/>
+</head>
+    <body>
+        <div class="Cadastrar">
+
+           <h2> CADASTRAR PACIENTE</h2>
+            <form id="formulario">
+    	        <fieldset> 
+    		    <p> <label for="campNome"> Nome: </label> <input  type="text" name="tNome" id="
+                campNome"  maxlength="60" placeholder="Nome Completo"> </p> 
+
+    		    <p> <label for="campEmail"> Email: </label> <input type="email" name="tEmail" id="campEmail"> </p>
+
+    		    <p>    <label for="campTel"> Telefone: </label> <input type="email" name="tTel" id="campTel" maxlength="9" min="15" max="23"> </p>
+    			</fieldset>
+    		</form>
+        </div>
+
+    			
+        <footer>
+	       <p> <center> Copyright &copy; 2018 - <b> by Rayane Santos & George Costa </b>
+                Facebook | Linkedin  </center>
+            </p>
+        </footer> 
+    </body>-->
+
+    <!DOCTYPE html>
+ <html>
+ <head>
+ <title>Cadastrar Recepcionista</title>
+ <meta charset="utf-8">
+ <link rel="stylesheet" type="text/css" href="css/cadastro_recepcionista.css">
+ </head>
+
+<body>
+
+<div id= "menu">
+    <br><br><br><br><br>
+<center> <img id= "logo" src="imagens/logo.jpeg">  </center>
+ <ul> 
+    <li><a href="#">HOME</a></li> <br>
+    <li><a href="#">AGENDA</a></li> <br>
+    <li><a href="#">MARCAR CONSULTA</a></li> <br>
+    <li><a href="#">CADASTRAR PACIENTE</a></li>     
+  </ul>
+
+</div>
+
+<div id ="formulario">
+    <form name="form" action="" method="post">
+
+<h2>CADASTRAR RECEPCIONISTA</h2>
+
+<p class="nome"> <label > Nome </label> <br>
+ <input type="text" name="nome"required="required"> 
+ </p>
+
+<p class="email">
+ <label> Email </label> <br>
+ <input type="email" name="email" required="required">
+ </p>
+
+<p class="telefone">
+ <label> Telefone </label> <br> 
+ <input type="tel" name="telefone" maxlength="11" required="required">
+ </p>
+
+<p class="endereço">
+ <label> Endereço </label> <br> 
+ <input type="text" name="endereço"required="required"> 
+ </p>
+
+<p class="cadastrar">
+ <button name="cadastrar"> CADASTRAR </button>
+ </p>
+
+</form>
+    
+</div>
+
+
+</body>
+ </html>
