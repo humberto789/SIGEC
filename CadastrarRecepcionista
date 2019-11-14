@@ -28,9 +28,24 @@
 <p class="nome"> <label > Nome </label> <br>
  <input type="text" name="nome"required="required"> 
  </p>
-
+ 
+<p class="dataNasc">
+ <label> Data de nascimento </label> <br>
+ <input type="date" name="dataNasc" required="required">
+ </p>
+ 
+<p class="rg">
+ <label> RG </label> <br> 
+ <input type="text" name="rg"required="required" maxlength="10"> 
+ </p>
+ 
+<p class="cpf">
+ <label> CPF </label> <br> 
+ <input type="text" name="cpf"required="required" maxlength="14"> 
+ </p>
+ 
 <p class="email">
- <label> Email </label> <br>
+ <label> E-mail </label> <br>
  <input type="email" name="email" required="required">
  </p>
 
@@ -39,7 +54,7 @@
  <input type="tel" name="telefone" maxlength="11" required="required">
  </p>
 
-<p class="endereço">
+<p class="endereco">
  <label> Endereço </label> <br> 
  <input type="text" name="endereço"required="required"> 
  </p>
