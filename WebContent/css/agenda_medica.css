@@ -47,3 +47,14 @@ img {
 	left: 350px;
 	height: 100vh;
 }
+
+#titulo {
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 3px;
+}
+
+#container-calendario {
+	max-width: 300px;
+	margin: 1em;
+}
