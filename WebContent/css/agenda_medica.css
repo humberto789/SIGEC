@@ -52,9 +52,16 @@ img {
 	text-align: center;
 	font-family: 'Oswald', sans-serif;
 	letter-spacing: 3px;
+	color: #01284F;
 }
 
 #container-calendario {
-	max-width: 300px;
+	width: 20%;
 	margin: 1em;
+	display: inline-block;
+}
+
+#container-agenda {
+	width: 70%;
+	display: inline-block;
 }

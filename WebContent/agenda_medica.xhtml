@@ -29,7 +29,10 @@
 				<p:calendar mode="inline"></p:calendar>
 			</div>
 			
-			<p:schedule></p:schedule>
+			<div id="container-agenda">
+				<p:schedule id="schedule" value="#{agendaMedica.eventModel}"></p:schedule>
+			</div>
+			
 			
 		</main>
 	</h:body>
