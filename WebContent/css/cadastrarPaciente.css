@@ -1,6 +1,15 @@
 @font-face {
-    src: url(./theboldfont.ttf);
+    src: url(../fonts/theboldfont.ttf);
     font-family: "BoldFont";
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.link{
+	color: white;
+	text-decoration: none;
 }
 
 body {
@@ -30,16 +39,15 @@ li {
 }
 
 main {
-    padding: 10em;
+    padding: 6em;
     width: 100%;
 }
 
-button{
+.botaoCadastrar{
     background: #01284F;
     color: white;
     font-family: "BoldFont", sans-serif;
     border-radius: 8px;
-    padding: 0.6em 1em;
     border: none;
 }
 
