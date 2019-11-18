@@ -3,8 +3,8 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 @font-face {
-    font-family: "TheBoldFont";
-    src: url(../fonts/theboldfont.ttf);
+    font-family: "Oswald";
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
 body{
     margin: 0;
@@ -14,7 +14,7 @@ body{
     padding: 0;
 }
 header{
-    font-family: 'TheBoldFont';
+    font-family: 'Oswald';
 }
 .menu-principal{
     padding: 1.5%;

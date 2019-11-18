@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "Oswald";
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+*{
+    box-sizing: border-box;
+    font-family: Oswald;
+}
+body{
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgb(1,40,79);
+}
+header{
+	text-align: center;
+	width: 20%;
+	float: left;
+	height:100%;
+}
+.container{
+	width: 80%;
+	float: left;
+	background-color: white;
+	padding-bottom: 1%;
+}
+.logo{
+	margin-top: 40%;
+}
+.logo img{
+	width: 50%;
+}
+.links-menu li a{
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+    font-size: 2.5ch;
+}
+.links-menu li{
+	list-style-type: none;
+	margin-top: 5%;
+	margin-bot: 5%;
+}
+
+.formulario_login{
+	padding-left: 20%;
+	padding-top: 5%;
+}
+.formulario_login h1{
+	color: rgb(1,40,79);
+	margin-bottom: 5%;
+}
+.label_campo{
+	font-weigh: bold;
+	font-size: 1.8ch;
+}
+.campo{
+    display:block;
+    width: 60%;
+    font-size: 1.8ch;
+    padding: 0.5%;
+    border-radius: 5px;
+    border: solid 2px rgb(186,186,184);
+    margin-bottom: 1%;
+}
+.botao_cadastro{
+	font-size: 2ch;
+	background-color: rgb(1,40,79);
+	color: white;
+    border-radius: 5px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    padding-left: 3%;
+    padding-right: 3%;
+    border: none;
+}
+footer{
+	clear: both;
+}
