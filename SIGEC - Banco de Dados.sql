@@ -72,7 +72,7 @@ create table prontuario(
 	altura double not null,
 	alergia varchar(100),
 	queixa varchar(200),
-	temperatura double not null;
+	temperatura double not null,
 	id_medico varchar(50) unique not null,
 	id_paciente char(14) unique not null,
 	primary key(id),
