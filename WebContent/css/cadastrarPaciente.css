@@ -1,0 +1,75 @@
+@font-face {
+    src: url(../fonts/theboldfont.ttf);
+    font-family: "BoldFont";
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.link{
+	color: white;
+	text-decoration: none;
+}
+
+body {
+    font-family: "BoldFont", sans-serif;
+    display: flex;
+    min-height: 100vh;
+    margin: 0vh;
+    padding: 0vh;
+}
+
+aside {
+    background: #01284F;
+    padding: 5em;
+    padding-top: 12em;
+}
+
+ul {
+    list-style: none;
+    color: white;
+    text-align: center;
+    padding: 0vh;
+    margin-top: 2.5em;
+}
+
+li {
+    margin-bottom: 1.5em;
+}
+
+main {
+    padding: 6em;
+    width: 100%;
+}
+
+.botaoCadastrar{
+    background: #01284F;
+    color: white;
+    font-family: "BoldFont", sans-serif;
+    border-radius: 8px;
+    border: none;
+}
+
+fieldset{
+    border: none;
+    display: grid;
+    padding: 0vh;
+    margin-bottom: 1em;
+    color: #3f3e3e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+h1{
+    color: #01284F;
+    margin-bottom: 2em;
+}
+
+input{
+    border-radius: 7px;
+    border: 1px solid #3f3e3e;
+    width: 100%;
+    padding: 1em;
+    margin-top: 0.4em;
+}

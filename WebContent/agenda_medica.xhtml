@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+		<title>SIGEC - Agenda Médica</title>
+		<link rel="stylesheet" href="css/agenda_medica.css"/>
+	</h:head> 
+	<h:body>
+		<div id="menu-lateral">
+			<img src="img/logo_site.png" id="logo"></img>
+			
+			<nav id="menu">
+				<ul>
+					<li><a href="#" class="link">AGENDA</a></li>
+					<li><a href="#" class="link">EMITIR ATESTADO</a></li>
+					<li><a href="#" class="link">SOLICITAR EXAMES</a></li>
+					<li><a href="#" class="link">PRONTURARIO</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<main id="conteudo-principal">
+			<h1 id="titulo">AGENDA MÉDICA</h1>
+			<div id="container-calendario">
+				<p:calendar mode="inline"></p:calendar>
+			</div>
+			
+			<div id="container-agenda">
+				<p:schedule id="schedule" value="#{agendaMedica.eventModel}"></p:schedule>
+			</div>			
+		</main>
+	</h:body>
+</html>
