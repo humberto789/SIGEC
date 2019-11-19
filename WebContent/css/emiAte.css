@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: "Oswald";
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+
 .menuLateral {
 	height: 100%;
 	width: 20%;
@@ -7,7 +12,6 @@
 	left: 0px;
 	background-color: rgb(1,40,79);
 	position: fixed;
-	
 }
 
 .menuLateral a {
@@ -28,6 +32,7 @@ a.home {
 
 .menuPrincipal {
 	width: 75%;
+	height: 100%;
 	position: fixed;
 	top: 0px;
 	left: 25%;
@@ -55,6 +60,7 @@ input {
 
 .data {
 	width: 30%;
+	min-width: 30%;
 	margin-right: 5%;
 	
 }
@@ -70,4 +76,8 @@ input.enviar {
 	color: white;
 	background-color: rgb(1,40,79);
 	padding: 6px 10px 6px 10px;
+}
+
+*{
+	font-family: Oswald;
 }
