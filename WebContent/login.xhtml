@@ -6,49 +6,67 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
 
 <h:head>
-    <meta charset="UTF-8"/>
+   
     <link rel="stylesheet" href="css/login.css"/>
-    <title> SIGEC - Login </title>
+    <title> SIGEC - login </title>
 </h:head>
 
 <body>
-    <header>
-        <figure class="logo">
-            <img src="img/logo.png" alt="Logo SIGEC"/>
-        </figure>
-        <nav class="menu-principal">
-            <ul class="links-menu">
-                <div class="links-antes">
-                    <li>
-                        <a href="index.html">HOME</a>
-                    </li>
-                    <li>
-                        <a href="#">SOBRE</a>
-                    </li>
-                    <li>
-                        <a href="#">CONTATO</a>
-                    </li>
-                </div>
-                <div class="links-depois">
-                    <li>
-                        <a href="#">ENTRAR</a>
-                    </li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <div class="container">
-        <figure class="banner_login">
+		<header class="cabecalho">
+	<figure class="logohome">
+		<img src ="img/logo_site.png"/>
+	</figure>
+		<nav>
+			<ul class="menuPrincipal">
+				<li>
+					<a href="home.xhtml">
+						HOME
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						SOBRE
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						CONTATO
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	
+	<div class= "login">
+	 
+		<figure class="banner_login">
+		<h1>BEM VINDO AO LOGIN</h1>
             <img src="img/banner_login.jpg" alt="Banner Login SIGEC"/>
         </figure>
-
-        <h:form class="formulario_login">
-            <h1>Bem vindo!</h1>
-            <h:inputText value="" a:placeholder="Login" class="campo"/>
-            <h:inputText value="" a:placeholder="Senha" class="campo"/>
-            <h:commandButton class="botao_login" action="#{clienteMBean.cadastrar()}" value="Enviar"/>
-        </h:form>
+        </div>
         
-    </div>
+        <div class="formulario_login">
+            <h:form>
+        <h:panelGrid columns="2"> 
+            <h:outputLabel value="Usuário:" />
+            <h:inputText value="#{usuario.usuario}" size="20" />
+            
+            <h:outputLabel value="Senha:" />
+            <h:inputSecret value="#{usuario.senha}" size="20" />
+                
+            <h:commandButton value="Logar" action="#{usuario.logar}" />
+        </h:panelGrid>
+        <h:messages />  
+
+        </h:form>
+        </div>
+	
+	
+	
+	
+	
+	
 </body>
+<footer>
+</footer>
 </html>
