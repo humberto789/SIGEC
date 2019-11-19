@@ -45,16 +45,17 @@
 	<div class="sigec">
 		<section class="texto_introducao">
 		<h1>SIGEC</h1>
-			<p>Sistema de Gerenciamento Clínico <br/> que busca tal coisa 
-			para os <br/>usuários e mais tal coisa, tal <br/>coisa e tal coisa.</p>
+			<p>Sistema de Gerenciamento <br/>Clínico que busca tal coisa<br/>
+			para os usuários e mais tal <br/>coisa, tal coisa e tal coisa.<br/>
+			</p>
 				<a href = "#">
 					<button>JUNTE-SE A NÓS</button>
 				</a>
 		</section>
 		<section class="imagem-introducao">
-		<figure class="imagemHome2">
-			<img src = "img/imagem_home2.jpg"/>
-		</figure>
+			<figure class="imagemHome2">
+				<img src = "img/imagem_home2.jpg"/>
+			</figure>
 		</section>
 	</div>
 	<div class="sobre">
@@ -92,17 +93,19 @@
 		</section>
 	</div>
 	<div class="contato">
-		<figure class="InagemHomeContato">
+		<figure class="imagemHomeContato">
 			<img src="img/imagem_home_contato.jpg"/>
 		</figure>
 		<h:form class="formularioContato">
 				<h1>CONTATO</h1>
-				<h:outputLabel class="label_campo">Nome </h:outputLabel>
-            	<h:inputText value="" a:placeholder="" class="campo"/>
-            	<h:outputLabel class="label_campo">Email</h:outputLabel>
-	            <h:inputText value="" a:placeholder="" class="campo"/>
-	            <h:outputLabel class="label_campo">Mensagem</h:outputLabel>
-	            <h:inputText value="" a:placeholder="" class="campo"/>
+				<div class="formulario">
+					<h:outputLabel class="label_campo">Nome </h:outputLabel>
+	            	<h:inputText value="" a:placeholder="" class="campo"/>
+	            	<h:outputLabel class="label_campo">Email</h:outputLabel>
+		            <h:inputText value="" a:placeholder="" class="campo"/>
+		            <h:outputLabel class="label_campo">Mensagem</h:outputLabel>
+		            <h:inputTextarea row = "20" col = "40" readonly = "false" class="campo"/>
+	            </div>
 	            <h:commandButton class="botao_envio" action="#" value="ENVIAR"/>
 	            
 		</h:form>
