@@ -2,19 +2,76 @@
     font-family: "Oswald";
     src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
-
-* {
-	box-sizing: border-box;
-	font-family: Oswald;
+*{
+    box-sizing: border-box;
+    font-family: Oswald;
+}
+body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgb(1,40,79);
+}
+.menu-lateral {
+	background-color: #01284F;
+	height: 100%;
+	width: 20%;
+	float: left;
+	text-align: center;
+	padding-top: 5em;
+}
+.container{
+	width: 80%;
+	float: left;
+	height: 100%;
+	background-color: white;
+	padding-bottom: 1%;
+}
+.logo {
+	width: 150px;
+	margin-bottom: 50px;
 }
 
-body {
-	margin: 0;
-	position: absolute;
-	width: 100%;
-	height: 100%;
+.menu ul {
+	list-style-type: none;
 	padding: 0;
-	background-color: rgb(1, 40, 79);
+}
+
+.link {
+	color: white !important;
+	text-decoration: none;;
+	margin-bottom: 2em;
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2em;
+}
+
+.container a{
+	color:inherit;
+	font-size: 150%;
+}
+.bem_vindo{
+	display: inline;
+}
+.cabecalho a{
+	margin-left: 70%;
+	font-weight: bolder;
+	font-size: 2ch;
+}
+
+.cabecalho h2{
+	font-weight: none;
+	color: rgb(2,0,75);
+	font-size: 2ch;
+}
+.cabecalho{
+	padding: 1%;
+	padding-bottom: 2%;
+	border-bottom: solid #d7d7d7 2px;
+}
+.titulo{
+	clear: both;	
 }
 
 h1{
@@ -23,74 +80,19 @@ h1{
 	color:rgb(2,0,75);
 }
 
-.bem_vindo{
-	text-align: left;
-	
-}
-
-.sair{
-	
-text-align: right;
-margin-bottom:2%;
-	
-}
-
-header {
-	text-align: center;
-	width: 20%;
-	float: left;
-	height: 100%;
-}
-
-.container {
-	width: 80%;
-	margin-left: 20%;
-	background-color: white;
-	padding: 1em;
-}
-
-.container a{
-	color:inherit;
-	font-size: 150%;
-	float: right;
-	
-}
-
 .alinhar {
 	
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
-.logo {
-	margin-top: 40%;
-}
-
-.logo img {
-	width: 50%;
-}
-
-.links-menu li a {
-	color: white;
-	font-weight: bolder;
-	text-decoration: none;
-	font-size: 2.5ch;
-}
-
-.links-menu li {
-	list-style-type: none;
-	margin-top: 5%;
-	margin-bot: 5%;
-}
-
 .voce{
 	float: left;
 	width: 50%;
 	padding: 2%;
 	margin-bottom:2%;
 	margin-left: 2%;
-	border: 1px solid rgb(239,244,250);	
+	border: 1px solid #d7d7d7;	
 	border-radius: 5%;
 	text-align: center;
 	color: rgb(85,90,96);
@@ -117,27 +119,30 @@ header {
 }
 
 .links_pagina{
-	
 	text-align:center;
 	margin-top: 2%;
-	margin-right:15%;	
-	
+	margin-right:15%;
+	margin-left:10%
+}
+
+.links_pagina ul{
+	list-style-type: none;
+}
+.links_pagina li{
+	border: 2px solid #d7d7d7;	
+	border-radius: 10px;
+	padding: 3%;
+	margin-bottom: 3%;
 }
 
 .links_pagina a{
-	
 	width:100%;
 	color:inherit;
-	border: 1px solid rgb(239,244,250);
-	padding: 2% 2% 2% 2%;
-	border-radius: 10%;
-	
+	font-size: 2ch;
 }
 
-.calendario_exemplo img{
+.container-calendario{
 	margin-left:10%;
-	margin-top:10%;
-	width: 50%;
 }
 
 footer {
