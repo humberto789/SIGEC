@@ -8,42 +8,44 @@
 }
 body{
     margin: 0;
-    position: absolute;
     width: 100%;
     height: 100%;
     padding: 0;
     background-color: rgb(1,40,79);
 }
-header{
-	text-align: center;
+.menu-lateral {
+	background-color: #01284F;
+	height: 100%;
 	width: 20%;
 	float: left;
-	height:100%;
+	text-align: center;
+	padding-top: 5em;
 }
 .container{
 	width: 80%;
 	float: left;
+	height: 100%;
 	background-color: white;
-	padding-bottom: 1%;
+	padding: 1%;
 }
-.logo{
-	margin-top: 40%;
-}
-.logo img{
-	width: 50%;
-}
-.links-menu li a{
-    color: white;
-    font-weight: bolder;
-    text-decoration: none;
-    font-size: 2.5ch;
-}
-.links-menu li{
-	list-style-type: none;
-	margin-top: 5%;
-	margin-bot: 5%;
+.logo {
+	width: 150px;
+	margin-bottom: 50px;
 }
 
+.menu ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.link {
+	color: white !important;
+	text-decoration: none;;
+	margin-bottom: 2em;
+	display: block;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1.2em;
+}
 .formulario_login{
 	padding-left: 20%;
 	padding-top: 5%;
