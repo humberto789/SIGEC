@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "Oswald";
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+*{
+    box-sizing: border-box;
+    font-family: Oswald;
+}
+body{
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.cabecalho{
+	background-color: rgb(2,0,75);
+	padding: 0.3%;
+}
+.cabecalho li{
+	display: inline;
+}
+.cabecalho a{
+	background-color: rgb(2,0,75);
+	color: rgb(255,255,255);
+	border: none;
+	font-size: 120%;
+	margin-left:4%;
+	text-decoration: none;
+}
+.cabecalho button{
+	background-color: rgb(2,0,75);
+	color: rgb(255,255,255);
+	border: none;
+	font-size: 120%;
+	margin-left:4%;
+}
+.logohome {
+	position: absolute;
+	top:0;
+}
+.logohome img{
+	display: block;
+	width: 15%;
+}
+.menuPrincipal{
+	margin-left: 5%;
+}
+h1{
+	color: rgb(2,0,75)
+}
+.sigec img{
+	width: 62%;
+	float: right;
+}
+.sigec section{
+	width: 100%;
+}
+.texto_introducao{
+	float: left;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+.texto_introducao h1{
+	font-size: 200%;
+}
+.imagem_introducao{
+	float:right;
+}
+.caixinhas_home img{
+	width:25%;
+}
+.sobre{
+	text-align: center;
+	display: block;
+	clear: both;
+	margin: 7%;
+}
+div{
+	margin-right: 10%;
+	margin-left: 10 %;
+}
+.caixinhas_home section{
+	width: 23%;
+	background-color: rgb(2,0,75);
+	color: rgb(255,255,255);
+	margin: 1%;
+	text-align: center;
+	padding-left: -1%;
+	padding-right: 0%;
+	display: block;
+	float: left;
+}
+section h2{
+	font-size:100%;
+}
