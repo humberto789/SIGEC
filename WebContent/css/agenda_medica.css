@@ -14,7 +14,7 @@ img {
 #menu-lateral {
 	background-color: #01284F;
 	min-height: 100vh;
-	width: 350px;
+	width: 280px;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -42,9 +42,9 @@ img {
 }
 
 #conteudo-principal {
-	width: calc(100% - 350px);
+	width: calc(100% - 280px);
 	position: relative;
-	left: 350px;
+	left: 280px;
 	height: 100vh;
 }
 
@@ -56,12 +56,43 @@ img {
 }
 
 #container-calendario {
-	width: 20%;
 	margin: 1em;
-	display: inline-block;
 }
 
-#container-agenda {
-	width: 70%;
-	display: inline-block;
+@media (max-width: 700px) {
+	#menu-lateral {
+		position: relative;
+		width: 100%;
+		min-height: initial;
+		padding-bottom: 1em;
+	}
+	
+	#conteudo-principal {
+		position: relative;
+		width: 100%;
+		left: 0;
+		height: auto;
+	}
+}
+
+
+
+@media (min-width: 1100px) {
+	
+	#container-calendario {
+		display: inline-block;
+		min-width: 18.571em;
+	}
+	
+	#container-agenda {
+		display: inline-block;
+		width: calc(100% - 22em);	
+	}
+}
+
+@media (min-width: 1550px) {
+	
+	#container-agenda {
+		width: calc(100% - 22em);
+	}
 }
