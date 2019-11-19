@@ -8,35 +8,30 @@
 <h:head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/cadastro.css"/>
-    <title> SIGEC - CADASTRO MEDICO </title>
+	<title>SIGEC - CADASTRO PACIENTE</title>
 </h:head>
 
 <body>
+<h:body>
 
 	<div class="menu-lateral">
 		<img src="img/logo_site.png" class="logo"></img>
-		
 		<nav class="menu">
 			<ul>
-				<li><a href="#" class="link">MEU PERFIL</a></li>
-				<li><a href="#" class="link">CADASTRAR MÉDICO</a></li>
-				<li><a href="#" class="link">CADASTRAR PACIENTE</a></li>
-				<li><a href="#" class="link">CADASTRAR RECEPCIONISTA</a></li>
-				<li><a href="#" class="link">BLOQUEAR USUARIO</a></li>
+				<li><a href="#" class="link">HOME</a></li>
+				<li><a href="#" class="link">AGENDA</a></li>
+				<li><a href="#" class="link">BUSCAR MÉDICO</a></li>
 				<li><a href="#" class="link">SAIR</a></li>
 			</ul>
 		</nav>
 	</div>
-    <div class="container">
+
+	<div class="container">
         <h:form class="formulario_login">
-            <h1>CADASTRAR MEDICO</h1>
+            <h1>CADASTRAR PACIENTE</h1>
             <h:outputLabel class="label_campo">NOME COMPLETO</h:outputLabel>
             <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">CPF</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">CRM</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">ESPECIALIDADE</h:outputLabel>
             <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">EMAIL</h:outputLabel>
             <h:inputText value="" a:placeholder="" class="campo"/>
@@ -68,8 +63,8 @@
             
             <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="CADASTRAR"/>
         </h:form>
-    </div>
-    <footer>
-    </footer>
+	</div>
+
+</h:body>
 </body>
 </html>

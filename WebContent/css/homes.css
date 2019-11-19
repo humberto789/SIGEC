@@ -16,13 +16,13 @@ body{
 .menu-lateral {
 	background-color: #01284F;
 	height: 100%;
-	width: 20%;
+	width: 15%;
 	float: left;
 	text-align: center;
 	padding-top: 5em;
 }
 .container{
-	width: 80%;
+	width: 85%;
 	float: left;
 	height: 100%;
 	background-color: white;
@@ -63,7 +63,7 @@ body{
 .cabecalho h2{
 	font-weight: none;
 	color: rgb(2,0,75);
-	font-size: 2ch;
+	font-size: 3ch;
 }
 .cabecalho{
 	padding: 1%;
@@ -81,17 +81,18 @@ h1{
 }
 
 .alinhar {
-	
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	margin: 5%;
+	margin-left: 10%;
 }
 .voce{
 	float: left;
-	width: 50%;
-	padding: 2%;
-	margin-bottom:2%;
-	margin-left: 2%;
+	width: 35%;
+	padding: 1%;
+	margin-bottom: 2%;
+	margin-left: 5%;
 	border: 1px solid #d7d7d7;	
 	border-radius: 5%;
 	text-align: center;
@@ -99,7 +100,7 @@ h1{
 	
 }
 .imagem_home{
-	margin-right: 10%;
+	margin-right: 18%;
 	float: left;
 	width: 50%;
 }
@@ -110,18 +111,16 @@ h1{
 }
 
 .imagem_home img{
-	
 	padding-right:10%;
 	float: right;
 	height: 300px;
 	object-fit: contain;
-
 }
 
 .links_pagina{
 	text-align:center;
 	margin-top: 2%;
-	margin-right:15%;
+	margin-right:10%;
 	margin-left:10%
 }
 
@@ -139,10 +138,6 @@ h1{
 	width:100%;
 	color:inherit;
 	font-size: 2ch;
-}
-
-.container-calendario{
-	margin-left:10%;
 }
 
 footer {

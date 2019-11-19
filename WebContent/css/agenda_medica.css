@@ -13,13 +13,12 @@ img {
 
 #menu-lateral {
 	background-color: #01284F;
-	min-height: 100vh;
 	width: 280px;
-	position: absolute;
 	left: 0;
 	top: 0;
 	text-align: center;
 	padding-top: 5em;
+
 }
 
 #logo {
