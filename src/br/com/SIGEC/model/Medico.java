@@ -4,6 +4,7 @@ public class Medico {
 	
 	private String crm;
 	private int id;
+	private String especialidade;
 	private Pessoa pessoa;
 	
 	public Medico() {
@@ -35,5 +36,13 @@ public class Medico {
 	}
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
+	}
+
+	public String getEspecialidade() {
+		return especialidade;
+	}
+
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
 	}
 }
