@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import br.com.SIGEC.model.Pessoa;
+import br.com.SIGEC.model.Usuario;
 
 public class PessoaDAO {
 
@@ -17,7 +18,7 @@ public class PessoaDAO {
 			statement.setString(1, pessoa.getCpf());
 			statement.setString(2, pessoa.getNomeCompleto());
 			statement.setDate(3, new Date(pessoa.getDataNascimento().getTime()));
-			statement.setInt(4, pessoa.getSexo());
+			statement.setString(4, pessoa.getSexo());
 			
 			int linhasAlteradas = statement.executeUpdate();
 			if(linhasAlteradas > 0) return true;
@@ -32,7 +33,7 @@ public class PessoaDAO {
 	
 	public static Pessoa buscarPessoaPorCpf(String cpf) {
 		
-		String sqlInsertPessoa = "select from pessoa where cpf = ?";
+		String sqlInsertPessoa = "select p.*, u.email, u.login, u.senha, u.ativo from pessoa p inner join usuario u on p.id = u.id_pessoa where p.cpf = ?";
 		
 		try {
 			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(sqlInsertPessoa);
@@ -46,7 +47,15 @@ public class PessoaDAO {
 						resultadoBusca.getString("cpf"),
 						resultadoBusca.getString("nome"),
 						resultadoBusca.getDate("dataNascimento"),
-						resultadoBusca.getInt("sexo"));
+						resultadoBusca.getString("sexo"));
+				
+				Usuario usuario = new Usuario();
+				usuario.setSenha(resultadoBusca.getString("senha"));
+				usuario.setAtivo(resultadoBusca.getBoolean("ativo"));
+				usuario.setEmail(resultadoBusca.getNString("email"));
+				usuario.setLogin(resultadoBusca.getString("login"));
+				
+				pessoa.setUsuario(usuario);
 				
 				return pessoa;
 			}
@@ -56,5 +65,25 @@ public class PessoaDAO {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static boolean bloquearPorCPF(String cpf) {
+	String linhasAlteradas = "update usuario set ativo = false where id_pessoa= (select id from pessoa where cpf = ?)";
+	
+	try {
+		PreparedStatement statement =  ConexaoBanco.conexaoComBancoMySQL().prepareStatement(linhasAlteradas);
+		statement.setString(1, cpf);
+		int linhas = statement.executeUpdate();
+		if (linhas == 1) {
+			return true;
+		}
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return false; 
+	
+	
 	}
 }

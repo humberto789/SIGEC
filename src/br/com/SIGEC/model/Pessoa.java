@@ -8,7 +8,7 @@ public class Pessoa {
 	
 	private int id;
 	private String cpf;
-	private int sexo;
+	private String sexo;
 	private String nomeCompleto;
 	private Date dataNascimento;
 	private Usuario usuario;
@@ -23,7 +23,7 @@ public class Pessoa {
 	
 	
 	
-	public Pessoa(int id, String cpf, String nomeCompleto, Date dataNascimento, int sexo) {
+	public Pessoa(int id, String cpf, String nomeCompleto, Date dataNascimento, String sexo) {
 		this.usuario = new Usuario();
 		this.enderecos = new ArrayList<Endereco>();
 		this.telefones = new ArrayList<Telefone>();
@@ -71,10 +71,10 @@ public class Pessoa {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(int sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	public List<Telefone> getTelefones() {
