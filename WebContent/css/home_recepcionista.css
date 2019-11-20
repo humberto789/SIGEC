@@ -1,0 +1,145 @@
+@font-face {
+    font-family: "Oswald";
+    src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Oswald;
+}
+
+body {
+	margin: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	background-color: rgb(1, 40, 79);
+}
+
+h1{
+	padding-bottom:2%;
+	text-align: center;	
+	color:rgb(2,0,75);
+}
+
+.bem_vindo{
+	text-align: left;
+	
+}
+
+.sair{
+	
+text-align: right;
+margin-bottom:2%;
+	
+}
+
+header {
+	text-align: center;
+	width: 20%;
+	float: left;
+	height: 100%;
+}
+
+.container {
+	width: 80%;
+	margin-left: 20%;
+	background-color: white;
+	padding: 1em;
+}
+
+.container a{
+	color:inherit;
+	font-size: 150%;
+	float: right;
+	
+}
+
+.alinhar {
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.logo {
+	margin-top: 40%;
+}
+
+.logo img {
+	width: 50%;
+}
+
+.links-menu li a {
+	color: white;
+	font-weight: bolder;
+	text-decoration: none;
+	font-size: 2.5ch;
+}
+
+.links-menu li {
+	list-style-type: none;
+	margin-top: 5%;
+	margin-bot: 5%;
+}
+
+.voce{
+	float: left;
+	width: 50%;
+	padding: 2%;
+	margin-bottom:2%;
+	margin-left: 2%;
+	border: 1px solid rgb(239,244,250);	
+	border-radius: 5%;
+	text-align: center;
+	color: rgb(85,90,96);
+	
+}
+.imagem_home{
+	margin-right: 10%;
+	float: left;
+	width: 50%;
+}
+
+.voce_titulo{
+	text-align: center;
+	color: rgb(2,0,75);
+}
+
+.imagem_home img{
+	
+	padding-right:10%;
+	float: right;
+	height: 300px;
+	object-fit: contain;
+
+}
+
+.links_pagina{
+	
+	text-align:center;
+	margin-top: 2%;
+	margin-right:15%;	
+	
+}
+
+.links_pagina a{
+	
+	width:100%;
+	color:inherit;
+	border: 1px solid rgb(239,244,250);
+	padding: 2% 2% 2% 2%;
+	border-radius: 10%;
+	
+}
+
+.calendario_exemplo img{
+	margin-left:10%;
+	margin-top:10%;
+	width: 50%;
+}
+
+footer {
+	clear: both;
+}
