@@ -62,7 +62,7 @@ create table atestado(
 	id_medico varchar(50) unique not null,
 	id_paciente char(14) unique not null,
 	primary key(id),
-	foreign key(id_medico) references medico(id)) on delete restrict on update cascade,
+	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
 );
 
@@ -76,7 +76,10 @@ create table prontuario(
 	id_medico varchar(50) unique not null,
 	id_paciente char(14) unique not null,
 	primary key(id),
-	foreign key(id_medico) references medico(id)) on delete restrict on update cascade,
+	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
 );
 
+
+insert into pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-31", "Malévola", "1985-11-11", "feminino");
+insert into usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-31", "odeiohomens", "malévolamalvadinha@hotmail.com", true, (select id from pessoa where cpf = "705.960.664-31"));

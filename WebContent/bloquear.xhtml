@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="css/cadastro.css" />
+	<title>SIGEC - BLOQUEAR</title>
+</h:head>
+
+<body>
+
+	<div class="menu-lateral">
+		<img src="img/logo_site.png" class="logo"></img>
+
+		<nav class="menu">
+		<ul>
+			<li><a href="#" class="link">MEU PERFIL</a></li>
+			<li><a href="#" class="link">CADASTRAR MÉDICO</a></li>
+			<li><a href="#" class="link">CADASTRAR PACIENTE</a></li>
+			<li><a href="#" class="link">CADASTRAR RECEPCIONISTA</a></li>
+			<li><a href="#" class="link">SAIR</a></li>
+		</ul>
+		</nav>
+	</div>
+	<div class="container" style="padding: 5em">
+
+		<h:form>
+			<h:outputLabel value="CPF:" />
+			<p:inputMask mask="999.999.999-99" maxlength="14"
+				value="#{bloquearBean.cpf}" />
+			<h:commandButton value="Buscar"
+				actionListener="#{bloquearBean.buscarCPF}" />
+		</h:form>
+
+
+		<div>
+			<div>
+				<h:outputText value="#{bloquearBean.pessoa.nomeCompleto}" />
+			</div>
+
+			<div>
+				<h:outputText value="#{bloquearBean.pessoa.cpf}" />
+			</div>
+
+			<div>
+				<h:outputText value="#{bloquearBean.pessoa.sexo}" />
+			</div>
+
+			<div>
+				<h:outputText value="#{bloquearBean.pessoa.usuario.email}" />
+			</div>
+
+			<h:form>
+			<h:commandButton value="Bloquear" actionListener="#{bloquearBean.bloqueia}"/>
+			</h:form>
+		</div>
+	</div>
+	<footer> </footer>
+</body>
+</html>
