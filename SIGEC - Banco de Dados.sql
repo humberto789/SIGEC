@@ -48,3 +48,21 @@ create table medico(
     primary key(id),
     foreign key(id_pessoa) references pessoa(id) on delete restrict on update cascade
 );
+create table paciente(
+	id int auto_increment not null,
+	id_pessoa int not null,
+	primary key(id),
+    foreign key(id_pessoa) references pessoa(id) on delete restrict on update cascade
+);
+create table atestado(
+	id int auto_increment not null,
+	cid varchar(10) not null,
+	dataEmissao date not null,
+	dataVencimento date not null,
+	id_medico varchar(50) unique not null,
+	id_paciente char(14) unique not null,
+	primary key(id),
+	foreign key(id_medico) references medico(id)) on delete restrict on update cascade,
+	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
+);
+
