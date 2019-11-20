@@ -6,13 +6,8 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
 
 <h:head>
-   
     <link rel="stylesheet" href="css/login.css"/>
-<<<<<<< HEAD
     <title> SIGEC - LOGIN </title>
-=======
-    <title> SIGEC - login </title>
->>>>>>> f176da48a440cb9d94a0f3a08d482fb278839c83
 </h:head>
 
 <body>
@@ -22,21 +17,10 @@
 	</figure>
 		<nav>
 			<ul class="menuPrincipal">
-				<li>
-					<a href="home.xhtml">
-						HOME
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						SOBRE
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						CONTATO
-					</a>
-				</li>
+				<li><a href="home.xhtml">HOME</a></li>
+				<li><a href="#">SOBRE</a></li>
+				<li><a href="#">CONTATO</a></li>
+				<li class = "login_cabecalho_home"><a href="#"><button>LOGIN</button></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -44,33 +28,18 @@
 	<div class= "login">
 	 
 		<figure class="banner_login">
-		<h1>BEM VINDO AO LOGIN</h1>
             <img src="img/banner_login.jpg" alt="Banner Login SIGEC"/>
         </figure>
-        </div>
         
         <div class="formulario_login">
-            <h:form>
-        <h:panelGrid columns="2"> 
-            <h:outputLabel value="Usuário:" />
-            <h:inputText value="#{usuario.usuario}" size="20" />
-            
-            <h:outputLabel value="Senha:" />
-            <h:inputSecret value="#{usuario.senha}" size="20" />
-                
-            <h:commandButton value="Logar" action="#{usuario.logar}" />
-        </h:panelGrid>
-        <h:messages />  
-
-        </h:form>
-        </div>
-	
-	
-	
-	
-	
-	
+        	<h1>BEM VINDO!</h1>
+	        <h:form>
+            	<h:inputText value="#{usuario.usuario}" a:placeholder="Login" class="campo"/>
+            	
+           		<h:inputSecret value="#{usuario.senha}" a:placeholder="Senha" class="campo"/>
+            	<h:commandButton class="botao" value="ENVIAR" action="#{usuario.logar}" />
+			</h:form>
+   		</div>
+   	</div>
 </body>
-<footer>
-</footer>
 </html>
