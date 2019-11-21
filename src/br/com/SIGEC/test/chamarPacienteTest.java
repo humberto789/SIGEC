@@ -4,8 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Assert;
 
+import br.com.SIGEC.control.ChamarPacienteDAO;
+import br.com.SIGEC.control.GuicheDAO;
 import br.com.SIGEC.model.Fila;
-import br.com.SIGEC.web.mbean.ChamarPaciente;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,10 +17,12 @@ class chamarPacienteTest {
 	void testComPaciente() {
 		//Cenário
 		Fila fila = new Fila();
-		ChamarPaciente proximo = new ChamarPaciente();
+		ChamarPacienteDAO proximo = new ChamarPacienteDAO();
+		GuicheDAO.guicheSenha();
+		proximo.recuperarLista(fila);
 		
 		//Teste de cenário
-		Assertions.assertEquals("senhaEsperada", proximo.chamarProximo(fila));
+		Assertions.assertEquals("1", proximo.chamarProximo(fila));
 	}
 	
 	@Test

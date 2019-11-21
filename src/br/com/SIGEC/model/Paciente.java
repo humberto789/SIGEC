@@ -1,10 +1,9 @@
 package br.com.SIGEC.model;
 
 public class Paciente {
-	
+
 	private int id;
 	private Pessoa pessoa;
-	
 
 	public Paciente() {
 		super();
@@ -17,19 +16,19 @@ public class Paciente {
 		this.pessoa = pessoa;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
-	}
-
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 }
