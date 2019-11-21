@@ -13,10 +13,13 @@ public class Atestado {
 	
 	public Atestado() {
 		super();
+		this.paciente = new Paciente();
+		this.medico = new Medico();
+		this.dataEmissao = new Date();
 	}
 	
 	public Atestado(Paciente paciente, Medico medico, Date dataEmissao, Date dataVencimento, int cid, int id) {
-		super();
+		this();
 		this.paciente = paciente;
 		this.medico = medico;
 		this.dataEmissao = dataEmissao;

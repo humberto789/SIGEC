@@ -7,12 +7,12 @@ public abstract class AbstractDao {
 	private static Connection conexao = null;
 	
 	public AbstractDao() {
-		if (conexao == null) {
-			conexao = ConexaoBanco.conexaoComBancoMySQL();
-		}
 	}
 	
 	public static Connection getConexao() {
+		if (conexao == null) {
+			conexao = ConexaoBanco.conexaoComBancoMySQL();
+		}
 		return conexao;
 	}
 

@@ -1,39 +1,41 @@
 package br.com.SIGEC.model;
 
 public class Medico {
-
-	private int id;
-	private Pessoa pessoa;
+	
 	private String crm;
+	private int id;
 	private String especialidade;
-
+	private Pessoa pessoa;
+	
 	public Medico() {
-		this.pessoa = new Pessoa();
+		pessoa = new Pessoa();
 	}
-
-	public Pessoa getPessoa() {
-		return pessoa;
-	}
-
+	
 	public Medico(String crm) {
 		super();
 		this.crm = crm;
+		this.pessoa = new Pessoa();
 	}
+
+
 
 	public String getCrm() {
 		return crm;
 	}
-
 	public void setCrm(String crm) {
 		this.crm = crm;
 	}
-
 	public int getId() {
 		return id;
 	}
-
 	public void setId(int id) {
 		this.id = id;
+	}
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	public String getEspecialidade() {
@@ -43,9 +45,4 @@ public class Medico {
 	public void setEspecialidade(String especialidade) {
 		this.especialidade = especialidade;
 	}
-
-	public void setPessoa(Pessoa pessoa) {
-
-	}
-	
 }

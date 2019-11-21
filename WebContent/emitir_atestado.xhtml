@@ -3,7 +3,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
     <meta charset="UTF-8"/>
@@ -28,23 +29,24 @@
 
 	<div class="container">
         <h:form class="formulario_login">
+        	<p:messages/>
+        	
             <h1>EMITIR ATESTADO</h1>
             <h:outputLabel class="label_campo" >CPF DO PACIENTE</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{emitirAtestadoMB.atestado.paciente.pessoa.cpf}" a:placeholder="Digite o CPF do paciente" class="campo"/>
             <h:outputLabel class="label_campo">CRM DO MÉDICO</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{emitirAtestadoMB.atestado.medico.crm}" a:placeholder="Digite seu CRM" class="campo"/>
             <h:outputLabel class="label_campo">CID</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
-         	<h:outputLabel class="label_campo">DATA DE EMISSÃO</h:outputLabel>
-            <h:inputText value="" size="20" required="true" class="campo">	
-				<f:convertDateTime pattern="dd-MM-yyyy" />
-		  	</h:inputText>
+            <h:inputText value="#{emitirAtestadoMB.atestado.cid}" a:placeholder="Digite o CID. Ex:314" class="campo"/>
             <h:outputLabel class="label_campo">DATA DE VALIDADE</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{emitirAtestadoMB.atestado.dataVencimento}" size="20" required="true" class="campo">	
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+		  	</h:inputText>
             
-            <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="EMITIR"/>
+            <h:commandButton class="botao_cadastro" action="#{emitirAtestadoMB.emitir()}" value="EMITIR"/>
         </h:form>
 	</div> 
 </h:body>
 </body>
 </html>
+

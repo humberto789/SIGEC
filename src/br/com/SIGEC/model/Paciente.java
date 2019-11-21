@@ -2,17 +2,18 @@ package br.com.SIGEC.model;
 
 public class Paciente {
 
-	private Pessoa pessoa;
 	private int id;
+	private Pessoa pessoa;
 
 	public Paciente() {
 		super();
-		setPessoa(new Pessoa());
+		this.pessoa = new Pessoa();
 	}
-
-	public Paciente(int id) {
-		super();
+	
+	public Paciente(int id, Pessoa pessoa) {
+		this();
 		this.id = id;
+		this.pessoa = pessoa;
 	}
 
 	public int getId() {
