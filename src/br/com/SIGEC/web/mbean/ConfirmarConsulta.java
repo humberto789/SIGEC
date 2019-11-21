@@ -1,33 +1,64 @@
 package br.com.SIGEC.web.mbean;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 
-//import org.apache.commons.mail.DefaultAuthenticator;
-//import org.apache.commons.mail.SimpleEmail;
-//import br.com.SIGEC.model.EmailConsulta;
-//import br.com.SIGEC.model.Usuario;
+import br.com.SIGEC.model.EmailConsulta;
+import br.com.SIGEC.model.Usuario;
 
 public class ConfirmarConsulta {
 
-	public void enviarEmail() {
-		String meuemail = "sigec.info4m@gmail.com";
-		String minhasenha = "sigec2019";
-		String destinatario = "george.costa25.gc@gmail.com";
+	// Acessar o banco
+
+	private final static String consultar = "SELECT especialidade data FROM consulta";
+	private static final String URL = "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
+	private static final String USUARIO = "root";
+	private static final String SENHA = "12345";
+
+	// Recuperar dados da consulta
+
+	public void RecuperaConsulta(Consulta consulta) {
+
+		Connection conexao;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
+			PreparedStatement sttmt = conexao.prepareStatement(consultar);
+			ResultSet dados = sttmt.executeQuery("SELECT * FROM consulta");
+			consulta.setDataConsulta(dados.getDate(0));
+			consulta.setEspecialidade(dados.getString(0));
+
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	// método de enviar email
+	public void enviarEmail(EmailConsulta email, Usuario user) {
+		String meuemail = email.getRemetente();
+		String minhasenha = email.getSenha();
+		String destinatario = user.getEmail();
 		String msg = "teste";
 
-		SimpleEmail email = new SimpleEmail();
-		email.setHostName("smtp.gmail.com");
-		email.setSmtpPort(465);
-		email.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
-		email.setSSLOnConnect(true);
+		SimpleEmail emailconfig = new SimpleEmail();
+		emailconfig.setHostName("smtp.gmail.com");
+		emailconfig.setSmtpPort(465);
+		emailconfig.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
+		emailconfig.setSSLOnConnect(true);
 
 		try {
-			email.setFrom(meuemail);
-			email.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA");
-			email.setMsg(msg);
-			email.addTo(destinatario);
-			email.send();
+			emailconfig.setFrom(meuemail);
+			emailconfig.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA");
+			emailconfig.setMsg(msg);
+			emailconfig.addTo(destinatario);
+			emailconfig.send();
 			System.out.println("email enviado!");
 
 		} catch (Exception e) {
@@ -36,27 +67,3 @@ public class ConfirmarConsulta {
 	}
 
 }
-
-// Acessar o banco
-/*
- * private final static String consultar = "select senha from consulta"; private
- * static final String URL =
- * "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
- * private static final String USUARIO = "root"; private static final String
- * SENHA = "12345";
- */
-
-// Recuperar dados da consulta
-/*
- * public void RecuperaConsulta(MarcarConsulta consulta) {
- * 
- * Connection conexao; try { Class.forName("com.mysql.jdbc.Driver"); conexao =
- * DriverManager.getConnection(URL, USUARIO, SENHA); PreparedStatement sttmt =
- * conexao.prepareStatement(consultar); ResultSet dados = sttmt.executeQuery();
- * 
- * consulta.getDataConsulta(); consulta.getEspecialidade();
- * 
- * } catch (SQLException | ClassNotFoundException e) { e.printStackTrace(); }
- * 
- * }
- */
