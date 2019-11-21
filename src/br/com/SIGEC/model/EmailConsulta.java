@@ -4,11 +4,6 @@ import br.com.SIGEC.web.mbean.Consulta;
 
 public class EmailConsulta {
 
-	// Dúvidas:
-	// ----> As variáveis podem ser declaradas assim?
-	// ----> O método confirmar está certo?
-
-	
 	private String remetente = "sigec.info4m@gmail.com"; 
 	private String destinatario; 
 	private String senha = "sigec2019"; 
