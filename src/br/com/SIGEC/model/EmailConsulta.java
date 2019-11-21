@@ -1,6 +1,6 @@
 package br.com.SIGEC.model;
 
-import br.com.SIGEC.web.mbean.MarcarConsulta;
+import br.com.SIGEC.web.mbean.Consulta;
 
 public class EmailConsulta {
 
@@ -13,7 +13,7 @@ public class EmailConsulta {
 	private String destinatario; 
 	private String senha = "sigec2019"; 
 	private String assunto = "Confirmação de Consulta - SIGEC";
-	private MarcarConsulta data;
+	private Consulta data;
 	private String mensagem = "Vc tem uma consulta no dia " + data.getDataConsulta() + "na clinica XXYY, no endereço Rua Zé Ninguém"; 
 
 

@@ -30,6 +30,7 @@ public class ConfirmarConsulta {
 		emailConfig.setSSLOnConnect(true);
 
 		// Informar os dados do email
+		
 		// if (marcar = true) { // Criar a classe MarcarConsulta
 		try {
 			emailConfig.setFrom(meuemail);

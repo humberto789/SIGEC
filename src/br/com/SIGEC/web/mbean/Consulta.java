@@ -2,10 +2,11 @@ package br.com.SIGEC.web.mbean;
 
 import java.sql.Date;
 
-public class MarcarConsulta {
+public class Consulta {
 private String especialidade;
 private Date dataConsulta;
 private String medico;
+private String paciente;
 
 public String getEspecialidade() {
 	return especialidade;
@@ -24,6 +25,12 @@ public String getMedico() {
 }
 public void setMedico(String medico) {
 	this.medico = medico;
+}
+public String getPaciente() {
+	return paciente;
+}
+public void setPaciente(String paciente) {
+	this.paciente = paciente;
 }
 
 
