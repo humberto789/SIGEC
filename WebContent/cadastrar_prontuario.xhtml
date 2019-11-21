@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      
+
+<h:head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/cadastro.css"/>
+    <title> SIGEC - CADASTRAR PRONTUÁRIO </title>
+</h:head>
+
+<body>
+
+	<div class="menu-lateral">
+		<img src="img/logo_site.png" class="logo"></img>
+		
+		<nav class="menu">
+			<ul>
+				<li><a href="#" class="link">HOME</a></li>
+				<li><a href="#" class="link">AGENDA</a></li>
+				<li><a href="#" class="link">EMITIR ATESTADO</a></li>
+				<li><a href="#" class="link">SOLICITAR EXAME</a></li>
+				<li><a href="#" class="link">PRONTUÁRIOS</a></li>
+				<li><a href="#" class="link">SAIR</a></li>
+			</ul>
+		</nav>
+	</div>
+    <div class="container">
+        <h:form class="formulario_login">
+            <h1>CADASTRAR MEDICO</h1>
+            <h:outputLabel class="label_campo">peso</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.peso}" a:placeholder="" class="campo"/>
+            <h:outputLabel class="label_campo">altura</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.altura}" a:placeholder="" class="campo"/>
+            <h:outputLabel class="label_campo">id</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.id}" a:placeholder="" class="campo"/>
+            <h:outputLabel class="label_campo">alergia</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.alergia}" a:placeholder="" class="campo"/>
+            <h:outputLabel class="label_campo">queixa</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.queixa}" a:placeholder="" class="campo"/>
+            <h:outputLabel class="label_campo">temperatura</h:outputLabel>
+            <h:inputText value="#{cadastrarProntuarioMB.prontuario.temperatura}" a:placeholder="" class="campo"/>
+            
+            <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="CADASTRAR"/>
+        </h:form>
+    </div>
+    <footer>
+    </footer>
+</body>
+</html>
