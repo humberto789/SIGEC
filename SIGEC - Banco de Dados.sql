@@ -59,8 +59,8 @@ create table atestado(
 	cid varchar(10) not null,
 	dataEmissao date not null,
 	dataVencimento date not null,
-	id_medico int unique not null,
-	id_paciente int unique not null,
+	id_medico int not null,
+	id_paciente int not null,
 	primary key(id),
 	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
@@ -80,10 +80,24 @@ create table prontuario(
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
 );
 
+/*
 create table fila (
 	id int auto_increment not null,
 	senha varchar(25)
 );
+*/
 
-insert into pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-31", "Malévola", "1985-11-11", "feminino");
-insert into usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-31", "odeiohomens", "malévolamalvadinha@hotmail.com", true, (select id from pessoa where cpf = "705.960.664-31"));
+INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-31", "Malévola", "1985-11-11", "feminino");
+INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-32", "José", "1990-11-11", "masculino");
+INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-33", "Maria", "1991-11-11", "feminino");
+
+INSERT INTO usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-31", "odeiohomens", "malévolamalvadinha@hotmail.com", true, (select id from pessoa where cpf = "705.960.664-31"));
+
+INSERT INTO paciente(id_pessoa) value((select id from pessoa where cpf = "705.960.664-31"));
+INSERT INTO paciente(id_pessoa) value((select id from pessoa where cpf = "705.960.664-33"));
+INSERT INTO medico(crm, id_pessoa) value("123456", (select id from pessoa where cpf = "705.960.664-32"));
+
+INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f41", "2019-10-10", "2019-10-12", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
+INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
+
+
