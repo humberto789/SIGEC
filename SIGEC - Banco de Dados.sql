@@ -80,6 +80,10 @@ create table prontuario(
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
 );
 
+create table fila (
+	id int auto_increment not null,
+	senha varchar(25)
+);
 
 insert into pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-31", "Malévola", "1985-11-11", "feminino");
 insert into usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-31", "odeiohomens", "malévolamalvadinha@hotmail.com", true, (select id from pessoa where cpf = "705.960.664-31"));
