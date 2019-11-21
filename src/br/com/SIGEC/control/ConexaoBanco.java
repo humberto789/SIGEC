@@ -6,9 +6,9 @@ import java.sql.SQLException;
 
 public class ConexaoBanco {
 
-	private static final String URL = "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
-	private static final String USUARIO = "root";
-	private static final String SENHA="12345";
+	private static final String URL = "jdbc:mysql://10.225.6.15:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
+	private static final String USUARIO = "aluno";
+	private static final String SENHA="aluno";
 	
 	public static Connection conexaoComBancoMySQL(){
 		Connection conexao;
