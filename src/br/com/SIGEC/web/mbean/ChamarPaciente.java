@@ -45,7 +45,7 @@ public class ChamarPaciente {
 	}
 	
 	@SuppressWarnings("unused") //não usado em nada, por enquanto
-	private String chamarProximo(Fila fila) {
+	public String chamarProximo(Fila fila) {
 		String proximoPaciente = fila.getSenha();
 		if (proximoPaciente != null) {
 			//Atualiza lista (Conexão com o banco + String atualizar lista)
