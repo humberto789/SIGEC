@@ -1,6 +1,6 @@
 package br.com.SIGEC.web.mbean;
 
-import br.com.SIGEC.model.Sala;
+import br.com.SIGEC.model.Fila;
 
 /*Lembrete: cada lista terá um nome esapecífico com pacientes específicos que participaram dessa lista dependendo de suas necessidades,
  * Salas que tratam do mesmo problema podem ter uma lista compartilhada? Os pacientes terão responsáveis(médicos) específicos?*/
