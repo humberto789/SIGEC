@@ -28,7 +28,7 @@ public class GuicheMB {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 			PreparedStatement sttm = conexao.prepareStatement(inserir_senha);
-			sttm.setInt(0, 1);
+			sttm.setInt(1, 1);
 			sttm.execute();
 			return conexao;
 		} catch (SQLException | ClassNotFoundException e) {

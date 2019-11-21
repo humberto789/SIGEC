@@ -31,8 +31,12 @@ public class ChamarPaciente {
 				conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 				PreparedStatement sttmt = conexao.prepareStatement(recuperarLista);
 				ResultSet dados = sttmt.executeQuery();
+				dados.next();
+				int numero = dados.getInt("senha");
+				String numeroNome = Integer.toString(numero);
 				
-				fila.setSenha(dados.getString(0));
+				
+				fila.setSenha(numeroNome);
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
 			}
