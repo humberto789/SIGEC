@@ -12,6 +12,12 @@
 }
 
 */
+
+body{
+	text-transform: uppercase;
+	font-family: "Oswald";
+	src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
 .input {
 	width: 80%;
 	display: block;
@@ -34,6 +40,9 @@
 	text-align: center !important;
 	position: relative;
 	border: solid 2px #01284F !important;
+	text-transform: uppercase;
+	font-family: "Oswald";
+	src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
 
 .bloquear {
@@ -44,6 +53,9 @@
 	border-radius: 2px;
 	margin-bottom: 0.5%;
 	margin-left: 1%;
+	text-transform: uppercase;
+	font-family: "Oswald";
+	src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
 
 .desbloquear{
@@ -54,6 +66,9 @@
 	border-radius: 2px;
 	margin-bottom: 0.5%;
 	margin-left: 1%;
+	text-transform: uppercase;
+	font-family: "Oswald";
+	src: url(../fonts/Oswald-VariableFont_wght.ttf);
 }
 
 .caixaDeDados {
