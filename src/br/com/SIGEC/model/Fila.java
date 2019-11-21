@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Fila {
 	private String senha;
-	private ArrayList<String> lista;
+	private ArrayList<String> lista; //Não está sendo útil por enquanto
 	
 	public String getSenha() {
 		return senha;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setSenha(String string) {
+		this.senha = string;
 	}
 	public ArrayList<String> getLista() {
 		return lista;

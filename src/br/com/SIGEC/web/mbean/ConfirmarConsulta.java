@@ -7,7 +7,14 @@ import br.com.SIGEC.model.Usuario;
 
 public class ConfirmarConsulta {
 
-	private String enviarEmail(EmailConsulta email, Usuario user) {
+	// Dúvidas:
+	// ----> Como a mensagem vai funcionar?
+	// ----> O que enviarEmail vai retornar?
+
+
+	// Enviar Email
+	private String enviarEmail (EmailConsulta email, Usuario user) {
+
 		// Coletando informações
 		String meuemail = email.getRemetente();
 		String minhasenha = email.getSenha();
@@ -22,39 +29,45 @@ public class ConfirmarConsulta {
 		emailConfig.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
 		emailConfig.setSSLOnConnect(true);
 
-		// Enviar o email
-/*		if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
-			try {
-				emailConfig.setFrom(meuemail);
-				emailConfig.setSubject(subject);
-				emailConfig.setMsg(msg);
-				emailConfig.addTo(destinatario);
-				emailConfig.send();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		// Informar os dados do email
+		
+		// if (marcar = true) { // Criar a classe MarcarConsulta
+		try {
+			emailConfig.setFrom(meuemail);
+			emailConfig.setSubject(subject);
+			emailConfig.setMsg(msg);
+			emailConfig.addTo(destinatario);
+			emailConfig.send();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-*/
-		return msg; // Precisa retornar outra coisa
+		// }
+
+		return msg; // Precisa retornar o que? Retornar para ConfirmarPresença
 
 	}
 }
 
-//Enviar email
+// Acessar o banco
+/*
+ * private final static String consultar = "select senha from consulta"; private
+ * static final String URL =
+ * "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
+ * private static final String USUARIO = "root"; private static final String
+ * SENHA = "12345";
+ */
 
-	/*
-	 * public static void main(String[] args) { //Usar static tá certo? String
-	 * meuemail = "sigec.info4m@gmail.com"; String minhasenha = "sigec2019"; String
-	 * destinatario = "george.costa25.gc@gmail.com"; String msg = "teste";
-	 * 
-	 * SimpleEmail email = new SimpleEmail(); email.setHostName("smtp.gmail.com");
-	 * email.setSmtpPort(465); email.setAuthenticator(new
-	 * DefaultAuthenticator(meuemail, minhasenha)); email.setSSLOnConnect(true);
-	 * 
-	 * try { email.setFrom(meuemail);
-	 * email.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA"); email.setMsg(msg);
-	 * email.addTo(destinatario); email.send();
-	 * System.out.println("email enviado!");
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } }
-	 */
+// Recuperar dados da consulta
+/*
+ * public void RecuperaConsulta(MarcarConsulta consulta) {
+ * 
+ * Connection conexao; try { Class.forName("com.mysql.jdbc.Driver"); conexao =
+ * DriverManager.getConnection(URL, USUARIO, SENHA); PreparedStatement sttmt =
+ * conexao.prepareStatement(consultar); ResultSet dados = sttmt.executeQuery();
+ * 
+ * consulta.getDataConsulta(); consulta.getEspecialidade();
+ * 
+ * } catch (SQLException | ClassNotFoundException e) { e.printStackTrace(); }
+ * 
+ * }
+ */

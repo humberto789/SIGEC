@@ -8,14 +8,14 @@ public class Atestado {
 	private Medico medico;
 	private Date dataEmissao;
 	private Date dataVencimento;
-	private String cid;
+	private int cid;
 	private int id;
 	
 	public Atestado() {
 		super();
 	}
 	
-	public Atestado(Paciente paciente, Medico medico, Date dataEmissao, Date dataVencimento, String cid, int id) {
+	public Atestado(Paciente paciente, Medico medico, Date dataEmissao, Date dataVencimento, int cid, int id) {
 		super();
 		this.paciente = paciente;
 		this.medico = medico;
@@ -48,10 +48,10 @@ public class Atestado {
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
-	public String getCid() {
+	public int getCid() {
 		return cid;
 	}
-	public void setCid(String cid) {
+	public void setCid(int cid) {
 		this.cid = cid;
 	}
 	public int getId() {

@@ -14,38 +14,37 @@ import br.com.SIGEC.model.Fila;
 public class ChamarPaciente {
 	//botão próximo acionado
 	
-	private final static String recuperarLista = "select senha from fila";
+	private final static String recuperarLista = "select senha from fila limit 1";
 	private final static String atualizarLista = "delete from fila where fila equals '?'"; // Senha atual
 	
 	private static final String URL = "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
 	private static final String USUARIO = "root";
-	private static final String SENHA="12345";
+	private static final String SENHA="aluno";
 	
 	//Recupera e cria lista (Conexão com o banco)
-	
-	Fila fila = new Fila();
-	
-	public class RecuperaLista {
 		
-		public Connection conexaoComBancoMySQL(){
+	public void RecuperaLista(Fila fila) {
+		
 			Connection conexao;
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 				PreparedStatement sttmt = conexao.prepareStatement(recuperarLista);
 				ResultSet dados = sttmt.executeQuery();
-				fila.setSenha(dados.getString(0));
-				return conexao;
+				dados.next();
+				int numero = dados.getInt("senha");
+				String numeroNome = Integer.toString(numero);
+				
+				
+				fila.setSenha(numeroNome);
 			} catch (SQLException | ClassNotFoundException e) {
 				e.printStackTrace();
-				return null;
 			}
-		}
+		
 		
 	}
 	
-	@SuppressWarnings("unused") //não usado em nada, por enquanto
-	private String chamarProximo(Fila fila) {
+	public String chamarProximo(Fila fila) {
 		String proximoPaciente = fila.getSenha();
 		if (proximoPaciente != null) {
 			//Atualiza lista (Conexão com o banco + String atualizar lista)
