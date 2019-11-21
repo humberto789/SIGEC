@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 import br.com.SIGEC.model.Prontuario;
 
-public class ProntuarioDAO {
+public class ProntuarioDAO extends AbstractDao {
 
 	private static final String SQL_SELECT_PRONTUARIO_POR_CPF = "SELECT prontuario.*, pessoa.cpf FROM prontuario INNER JOIN paciente ON prontuario.id_paciente = paciente.id INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE cpf = ?";
 
