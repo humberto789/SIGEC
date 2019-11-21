@@ -13,8 +13,14 @@ public class ConfirmarConsulta {
 	// Dúvidas:
 	// ----> Como a mensagem vai funcionar?
 	// ----> O que enviarEmail vai retornar?
+	
+	private final static String consultar = "select senha from consulta";
+	private static final String URL = "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
+	private static final String USUARIO = "root";
+	private static final String SENHA="12345";
+	
 
-	private String enviarEmail(EmailConsulta email, Usuario user) {
+	private String enviarEmail(EmailConsulta email, Usuario user, MarcarConsulta marcar) {
 
 		// Coletando informações
 		String meuemail = email.getRemetente();
@@ -31,7 +37,7 @@ public class ConfirmarConsulta {
 		emailConfig.setSSLOnConnect(true);
 
 		// Enviar o email
-	//	if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
+	//if (marcar = true) { // Criar a classe MarcarConsulta
 			try {
 				emailConfig.setFrom(meuemail);
 				emailConfig.setSubject(subject);

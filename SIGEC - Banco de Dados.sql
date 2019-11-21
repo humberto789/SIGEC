@@ -80,6 +80,15 @@ create table prontuario(
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
 );
 
+create table consulta(
+	id int auto_increment not null,
+	dataConsulta date not null,
+	id_medico int not null,
+	id_paciente int not null,
+	primary key(id),
+	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
+	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
+);
 
 create table fila (
 	id int auto_increment not null primary key,
