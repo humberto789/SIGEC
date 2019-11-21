@@ -6,6 +6,7 @@ import org.junit.Assert;
 
 import br.com.SIGEC.model.Fila;
 import br.com.SIGEC.web.mbean.ChamarPaciente;
+import br.com.SIGEC.web.mbean.GuicheMB;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,9 +18,11 @@ class chamarPacienteTest {
 		//Cenário
 		Fila fila = new Fila();
 		ChamarPaciente proximo = new ChamarPaciente();
+		//GuicheMB.conexaoComBancoMySQL();
+		proximo.RecuperaLista(fila);
 		
 		//Teste de cenário
-		Assertions.assertEquals("senhaEsperada", proximo.chamarProximo(fila));
+		Assertions.assertEquals("1", proximo.chamarProximo(fila));
 	}
 	
 	@Test
