@@ -19,7 +19,7 @@ public class MeusAtestadosMBean extends AbstractMBean {
 	@PostConstruct
 	public void init() {
 		AtestadoDAO atestadoDAO = new AtestadoDAO();
-		this.meusAtestados = atestadoDAO.buscarAtestadorPorCPF("123.123.123-12");
+		this.meusAtestados = atestadoDAO.buscarAtestadosPorCPF();
 	}
 
 	public List<Atestado> getMeusAtestados() {
