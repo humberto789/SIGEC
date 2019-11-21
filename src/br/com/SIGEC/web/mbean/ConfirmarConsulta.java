@@ -7,7 +7,15 @@ import br.com.SIGEC.model.Usuario;
 
 public class ConfirmarConsulta {
 
+	// Necessário:
+	// ----> criar as classes: MarcarConsulta; clinica
+
+	// Dúvidas:
+	// ----> Como a mensagem vai funcionar?
+	// ----> O que enviarEmail vai retornar?
+
 	private String enviarEmail(EmailConsulta email, Usuario user) {
+
 		// Coletando informações
 		String meuemail = email.getRemetente();
 		String minhasenha = email.getSenha();
@@ -23,7 +31,7 @@ public class ConfirmarConsulta {
 		emailConfig.setSSLOnConnect(true);
 
 		// Enviar o email
-		if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
+	//	if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
 			try {
 				emailConfig.setFrom(meuemail);
 				emailConfig.setSubject(subject);
@@ -33,28 +41,10 @@ public class ConfirmarConsulta {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
+		//}
 
-		return msg; // Precisa retornar outra coisa
+		return msg; // Precisa retornar o que? Retornar para ConfirmarPresença
 
 	}
 }
 
-//Enviar email
-
-	/*
-	 * public static void main(String[] args) { //Usar static tá certo? String
-	 * meuemail = "sigec.info4m@gmail.com"; String minhasenha = "sigec2019"; String
-	 * destinatario = "george.costa25.gc@gmail.com"; String msg = "teste";
-	 * 
-	 * SimpleEmail email = new SimpleEmail(); email.setHostName("smtp.gmail.com");
-	 * email.setSmtpPort(465); email.setAuthenticator(new
-	 * DefaultAuthenticator(meuemail, minhasenha)); email.setSSLOnConnect(true);
-	 * 
-	 * try { email.setFrom(meuemail);
-	 * email.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA"); email.setMsg(msg);
-	 * email.addTo(destinatario); email.send();
-	 * System.out.println("email enviado!");
-	 * 
-	 * } catch (Exception e) { e.printStackTrace(); } }
-	 */
