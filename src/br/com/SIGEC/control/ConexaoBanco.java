@@ -11,11 +11,9 @@ public class ConexaoBanco {
 	private static final String SENHA="aluno";
 	
 	public static Connection conexaoComBancoMySQL(){
-		Connection conexao;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-			return conexao;
+			return DriverManager.getConnection(URL, USUARIO, SENHA);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 			return null;

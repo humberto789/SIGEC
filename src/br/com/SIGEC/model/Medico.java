@@ -1,6 +1,6 @@
 package br.com.SIGEC.model;
 
-public class Medico extends Pessoa {
+public class Medico {
 	
 	private String crm;
 	private int id;

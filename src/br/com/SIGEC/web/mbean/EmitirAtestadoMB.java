@@ -10,15 +10,26 @@ import br.com.SIGEC.model.Atestado;
 @ViewScoped
 public class EmitirAtestadoMB extends AbstractMBean{
 	
-	Atestado atestado = new Atestado();
+	private Atestado atestado = new Atestado();
 	
 	public void emitir() {
-		
+		System.out.println("Emitindo atestado");
 		if(AtestadoDAO.gravarAtestado(atestado)) {
 			super.exibirMensagemInformativa("Atestado emitido com sucesso!");
+		}else{
+			super.exibirMensagemDeErro("Ops! Você cometeu um erro.");
 		}
-		super.exibirMensagemDeErro("Ops! Você cometeu um erro.");
 		
 	}
+
+	public Atestado getAtestado() {
+		return atestado;
+	}
+
+	public void setAtestado(Atestado atestado) {
+		this.atestado = atestado;
+	}
+	
+	
 	
 }

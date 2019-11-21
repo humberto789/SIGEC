@@ -1,16 +1,28 @@
 package br.com.SIGEC.model;
 
-public class Paciente extends Pessoa {
+public class Paciente {
 	
 	private int id;
+	private Pessoa pessoa;
+	
 
 	public Paciente() {
 		super();
+		this.pessoa = new Pessoa();
+	}
+	
+	public Paciente(int id, Pessoa pessoa) {
+		this();
+		this.id = id;
+		this.pessoa = pessoa;
 	}
 
-	public Paciente(int id) {
-		super();
-		this.id = id;
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
 	}
 
 	public int getId() {
