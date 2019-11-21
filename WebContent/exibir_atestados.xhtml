@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="css/meu_perfil.css" />
+	<title>SIGEC - MEUS ATESTADOS</title>
+</h:head>
+<body>
+	<div class="menu-lateral">
+		<img src="img/logo_site.png" class="logo"></img>
+
+		<nav class="menu">
+		<ul>
+			<li><a href="#" class="link">HOME</a></li>
+			<li><a href="#" class="link">MARCAR CONSULTA</a></li>
+			<li><a href="#" class="link">MEUS PRONTUÁRIOS</a></li>
+			<li><a href="#" class="link">MEUS ATESTADOS</a></li>
+			<li><a href="#" class="link">RESULTADO DE EXAMES</a></li>
+			<li><a href="#" class="link">SAIR</a></li>
+		</ul>
+		</nav>
+	</div>
+
+	<div class="container">
+	
+	<p:dataTable value="#{meusAtestadosMBean.meusAtestados}" var="atestado">
+		<p:column headerText="CID">
+			<h:outputText value="#{atestado.cid}" />
+		</p:column>
+		<p:column headerText="CRM">
+			<h:outputText value="#{atestado.medico.crm}" />
+		</p:column>
+		<p:column headerText="Data de emissão">
+			<h:outputText value="#{atestado.dataEmissao}" />
+		</p:column>
+	</p:dataTable>		
+	
+	</div>
+
+	<footer> </footer>
+
+</body>
+</html>

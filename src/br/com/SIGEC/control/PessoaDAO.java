@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import br.com.SIGEC.model.Pessoa;
 import br.com.SIGEC.model.Usuario;
 
-public class PessoaDAO {
+public class PessoaDAO extends AbstractDao {
 
 	public static boolean cadastrarPessoa(Pessoa pessoa) {
 		String sqlInsertPessoa = "insert into pessoa (cpf, nome, dataNascimento, sexo) values (?, ?, ?, ?)";

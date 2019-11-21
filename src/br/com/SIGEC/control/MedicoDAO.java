@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import br.com.SIGEC.model.Medico;
 
-public class MedicoDAO {
+public class MedicoDAO extends AbstractDao {
 
 	public static boolean cadastroMedico(Medico medico) {
 		String sqlInsertMedico = "insert into medico (crm, id_pessoa) values (?, select id from medico where cpf = ?); ";
