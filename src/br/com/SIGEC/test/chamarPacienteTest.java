@@ -13,12 +13,17 @@ import org.junit.jupiter.api.Test;
 
 class chamarPacienteTest {
 	
+	void adiciona(){
+	GuicheMB.conexaoComBancoMySQL();
+	System.out.println();
+	}
+	
 	@Test
 	void testComPaciente() {
 		//Cenário
 		Fila fila = new Fila();
 		ChamarPaciente proximo = new ChamarPaciente();
-		//GuicheMB.conexaoComBancoMySQL();
+		GuicheMB.conexaoComBancoMySQL();
 		proximo.RecuperaLista(fila);
 		
 		//Teste de cenário
