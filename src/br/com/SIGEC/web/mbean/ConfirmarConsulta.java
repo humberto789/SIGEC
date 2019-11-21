@@ -23,7 +23,7 @@ public class ConfirmarConsulta {
 		emailConfig.setSSLOnConnect(true);
 
 		// Enviar o email
-		if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
+/*		if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
 			try {
 				emailConfig.setFrom(meuemail);
 				emailConfig.setSubject(subject);
@@ -34,7 +34,7 @@ public class ConfirmarConsulta {
 				e.printStackTrace();
 			}
 		}
-
+*/
 		return msg; // Precisa retornar outra coisa
 
 	}
