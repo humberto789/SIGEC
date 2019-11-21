@@ -1,6 +1,7 @@
 package br.com.SIGEC.web.mbean;
 
 import br.com.SIGEC.model.*;
+import br.com.SIGEC.control.ProntuarioDAO;
 
 //Cadastrar um prontuario (em qual página?)
 //formulário com peso, temperatura, altura, queixa, id (automatico pelo banco)
@@ -10,15 +11,15 @@ import br.com.SIGEC.model.*;
 
 public class CadastrarProntuarioMB {
 	
-	private final static String cadastrar = "insert into pessoa(peso, altura, id, alergia,queixa, temperatura) value('?','?','?','?','?','?');"; //Código insert into do banco
 	
 	private Prontuario prontuario;
-
-	public CadastrarProntuarioMB() {
-		this.prontuario = new Prontuario();
+	
+	Prontuario pront = new Prontuario();
+	ProntuarioDAO dao = new ProntuarioDAO();
+	
+	public void cadastro() {
+		dao.cadastrarProntuario(pront);
 	}
 
-	public void cadastraProntuario() {
-		
-}  
+	
 }

@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import br.com.SIGEC.model.Fila;
 import br.com.SIGEC.model.Prontuario;
 
 public class ProntuarioDAO extends AbstractDao {
@@ -31,6 +32,25 @@ public class ProntuarioDAO extends AbstractDao {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public static void cadastrarProntuario(Prontuario pront) {
+		String cadastrar = "insert into pessoa(peso, altura, id, alergia,queixa, temperatura) value('?','?','?','?','?','?');";
+		
+		try {
+			PreparedStatement sttmt = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(cadastrar);
+			sttmt.setDouble(1, pront.getPeso());
+			sttmt.setDouble(2, pront.getAltura());
+			sttmt.setInt(3, pront.getId());
+			sttmt.setString(4, pront.getAlergia());
+			sttmt.setString(5, pront.getQueixa());
+			sttmt.setDouble(6, pront.getTemperatura());
+			
+			sttmt.execute();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }
