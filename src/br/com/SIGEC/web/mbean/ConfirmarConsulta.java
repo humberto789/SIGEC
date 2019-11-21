@@ -8,18 +8,21 @@ import br.com.SIGEC.model.Usuario;
 public class ConfirmarConsulta {
 
 	private String enviarEmail(EmailConsulta email, Usuario user) {
+		// Coletando informações
 		String meuemail = email.getRemetente();
 		String minhasenha = email.getSenha();
 		String destinatario = user.getEmail();
 		String msg = email.getMensagem();
 		String subject = email.getAssunto();
 
+		// Acessar o GMAIL
 		SimpleEmail emailConfig = new SimpleEmail();
 		emailConfig.setHostName("smtp.gmail.com");
 		emailConfig.setSmtpPort(465);
 		emailConfig.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
 		emailConfig.setSSLOnConnect(true);
 
+		// Enviar o email
 		if (MarcarConsulta = true) { // Criar a classe MarcarConsulta
 			try {
 				emailConfig.setFrom(meuemail);
@@ -32,10 +35,12 @@ public class ConfirmarConsulta {
 			}
 		}
 
-		return msg;
+		return msg; // Precisa retornar outra coisa
 
 	}
-	// Enviar email
+}
+
+//Enviar email
 
 	/*
 	 * public static void main(String[] args) { //Usar static tá certo? String
@@ -53,5 +58,3 @@ public class ConfirmarConsulta {
 	 * 
 	 * } catch (Exception e) { e.printStackTrace(); } }
 	 */
-
-}
