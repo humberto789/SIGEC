@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Fila {
 	private String senha;
-	private ArrayList<String> lista;
+	private ArrayList<String> lista; //Não está sendo útil por enquanto
 	
 	public String getSenha() {
 		return senha;
