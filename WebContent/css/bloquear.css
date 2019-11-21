@@ -1,0 +1,68 @@
+@charset "ISO-8859-1";
+
+/*
+@font-face {
+	font-family: "Oswald";
+	src: url(../fonts/Oswald-VariableFont_wght.ttf);
+}
+
+.pesquisa {
+	top: 50%;
+	position: relative;
+}
+
+*/
+.input {
+	width: 80%;
+	display: block;
+	font-size: 5ch;
+	padding: 0.5%;
+	border-radius: 5px;
+	border: solid 2px rgb(186, 186, 184);
+	margin-bottom: 1%;
+	position: relative;
+	margin: auto !important;
+}
+
+.botao {
+	display: block !important;
+	margin: auto !important;
+	margin-top: 10px !important;
+	background-color: #01284F !important;
+	color: white;
+	width: 20% !important;
+	text-align: center !important;
+	position: relative;
+	border: solid 2px #01284F !important;
+}
+
+.bloquear {
+	background-color: red;
+	color: white;
+	border: solid 2px red !important;
+	text-align: center !important;
+	border-radius: 2px;
+	margin-bottom: 0.5%;
+	margin-left: 1%;
+}
+
+.desbloquear{
+	background-color: green;
+	color: white;
+	border: solid 2px green !important;
+	text-align: center !important;
+	border-radius: 2px;
+	margin-bottom: 0.5%;
+	margin-left: 1%;
+}
+
+.caixaDeDados {
+	border: solid 2px #01284F !important;
+	border-radius: 6px;
+	margin: auto !important;
+	margin-top: 30px !important;
+}
+
+.dados {
+	padding: 1%;
+}

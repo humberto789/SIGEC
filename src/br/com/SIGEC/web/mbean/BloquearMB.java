@@ -8,21 +8,27 @@ import br.com.SIGEC.model.Pessoa;
 
 @ManagedBean
 @ViewScoped // enquanto a página estiver aberta, o cpf terá uma "vida útil".
-public class BloquearMB {
+public class BloquearMB extends AbstractMBean {
 
 	private String cpf;
 	private Pessoa pessoa;
 
 	public BloquearMB() {
-		pessoa = new Pessoa();
+		//pessoa = new Pessoa();
 	}
-
+	
 	public void buscarCPF() {
 		pessoa = PessoaDAO.buscarPessoaPorCpf(cpf);
 	}
 
 	public void bloqueia() {
 		PessoaDAO.bloquearPorCPF(cpf);
+		super.exibirMensagemInformativa("Usuário bloqueado com sucesso!");
+	}
+	
+	public void desbloqueia() {
+		PessoaDAO.desbloquearPorCPF(cpf);
+		super.exibirMensagemInformativa("Usuário desbloqueado com sucesso!");
 	}
 
 	public String getCpf() {

@@ -9,6 +9,7 @@
 <h:head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="css/cadastro.css" />
+	<link rel="stylesheet" href="css/bloquear.css" />
 	<title>SIGEC - BLOQUEAR</title>
 </h:head>
 
@@ -27,39 +28,49 @@
 		</ul>
 		</nav>
 	</div>
-	<div class="container" style="padding: 5em">
+	<div class="container" style="padding: 11em">
 
-		<h:form>
-			<h:outputLabel value="CPF:" />
-			<p:inputMask mask="999.999.999-99" maxlength="14"
-				value="#{bloquearBean.cpf}" />
-			<h:commandButton value="Buscar"
-				actionListener="#{bloquearBean.buscarCPF}" />
+		<h:form styleClass="pesquisa">
+			<p:messages />
+			<!--<h:outputLabel value="CPF:" />-->
+			<p:inputMask mask="999.999.999-99" maxlength="14" value="#{bloquearMB.cpf}" styleClass="input" placeholder="Insira o CPF"/>
+			<p:commandButton value="Buscar" actionListener="#{bloquearMB.buscarCPF}" ajax="false" update="frag" styleClass="botao" />
 		</h:form>
 
 
-		<div>
-			<div>
-				<h:outputText value="#{bloquearBean.pessoa.nomeCompleto}" />
+		<ui:fragment id="frag" rendered="#{bloquearMB.pessoa != null}">
+			<div class="caixaDeDados">
+			
+				<div class="dados">
+					<h:outputText value="Nome: #{bloquearMB.pessoa.nomeCompleto}" />
+				</div>
+	
+				<div class="dados">
+					<h:outputText value="CPF: #{bloquearMB.pessoa.cpf}" />
+				</div>
+	
+				<div class="dados">
+					<h:outputText value="Sexo: #{bloquearMB.pessoa.sexo}" />
+				</div>
+	
+				<div class="dados">
+					<h:outputText value="E-mail: #{bloquearMB.pessoa.usuario.email}" />
+				</div>
+	
+				<ui:fragment rendered="#{bloquearMB.pessoa.usuario.ativo}">
+					<h:form>
+						<h:commandButton  value="Bloquear" actionListener="#{bloquearMB.bloqueia}" styleClass="bloquear"/>
+					</h:form>
+				</ui:fragment>
+				
+				<ui:fragment rendered="#{! bloquearMB.pessoa.usuario.ativo}">
+					<h:form>
+						<h:commandButton  value="Desloquear" actionListener="#{bloquearMB.desbloqueia}" styleClass="desbloquear"/>
+					</h:form>
+				</ui:fragment>
 			</div>
-
-			<div>
-				<h:outputText value="#{bloquearBean.pessoa.cpf}" />
-			</div>
-
-			<div>
-				<h:outputText value="#{bloquearBean.pessoa.sexo}" />
-			</div>
-
-			<div>
-				<h:outputText value="#{bloquearBean.pessoa.usuario.email}" />
-			</div>
-
-			<h:form>
-			<h:commandButton value="Bloquear" actionListener="#{bloquearBean.bloqueia}"/>
-			</h:form>
-		</div>
+		</ui:fragment>
 	</div>
-	<footer> </footer>
+	
 </body>
 </html>
