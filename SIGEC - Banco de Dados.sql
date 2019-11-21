@@ -92,7 +92,7 @@ create table consulta(
 
 create table fila (
 	id int auto_increment not null primary key,
-	senha varchar(25)
+	senha int
 );
 
 
