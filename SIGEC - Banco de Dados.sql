@@ -90,8 +90,10 @@ create table fila (
 INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-31", "Malévola", "1985-11-11", "feminino");
 INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-32", "José", "1990-11-11", "masculino");
 INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-33", "Maria", "1991-11-11", "feminino");
+INSERT INTO pessoa(cpf, nome, dataNascimento, sexo) value("705.960.664-34", "George", "1999-11-11", "masculino");
 
 INSERT INTO usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-31", "odeiohomens", "malévolamalvadinha@hotmail.com", true, (select id from pessoa where cpf = "705.960.664-31"));
+INSERT INTO usuario(login, senha, email, ativo, id_pessoa) values("705.960.664-34", "odeiohomens", "george.costa25.gc@gmail.com", true, (select id from pessoa where cpf = "705.960.664-34"));
 
 INSERT INTO paciente(id_pessoa) value((select id from pessoa where cpf = "705.960.664-31"));
 INSERT INTO paciente(id_pessoa) value((select id from pessoa where cpf = "705.960.664-33"));
