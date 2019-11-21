@@ -1,18 +1,19 @@
-package br.com.SIGEC.control;
+package br.com.SIGEC.web.mbean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.SIGEC.control.PessoaDAO;
 import br.com.SIGEC.model.Pessoa;
 
 @ManagedBean
-@ViewScoped // enquanto a página estiver aberta, o cpf irá ter uma "vida útil".
-public class BloquearBean {
+@ViewScoped // enquanto a página estiver aberta, o cpf terá uma "vida útil".
+public class BloquearMB {
 
 	private String cpf;
 	private Pessoa pessoa;
 
-	public BloquearBean() {
+	public BloquearMB() {
 		pessoa = new Pessoa();
 	}
 
