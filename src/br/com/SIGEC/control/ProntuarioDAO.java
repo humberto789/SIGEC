@@ -47,6 +47,7 @@ public class ProntuarioDAO extends AbstractDao {
 
 				meusProntuarios.add(prontuario);
 			}
+		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
