@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <link rel="stylesheet" href="css/VerConsultas.css"/>
+   
+    <title> SIGEC - Minhas Consultas </title>
+</h:head>
+
+<body>
+	<div class="menu-lateral">
+		<img src="img/logo_site.png" class="logo"></img>
+		
+		<nav class="menu">
+			<ul>
+				<li><a href="home_paciente.xhtml" class="link">HOME</a></li>
+				<li><a href="#" class="link">MARCAR CONSULTA</a></li>
+				<li><a href="#" class="link">MEUS PRONTUÁRIOS</a></li>
+				<li><a href="VerConsultas.xhtml" class="link">MINHAS CONSULTAS</a></li>
+				<li><a href="#" class="link">RESULTADO DE EXAMES</a></li>
+				<li><a href="#" class="link">SAIR</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="container">
+	
+		<div class="alinhar">
+		
+		<div class="cabecalho">
+			<h2 class="bem_vindo"><strong>Bem vindo</strong>, nomedousuario!</h2>
+		</div>
+		
+			
+		</div>
+			
+	
+	
+		<div class="container">
+	
+	<p:dataTable value="#{minhasConsultasMBean.VerConsultas}" var="VerConsultas">
+		<p:column headerText="MEDICO">
+			<h:outputText value="#{VerConsultas.medico}" />
+		</p:column>
+		<p:column headerText="ESPECIALIDADE">
+			<h:outputText value="#{VerConsultas.medico.especialidade}" />
+		</p:column>
+		<p:column headerText="DATA DA CONSULTA">
+			<h:outputText value="#{atestado.dataConsulta}" />
+		</p:column>
+	</p:dataTable>		
+	
+	</div>
+	
+			
+
+			
+			
+	
+		
+	<footer> 
+	</footer>
+	
+	
+</div>
+</body>	
+</html>
