@@ -80,7 +80,7 @@ public class AtestadoDAO extends AbstractDao {
 				System.out.println("Conexao nula");
 			}
 			PreparedStatement preparedStatement = conexao.prepareStatement(SQL_INSERT);
-			preparedStatement.setInt(1, umAtestado.getCid());
+			preparedStatement.setString(1, umAtestado.getCid());
 			preparedStatement.setDate(2, new Date(umAtestado.getDataEmissao().getTime()));
 			preparedStatement.setDate(3, new Date(umAtestado.getDataVencimento().getTime()));
 			preparedStatement.setString(4, umAtestado.getMedico().getCrm());

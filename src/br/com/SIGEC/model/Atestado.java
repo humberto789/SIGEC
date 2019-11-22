@@ -8,7 +8,7 @@ public class Atestado {
 	private Medico medico;
 	private Date dataEmissao;
 	private Date dataVencimento;
-	private int cid;
+	private String cid;
 	private int id;
 	
 	public Atestado() {
@@ -18,7 +18,7 @@ public class Atestado {
 		this.dataEmissao = new Date();
 	}
 	
-	public Atestado(Paciente paciente, Medico medico, Date dataEmissao, Date dataVencimento, int cid, int id) {
+	public Atestado(Paciente paciente, Medico medico, Date dataEmissao, Date dataVencimento, String cid, int id) {
 		this();
 		this.paciente = paciente;
 		this.medico = medico;
@@ -51,10 +51,10 @@ public class Atestado {
 	public void setDataVencimento(Date dataVencimento) {
 		this.dataVencimento = dataVencimento;
 	}
-	public int getCid() {
+	public String getCid() {
 		return cid;
 	}
-	public void setCid(int cid) {
+	public void setCid(String cid) {
 		this.cid = cid;
 	}
 	public int getId() {
