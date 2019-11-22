@@ -51,7 +51,7 @@ public class PessoaDAO extends AbstractDao {
 				Usuario usuario = new Usuario();
 				usuario.setSenha(resultadoBusca.getString("senha"));
 				usuario.setAtivo(resultadoBusca.getBoolean("ativo"));
-				usuario.setEmail(resultadoBusca.getNString("email"));
+				usuario.setEmail(resultadoBusca.getString("email"));
 				usuario.setLogin(resultadoBusca.getString("login"));
 
 				pessoa.setUsuario(usuario);
