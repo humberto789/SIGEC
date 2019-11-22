@@ -29,15 +29,17 @@
 	<div class="container">
 	
 	<p:dataTable value="#{meusAtestadosMBean.meusAtestados}" var="atestado">
-		<p:column headerText="CID">
-			<h:outputText value="#{atestado.cid}" />
+		<p:column headerText="Nome do Médico">
+			<h:outputText value="#{atestado.medico.pessoa.nomeCompleto}" />
 		</p:column>
-		<p:column headerText="CRM">
-			<h:outputText value="#{atestado.medico.crm}" />
-		</p:column>
-		<p:column headerText="Data de emissão">
+		<p:column headerText="Data de Emissão">
 			<h:outputText value="#{atestado.dataEmissao}" />
 		</p:column>
+		<p:column style="width:32px;text-align: center">
+             <p:commandButton oncomplete="PF('carDialog').show()" icon="pi pi-search" title="View">
+                <f:setPropertyActionListener value="#{atestado}" target="#{meusAtestadosMBean.meusAtestados}" />
+            </p:commandButton>
+        </p:column>
 	</p:dataTable>		
 	
 	</div>

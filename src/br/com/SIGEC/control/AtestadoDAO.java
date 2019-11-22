@@ -33,20 +33,23 @@ public class AtestadoDAO extends AbstractDao {
 	 * @return um {@link List} contendo todos os {@link Atestado} do paciente.
 	 */
 	
-	public List<Atestado> buscarAtestadosPorCPF() {
+	public List<Atestado> buscarAtestadosPorCPF(String cpf) {
 		List<Atestado> meusAtestados = new ArrayList<>();
 		try {
+			System.out.println("opa");
 			PreparedStatement stmt = super.getConexao().prepareStatement(SQL_CONSULTA_POR_CPF);
+			stmt.setString(1, cpf);
 			ResultSet rs = stmt.executeQuery();
-
+			
 			while (rs.next()) {
 				
 				Medico medico = new Medico();
+				System.out.println(rs.getString("medico.crm"));
 				medico.setCrm(rs.getString("medico.crm"));
-				medico.getPessoa().setNomeCompleto(rs.getString("pessoaMedico.nome"));
+				medico.getPessoa().setNomeCompleto(rs.getString("medico"));
 				
 				Paciente paciente = new Paciente();
-				paciente.getPessoa().setNomeCompleto(rs.getString("pessoaPaciente.nome"));
+				paciente.getPessoa().setNomeCompleto(rs.getString("paciente"));
 				
 				Atestado atestado = new Atestado();
 				atestado.setCid(rs.getString("atestado.cid"));
