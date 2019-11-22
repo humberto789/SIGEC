@@ -3,7 +3,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
     <link rel="stylesheet" href="css/login.css"/>
@@ -34,10 +35,11 @@
         <div class="formulario_login">
         	<h1>BEM VINDO!</h1>
 	        <h:form>
-            	<h:inputText value="#{usuario.usuario}" a:placeholder="Login" class="campo"/>
+	        	<p:messages />
+            	<h:inputText value="#{autenticarUsuarioMBean.usuario.login}" a:placeholder="Login" styleClass="campo"/>
             	
-           		<h:inputSecret value="#{usuario.senha}" a:placeholder="Senha" class="campo"/>
-            	<h:commandButton class="botao" value="ENVIAR" action="#{usuario.logar}" />
+           		<h:inputSecret value="#{autenticarUsuarioMBean.usuario.senha}" a:placeholder="Senha" class="campo"/>
+            	<p:commandButton class="botao" value="ENVIAR" action="#{autenticarUsuarioMBean.autenticar}" update="@form"/>
 			</h:form>
    		</div>
    	</div>
