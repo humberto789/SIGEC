@@ -8,6 +8,8 @@
 	<h:head>
 		<title>SIGEC - AGENDA MÉDICA</title>
 		<link rel="stylesheet" href="css/agenda_medica.css"/>
+		<meta charset="utf-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 	</h:head> 
 	<h:body>
 		<div id="menu-lateral">
@@ -27,8 +29,8 @@
 		
 		<main id="conteudo-principal">
 			<h1 id="titulo">AGENDA MÉDICA</h1>
-			<div id="container-calendario">
-				<p:calendar mode="inline"></p:calendar>
+			<div id="container-data">
+				Data e hora atual: <p:clock pattern="dd/MM hh:mm"/>
 			</div>
 			
 			<div id="container-agenda">
