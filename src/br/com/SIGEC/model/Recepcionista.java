@@ -4,14 +4,18 @@ public class Recepcionista{
 
 	private int id;
 	private Pessoa pessoa;
+	
+	
+	
 
 	public Recepcionista() {
 		this.setPessoa(new Pessoa());
 	}
 
-	public Recepcionista(int id) {
+	public Recepcionista(int id, Pessoa pessoa) {
 		super();
 		this.id = id;
+		this.pessoa = pessoa;
 	}
 
 	public int getId() {
