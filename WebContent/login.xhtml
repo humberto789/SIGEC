@@ -36,10 +36,10 @@
         	<h1>BEM VINDO!</h1>
 	        <h:form>
 	        	<p:messages />
-            	<h:inputText value="#{autenticarUsuarioMBean.usuario.login}" a:placeholder="Login" styleClass="campo"/>
+            	<h:inputText value="#{usuarioLogadoMBean.usuario.login}" a:placeholder="Login" styleClass="campo"/>
             	
-           		<h:inputSecret value="#{autenticarUsuarioMBean.usuario.senha}" a:placeholder="Senha" class="campo"/>
-            	<p:commandButton class="botao" value="ENVIAR" action="#{autenticarUsuarioMBean.autenticar}" update="@form"/>
+           		<h:inputSecret value="#{usuarioLogadoMBean.usuario.senha}" a:placeholder="Senha" class="campo"/>
+            	<p:commandButton class="botao" value="ENVIAR" action="#{usuarioLogadoMBean.autenticar}" update="@form"/>
 			</h:form>
    		</div>
    	</div>

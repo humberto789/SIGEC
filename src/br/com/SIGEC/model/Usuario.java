@@ -7,7 +7,16 @@ public class Usuario {
 	private String login;
 	private boolean ativo;
 	private int id;
+	private String tipoUsuario;
 	
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+
 	public Usuario() {
 		this.ativo = false;
 	}

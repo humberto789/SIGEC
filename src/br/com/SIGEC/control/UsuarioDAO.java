@@ -9,7 +9,7 @@ import br.com.SIGEC.model.Usuario;
 
 public class UsuarioDAO extends AbstractDao{
 
-	private final static String SQL_CONSULTA_POR_CPF_E_SENHA = "SELECT * FROM usuario WHERE login=? AND senha=?;";
+	private final static String SQL_SELECT_USUARIO_POR_LOGIN_E_SENHA = "SELECT * FROM usuario WHERE login=? AND senha=?;";
 	private final static String SQL_INSERIR = "INSERT INTO USUARIO (email, login, senha, ativo, id_pessoa) VALUE (?, ?, ?, 1 (SELECT id FROM pessoa WHERE cpf=?));";
 	
 	public static boolean cadastrarUsuario(String email, String login, String senha, String cpf) {
@@ -43,7 +43,7 @@ public class UsuarioDAO extends AbstractDao{
 	public static Usuario buscarUsuarioPorLoginESenha(String umLogin, String umaSenha) {
 
 		try {
-			PreparedStatement statement = getConexao().prepareStatement(SQL_CONSULTA_POR_CPF_E_SENHA);
+			PreparedStatement statement = getConexao().prepareStatement(SQL_SELECT_USUARIO_POR_LOGIN_E_SENHA);
 			statement.setString(1, umLogin);
 			statement.setString(2, umaSenha);
 
