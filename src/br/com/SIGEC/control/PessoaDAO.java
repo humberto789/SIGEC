@@ -43,9 +43,8 @@ public class PessoaDAO extends AbstractDao {
 			ResultSet resultadoBusca = statement.executeQuery();
 
 			if (resultadoBusca.next()) {
-				// Isso é temporario
 				Pessoa pessoa = new Pessoa(resultadoBusca.getInt("id"), resultadoBusca.getString("cpf"),
-						resultadoBusca.getString("nome"), resultadoBusca.getDate("dataNascimento"),
+						resultadoBusca.getString("nome"), new java.util.Date(resultadoBusca.getDate("dataNascimento").getTime()),
 						resultadoBusca.getString("sexo"));
 
 				Usuario usuario = new Usuario();
