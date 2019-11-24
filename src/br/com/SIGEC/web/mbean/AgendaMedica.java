@@ -56,6 +56,7 @@ public class AgendaMedica {
 		});
 		
 		eventosConsultas.forEach(e -> this.eventModel.addEvent(e));
+
 	}
 	
 	private Date ultimaHoraDeHoje() {
