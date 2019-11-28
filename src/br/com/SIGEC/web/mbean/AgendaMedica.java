@@ -8,6 +8,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+import javax.validation.Constraint;
+
+import org.primefaces.event.ScheduleEntryMoveEvent;
+import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleModel;
@@ -23,6 +28,7 @@ import br.com.SIGEC.model.Pessoa;
  *Essa classe é só para iniciar o componente de agenda do Primefaces
  */
 @ManagedBean
+@ViewScoped
 public class AgendaMedica {
 	private ScheduleModel eventModel;
 	
@@ -58,6 +64,19 @@ public class AgendaMedica {
 		eventosConsultas.forEach(e -> this.eventModel.addEvent(e));
 
 	}
+	
+	public void eventoSelecionado(SelectEvent evento) {
+		DefaultScheduleEvent consulta = (DefaultScheduleEvent) evento.getSource();
+		System.out.println(consulta.getTitle());
+		System.out.println("EPAA");
+    }
+	
+	public void eventoMovido(ScheduleEntryMoveEvent evento) {
+		DefaultScheduleEvent consulta = (DefaultScheduleEvent) evento.getSource();
+		System.out.println(consulta.getTitle());
+		System.out.println("EPAA");
+    }
+    
 	
 	private Date ultimaHoraDeHoje() {
         LocalDateTime ldt = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59).withNano(0);

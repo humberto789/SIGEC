@@ -111,4 +111,11 @@ INSERT INTO medico(crm, id_pessoa) value("123456", (select id from pessoa where 
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f41", "2019-10-10", "2019-10-12", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
 
+UPDATE wp_options SET option_value = replace(option_value, 'https://localhost/sites-elementor/blogzin2', 'localhost/sites-elementor/blogzin2') WHERE option_name = 'home' OR option_name = 'localhost/sites-elementor/blogzin2';
 
+UPDATE wp_posts SET guid = replace(guid, 'https://localhost/sites-elementor/blogzin2','localhost/sites-elementor/blogzin2');
+
+UPDATE wp_posts SET post_content = replace(post_content, 'https://localhost/sites-elementor/blogzin2', 'localhost/sites-elementor/blogzin2');
+
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'https://localhost/sites-elementor/blogzin2','localhost/sites-elementor/blogzin2');
+SET SQL_SAFE_UPDATES = 0;
