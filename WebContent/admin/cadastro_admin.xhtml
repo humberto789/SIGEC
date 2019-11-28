@@ -7,14 +7,14 @@
 
 <h:head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/cadastro.css"/>
-    <title> SIGEC - CADASTRO RECEPCIONISTA </title>
+    <link rel="stylesheet" href="../css/cadastro.css"/>
+    <title> SIGEC - CADASTRO ADMINISTRADOR </title>
 </h:head>
 
 <body>
 
 	<div class="menu-lateral">
-		<img src="img/logo_site.png" class="logo"></img>
+		<img src="../img/logo_site.png" class="logo"></img>
 		
 		<nav class="menu">
 			<ul>
@@ -29,7 +29,7 @@
 	</div>
     <div class="container">
         <h:form class="formulario_login">
-            <h1>CADASTRAR RECEPCIONISTA</h1>
+            <h1>CADASTRAR ADMINISTRADOR</h1>
             <h:outputLabel class="label_campo">NOME COMPLETO</h:outputLabel>
             <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">CPF</h:outputLabel>
@@ -37,7 +37,7 @@
             <h:outputLabel class="label_campo">EMAIL</h:outputLabel>
             <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">SENHA</h:outputLabel>
-            <h:inputSecret value="" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">SEXO</h:outputLabel>
             <h:selectOneMenu value = "" class="campo"> 
 	            <f:selectItem itemValue = "0" itemLabel = "Masculino" /> 

@@ -7,21 +7,20 @@
 
 <h:head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/meu_perfil.css"/>
+    <link rel="stylesheet" href="../css/meu_perfil.css"/>
     <title> SIGEC - MEU PERFIL </title>
 </h:head>
 <body>
 	<div class="menu-lateral">
-		<p:messages />
-		<img src="img/logo_site.png" class="logo"></img>
+		<img src="../img/logo_site.png" class="logo"></img>
 		
 		<nav class="menu">
 			<ul>
-				<li><a href="#" class="link">HOME</a></li>
-				<li><a href="#" class="link">AGENDA</a></li>
-				<li><a href="#" class="link">EMITIR ATESTADO</a></li>
-				<li><a href="#" class="link">SOLICITAR EXAME</a></li>
-				<li><a href="#" class="link">PRONTUÁRIOS</a></li>
+				<li><a href="#" class="link">MEU PERFIL</a></li>
+				<li><a href="#" class="link">CADASTRAR MÉDICO</a></li>
+				<li><a href="#" class="link">CADASTRAR PACIENTE</a></li>
+				<li><a href="#" class="link">CADASTRAR RECEPCIONISTA</a></li>
+				<li><a href="bloquear.xhtml" class="link">BLOQUEAR USUÁRIO</a></li>
 				<li><a href="#" class="link">SAIR</a></li>
 			</ul>
 		</nav>
@@ -36,14 +35,14 @@
 		<div class="alinhar">
 			<div class="voce">
 				<h2 class="voce_titulo">VOCÊ</h2>
-				<p>Nome: Maria Nathália Vitalino da Costa</p>
-				<p>Email: marianathalia@gmail.com</p>
+				<p>Nome: #{usuarioLogadoMBean.usuario.login}</p>
+				<p>Email: mariano@gmail.com</p>
 				<p>CPF: 123.456.789-10</p>
-				<p>Idade: 35 anos</p>
+				<p>Idade: 18 anos</p>
 			</div>
 
 			<figure class="imagem_home"> 
-				<img src="img/banner_home.png" alt="Imagem Home" /> 
+				<img src="../img/banner_home.png" alt="Imagem Home" /> 
 			</figure>
 		</div>
 

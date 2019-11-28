@@ -7,14 +7,14 @@
 
 <h:head>
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="css/cadastro.css"/>
-    <title> SIGEC - CADASTRO MEDICO </title>
+    <link rel="stylesheet" href="../css/cadastro.css"/>
+    <title> SIGEC - CADASTRO RECEPCIONISTA </title>
 </h:head>
 
 <body>
 
 	<div class="menu-lateral">
-		<img src="img/logo_site.png" class="logo"></img>
+		<img src="../img/logo_site.png" class="logo"></img>
 		
 		<nav class="menu">
 			<ul>
@@ -29,40 +29,40 @@
 	</div>
     <div class="container">
         <h:form class="formulario_login">
-            <h1>CADASTRAR MEDICO</h1>
+            <h1>CADASTRAR RECEPCIONISTA</h1>
             <h:outputLabel class="label_campo">NOME COMPLETO</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.nomeCompleto}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">CPF</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.cpf}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">CRM</h:outputLabel>
-            <h:inputText value="#{ cadastrarMedicoMB.medico.crm}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">EMAIL</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.usuario.email}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">SENHA</h:outputLabel>
-            <h:inputSecret value="#{cadastrarMedicoMB.medico.pessoa.usuario.senha}" a:placeholder="" class="campo"/>
+            <h:inputSecret value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">SEXO</h:outputLabel>
-            <h:selectOneMenu value = "#{cadastrarMedicoMB.medico.pessoa.sexo}" class="campo"> 
+            <h:selectOneMenu value = "" class="campo"> 
 	            <f:selectItem itemValue = "0" itemLabel = "Masculino" /> 
 	            <f:selectItem itemValue = "1" itemLabel = "Feminino" />    
          	</h:selectOneMenu>
          	<h:outputLabel class="label_campo">DATA DE NASCIMENTO</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.dataNascimento}" size="20" required="true" class="campo">	
-				<f:convertDateTime pattern="dd/MM/yyyy" />
+            <h:inputText value="" size="20" required="true" class="campo">	
+				<f:convertDateTime pattern="dd-MM-yyyy" />
 		  	</h:inputText>
+            <h:outputLabel class="label_campo">TELEFONE</h:outputLabel>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">ESTADO</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.estado}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">CEP</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.cep}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">CIDADE</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.cidade}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo"> BAIRRO</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.bairro}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">RUA</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.rua}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             <h:outputLabel class="label_campo">NÚMERO</h:outputLabel>
-            <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.numero}" a:placeholder="" class="campo"/>
+            <h:inputText value="" a:placeholder="" class="campo"/>
             
-            <h:commandButton class="botao_cadastro" action="#{cadastrarMedicoMB.cadastrar}" value="CADASTRAR"/>
+            <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="CADASTRAR"/>
         </h:form>
     </div>
     <footer>
