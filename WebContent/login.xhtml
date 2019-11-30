@@ -18,10 +18,10 @@
 	</figure>
 		<nav>
 			<ul class="menuPrincipal">
-				<li><a href="home.xhtml">HOME</a></li>
-				<li><a href="#">SOBRE</a></li>
-				<li><a href="#">CONTATO</a></li>
-				<li class = "login_cabecalho_home"><a href="#"><button>LOGIN</button></a></li>
+				<li><h:link value = "HOME" outcome = "home" class="links"/></li>
+				<li><h:link value = "SOBRE" outcome = "home#sobre" class="links"/></li>
+				<li><h:link value = "CONTATO" outcome = "home#contato" class="links"/></li>
+				<li class="login_cabecalho_home"><h:link value = "LOGIN" outcome = "login" class="links"/></li>
 			</ul>
 		</nav>
 	</header>

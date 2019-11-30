@@ -13,16 +13,15 @@
 <body>
 	<div class="menu-lateral">
 		<img src="../img/logo_site.png" class="logo"></img>
-
+	
 		<nav class="menu">
-		<ul>
-			<li><a href="#" class="link">HOME</a></li>
-			<li><a href="#" class="link">MARCAR CONSULTA</a></li>
-			<li><a href="#" class="link">MEUS PRONTUÁRIOS</a></li>
-			<li><a href="#" class="link">MEUS ATESTADOS</a></li>
-			<li><a href="#" class="link">RESULTADO DE EXAMES</a></li>
-			<li><a href="#" class="link">SAIR</a></li>
-		</ul>
+			<ul>
+				<li><h:link value = "MEU PERFIL" outcome = "home_paciente" class="link"/></li>
+				<li><h:link value = "MINHAS CONSULTAS" outcome = "minhas_consultas" class="link"/></li>
+				<li><h:link value = "MEUS ATESTADOS" outcome = "exibir_atestados" class="link"/></li>
+				<li><h:link value = "MEUS PRONTUARIOS" outcome = "exibir_prontuarios" class="link"/></li>
+				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
+			</ul>
 		</nav>
 	</div>
 
