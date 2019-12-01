@@ -21,9 +21,13 @@ public class PessoaDAO extends AbstractDao {
 			statement.setString(4, pessoa.getSexo());
 
 			int linhasAlteradas = statement.executeUpdate();
-			if (linhasAlteradas > 0)
-				return true;
-
+			if (linhasAlteradas > 0) {
+				if(TelefoneDAO.cadastrarTelefone(pessoa.getTelefone(), pessoa.getCpf())) {
+					if(EnderecoDAO.cadastrarEndereco(pessoa.getEndereco(), pessoa.getCpf())) {
+						return true;
+					}
+				}
+			}
 			return false;
 
 		} catch (SQLException e) {

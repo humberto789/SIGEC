@@ -12,7 +12,6 @@ public class Pessoa {
 	private Usuario usuario;
 	private Endereco endereco;
 	private Telefone telefone;
-	private String email;
 
 	public Pessoa() {
 		this.usuario = new Usuario();
@@ -93,13 +92,5 @@ public class Pessoa {
 
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getEmail() {
-		return email;
 	}
 }

@@ -3,17 +3,15 @@ package br.com.SIGEC.model;
 public class Telefone {
 	
 	private int numero;
-	private int ddd;
 	private int id;
 	
 	public Telefone() {
 		super();
 	}
 
-	public Telefone(int numero, int ddd, int id) {
+	public Telefone(int numero, int id) {
 		super();
 		this.numero = numero;
-		this.ddd = ddd;
 		this.id = id;
 	}
 	
@@ -22,12 +20,6 @@ public class Telefone {
 	}
 	public void setNumero(int numero) {
 		this.numero = numero;
-	}
-	public int getDdd() {
-		return ddd;
-	}
-	public void setDdd(int ddd) {
-		this.ddd = ddd;
 	}
 	public int getId() {
 		return id;

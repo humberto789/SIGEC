@@ -25,7 +25,6 @@ create table endereco(
 );
 create table telefone(
 	numero int not null,
-    ddd int not null,
     id int auto_increment not null,
     id_pessoa int not null,
     primary key(id),

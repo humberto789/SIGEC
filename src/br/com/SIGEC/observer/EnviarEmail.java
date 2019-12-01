@@ -13,7 +13,7 @@ public class EnviarEmail implements Observador {
 
 	@Override
 	public void notificar(Paciente paciente, Consulta consulta) {
-		String destinatario = paciente.getPessoa().getEmail();
+		String destinatario = paciente.getPessoa().getUsuario().getEmail();
 		String msg = "Sua consulta está confirmada para..." 
 									+ consulta.getDataConsulta();
 
