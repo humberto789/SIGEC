@@ -12,12 +12,11 @@ public class PacienteDAO extends AbstractDao {
 	private static final String SQL_INSERT_PACIENTE = "INSERT INTO paciente ( id_pessoa) VALUES ((SELECT id FROM pessoa WHERE cpf = ?));";
 	private static final String SQL_SELECT_PACIENTE_POR_LOGIN = "SELECT * FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = ?;";
 	
-	public static boolean cadastroPaciente(Paciente paciente) {
+	public static boolean cadastrarPaciente(Paciente paciente) {
 
 		if (PessoaDAO.buscarPessoaPorCpf(paciente.getPessoa().getCpf()) == null) {
 			if (PessoaDAO.cadastrarPessoa(paciente.getPessoa())) {
 				if (UsuarioDAO.cadastrarUsuario(paciente.getPessoa().getUsuario().getEmail(),
-						// LOGIN!!!!!!!!!!!!!!!!!!!!!
 						paciente.getPessoa().getCpf(), paciente.getPessoa().getUsuario().getSenha(),
 						paciente.getPessoa().getCpf())) {
 					try {

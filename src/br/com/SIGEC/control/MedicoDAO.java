@@ -55,6 +55,12 @@ public class MedicoDAO extends AbstractDao {
 	
 	/**
 	 * De onde vai vir esse médico? Ele vai estar logado? Vai colocar o CPF dele para pesquisar as consultas?
+	 * 
+	 * O crm do médico vai estar na sessão, para facilitar sua vida você pode pegar sair fazendo teste com um crm fixo, depois
+	 * 
+	 * eu volto aqui e faço a ligação com a sessão
+	 * ass: Humberto
+	 * 
 	 * @param medico - Médico das consultas
 	 * @return - Lista de consultas desse médico
 	 */

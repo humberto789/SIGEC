@@ -52,6 +52,8 @@
          	<p:inputMask value="#{cadastrarMedicoMB.medico.pessoa.dataNascimento}" class="campo" required="true" mask="99/99/9999" >
          		<f:convertDateTime pattern="dd/MM/yyyy" />
          	</p:inputMask>
+         	<h:outputLabel class="label_campo">TELEFONE</h:outputLabel>
+            <h:inputText value="#{cadastrarPacienteMB.paciente.pessoa.telefone.numero}" a:placeholder="Insira seu numero de telefone" class="campo" required="true"/>
             <h:outputLabel class="label_campo">ESTADO</h:outputLabel>
             <h:inputText value="#{cadastrarMedicoMB.medico.pessoa.endereco.estado}" a:placeholder="Insira seu estado" class="campo" required="true"/>
             <h:outputLabel class="label_campo" >CEP</h:outputLabel>
