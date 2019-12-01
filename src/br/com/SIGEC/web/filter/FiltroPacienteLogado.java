@@ -3,6 +3,7 @@ package br.com.SIGEC.web.filter;
 import java.io.IOException;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -37,12 +38,16 @@ public class FiltroPacienteLogado implements Filter{
 		if(usuario!=null) {
 			if(usuario.getTipoUsuario().equals("paciente")) {
 				chain.doFilter(request, response);		
+			}else {
+				 HttpServletResponse resp = (HttpServletResponse)response;
+				resp.sendRedirect("/SIGEC/error/403.jsf");
 			}
 		}else {
 			HttpServletResponse resp = (HttpServletResponse)response;
 			resp.sendRedirect("/SIGEC/login.jsf");
 			return;
 		}
+		
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import br.com.SIGEC.control.AdminDAO;
@@ -35,18 +36,23 @@ public class UsuarioLogadoMBean extends AbstractMBean{
 	public void autenticar() {
 		
 		usuario = UsuarioDAO.buscarUsuarioPorLoginESenha(usuario.getLogin(), usuario.getSenha());
-		
 		if(usuario != null) {
 			try {
 				usuario.setTipoUsuario(descobrindoTipoDeUsuario(usuario));
 				
 				FacesContext fc = FacesContext.getCurrentInstance();
-		        HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+		        HttpSession session = (HttpSession) fc.getExternalContext().getSession(true);
+		        
+		        if(session==null) {
+		        	session = (HttpSession) fc.getExternalContext().getSession(true);
+		        }
+		        
 		        session.setAttribute("usuario_logado", usuario);
 				
 				redirecionandoPaginaHomeUsuario(usuario.getTipoUsuario());
 				
-			} catch (IOException e) {
+				
+			}catch (IOException e) {
 				usuario = new Usuario();
 				e.printStackTrace();
 			}
