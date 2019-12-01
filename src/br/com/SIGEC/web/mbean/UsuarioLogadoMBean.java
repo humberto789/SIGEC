@@ -35,7 +35,7 @@ public class UsuarioLogadoMBean extends AbstractMBean{
 
 	public void autenticar() {
 		
-		usuario = UsuarioDAO.buscarUsuarioPorLoginESenha(usuario.getLogin(), usuario.getSenha());
+		usuario = UsuarioDAO.buscarUsuarioAtivoPorLoginESenha(usuario.getLogin(), usuario.getSenha());
 		if(usuario != null) {
 			try {
 				usuario.setTipoUsuario(descobrindoTipoDeUsuario(usuario));

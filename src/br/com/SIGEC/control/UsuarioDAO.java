@@ -10,7 +10,8 @@ import br.com.SIGEC.model.Usuario;
 public class UsuarioDAO extends AbstractDao{
 
 	private final static String SQL_SELECT_USUARIO_POR_LOGIN_E_SENHA = "SELECT * FROM usuario WHERE login=? AND senha=?;";
-	private final static String SQL_INSERIR = "INSERT INTO USUARIO (email, login, senha, ativo, id_pessoa) VALUE (?, ?, ?, 1 (SELECT id FROM pessoa WHERE cpf=?));";
+	private final static String SQL_SELECT_USUARIO_ATIVO_POR_LOGIN_E_SENHA = "SELECT * FROM usuario WHERE login=? AND senha=? AND ativo=1;";
+	private final static String SQL_INSERIR = "INSERT INTO USUARIO (email, login, senha, ativo, id_pessoa) VALUE (?, ?, ?, 1, (SELECT id FROM pessoa WHERE cpf=?));";
 	
 	public static boolean cadastrarUsuario(String email, String login, String senha, String cpf) {
 		
@@ -66,4 +67,40 @@ public class UsuarioDAO extends AbstractDao{
 			return null;
 		}
 	}
+	
+	/**
+	 * Método responsável por recuperar um usuario ativo, com base no seu login e na sua senha.
+	 * 
+	 * @param umLogin um {@link String} que representa o login do usuario
+	 * @param umaSenha um {@link String} que representa a senha do usuario
+	 * 
+	 * @return {@link Usuario} do usuario
+	 */
+	public static Usuario buscarUsuarioAtivoPorLoginESenha(String umLogin, String umaSenha) {
+
+		try {
+			PreparedStatement statement = getConexao().prepareStatement(SQL_SELECT_USUARIO_ATIVO_POR_LOGIN_E_SENHA);
+			statement.setString(1, umLogin);
+			statement.setString(2, umaSenha);
+
+			ResultSet resultadoBusca = statement.executeQuery();
+
+			if (resultadoBusca.next()) {
+
+				Usuario usuario = new Usuario();
+				usuario.setSenha(resultadoBusca.getString("senha"));
+				usuario.setAtivo(resultadoBusca.getBoolean("ativo"));
+				usuario.setEmail(resultadoBusca.getString("email"));
+				usuario.setLogin(resultadoBusca.getString("login"));
+
+				return usuario;
+			}
+			return null;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }
