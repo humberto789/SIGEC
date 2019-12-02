@@ -93,9 +93,10 @@ create table prontuario(
 
 create table consulta(
 	id int auto_increment not null,
-	dataConsulta date not null,
+	horario datetime not null,
 	id_medico int not null,
 	id_paciente int not null,
+    constraint indentificador_consulta unique(id_medico, id_paciente, horario),
 	primary key(id),
 	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
@@ -145,3 +146,12 @@ INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) V
 
 
 SELECT * FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = "705.960.664-31";
+INSERT INTO consulta(id_medico, id_paciente, horario) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00");
+SELECT * FROM consulta INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa ON pessoa.id = paciente.id_pessoa WHERE consulta.horario="2019-10-12 01:00:00" AND medico.crm="123456" AND pessoa.cpf="705.960.664-31";
+
+SELECT * FROM endereco;
+SELECT * FROM telefone;
+SELECT * FROM pessoa;
+SELECT * FROM paciente;
+SELECT * FROM usuario;
+SELECT * FROM consulta;
