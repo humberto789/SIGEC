@@ -18,7 +18,7 @@ public class MedicoDAO extends AbstractDao {
 																															  "INNER JOIN pessoa pes ON p.id_pessoa = pes.id " + 
 																															  "WHERE id_medico = ?;";
 	private static final String SQL_SELECT_MEDICO_POR_LOGIN = "SELECT * FROM medico INNER JOIN pessoa ON medico.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = ?;";
-	
+	private static final String SQL_SELECT_MEDICO_POR_CRM = "SELECT * FROM medico INNER JOIN pessoa ON medico.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE medico.crm = ?;";
 
 	public static boolean cadastroMedico(Medico medico) {
 
@@ -94,6 +94,40 @@ public class MedicoDAO extends AbstractDao {
 		}
 	
 		return consultas;
+	}
+	
+	public static Medico buscarMedicoPeloCRM(String umCRM) {
+		try {
+			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(SQL_SELECT_MEDICO_POR_CRM);
+			statement.setString(1, umCRM);
+
+			ResultSet resultadoBusca = statement.executeQuery();
+
+			if (resultadoBusca.next()) {
+				Pessoa pessoa = new Pessoa(resultadoBusca.getInt("pessoa.id"), resultadoBusca.getString("pessoa.cpf"),
+						resultadoBusca.getString("pessoa.nome"), new java.util.Date(resultadoBusca.getDate("pessoa.dataNascimento").getTime()),
+						resultadoBusca.getString("pessoa.sexo"));
+
+				Usuario usuario = new Usuario();
+				usuario.setId(resultadoBusca.getInt("usuario.id"));
+				usuario.setSenha(resultadoBusca.getString("usuario.senha"));
+				usuario.setAtivo(resultadoBusca.getBoolean("usuario.ativo"));
+				usuario.setEmail(resultadoBusca.getString("usuario.email"));
+				usuario.setLogin(resultadoBusca.getString("usuario.login"));
+
+				pessoa.setUsuario(usuario);
+				
+				Medico medico = new Medico(resultadoBusca.getString("medico.crm"), resultadoBusca.getInt("medico.id"), pessoa);
+				
+			
+				return medico;
+			}
+			return null;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	public static Medico buscarMedicoPeloLoginDoUsuario(String umLogin) {
