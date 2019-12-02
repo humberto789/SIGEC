@@ -1,6 +1,8 @@
 package br.com.SIGEC.model;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Pessoa {
 
@@ -93,4 +95,15 @@ public class Pessoa {
 	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
 	}
+	
+	public int gerarIdade() {
+		int calculo = 0;
+		
+		Date dataHoje = new Date();
+
+		calculo = dataHoje.getYear() - dataNascimento.getYear();
+		
+		return calculo;
+	}
+	
 }

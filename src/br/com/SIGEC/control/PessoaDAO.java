@@ -9,12 +9,14 @@ import br.com.SIGEC.model.Pessoa;
 import br.com.SIGEC.model.Usuario;
 
 public class PessoaDAO extends AbstractDao {
-
+	private static final String SQL_INSERT_PESSOA = "insert into pessoa (cpf, nome, dataNascimento, sexo) values (?, ?, ?, ?)";
+	private static final String SQL_SELECT_PESSOA_POR_CPF = "select p.*, u.email, u.login, u.senha, u.ativo from pessoa p inner join usuario u on p.id = u.id_pessoa where p.cpf = ?";
+	private static final String SQL_SELECT_PESSOA_POR_LOGIN = "select p.*, u.email, u.login, u.senha, u.ativo from pessoa p inner join usuario u on p.id = u.id_pessoa where u.login = ?";
+	
 	public static boolean cadastrarPessoa(Pessoa pessoa) {
-		String sqlInsertPessoa = "insert into pessoa (cpf, nome, dataNascimento, sexo) values (?, ?, ?, ?)";
 
 		try {
-			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(sqlInsertPessoa);
+			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(SQL_INSERT_PESSOA);
 			statement.setString(1, pessoa.getCpf());
 			statement.setString(2, pessoa.getNomeCompleto());
 			statement.setDate(3, new Date(pessoa.getDataNascimento().getTime()));
@@ -38,10 +40,8 @@ public class PessoaDAO extends AbstractDao {
 
 	public static Pessoa buscarPessoaPorCpf(String cpf) {
 
-		String sqlInsertPessoa = "select p.*, u.email, u.login, u.senha, u.ativo from pessoa p inner join usuario u on p.id = u.id_pessoa where p.cpf = ?";
-
 		try {
-			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(sqlInsertPessoa);
+			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(SQL_SELECT_PESSOA_POR_CPF);
 			statement.setString(1, cpf);
 
 			ResultSet resultadoBusca = statement.executeQuery();
@@ -107,5 +107,36 @@ public class PessoaDAO extends AbstractDao {
 		return false;
 
 	}
+	
+	public static Pessoa buscarPessoaPeloLogin(String umLogin) {
 
+		try {
+			PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(SQL_SELECT_PESSOA_POR_LOGIN);
+			statement.setString(1, umLogin);
+
+			ResultSet resultadoBusca = statement.executeQuery();
+
+			if (resultadoBusca.next()) {
+				Pessoa pessoa = new Pessoa(resultadoBusca.getInt("id"), resultadoBusca.getString("cpf"),
+						resultadoBusca.getString("nome"), new java.util.Date(resultadoBusca.getDate("dataNascimento").getTime()),
+						resultadoBusca.getString("sexo"));
+
+				Usuario usuario = new Usuario();
+				usuario.setSenha(resultadoBusca.getString("senha"));
+				usuario.setAtivo(resultadoBusca.getBoolean("ativo"));
+				usuario.setEmail(resultadoBusca.getString("email"));
+				usuario.setLogin(resultadoBusca.getString("login"));
+
+				pessoa.setUsuario(usuario);
+
+				return pessoa;
+			}
+			return null;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

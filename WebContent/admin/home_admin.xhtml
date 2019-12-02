@@ -35,10 +35,10 @@
 		<div class="alinhar">
 			<div class="voce">
 				<h2 class="voce_titulo">VOCÊ</h2>
-				<p>Nome: #{usuarioLogadoMBean.usuario.login}</p>
-				<p>Email: mariano@gmail.com</p>
-				<p>CPF: 123.456.789-10</p>
-				<p>Idade: 18 anos</p>
+				<p>Nome: #{meuPerfilMB.pessoa.nomeCompleto}</p>
+				<p>Email: #{meuPerfilMB.pessoa.usuario.email}</p>
+				<p>CPF: #{meuPerfilMB.pessoa.cpf}</p>
+				<p>Idade: #{meuPerfilMB.pessoa.gerarIdade()}</p>
 			</div>
 
 			<figure class="imagem_home"> 
