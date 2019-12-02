@@ -21,4 +21,9 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 	<param-name>primefaces.THEME</param-name>
 	<param-value>nova-light</param-value>
   </context-param>
+  
+  <context-param>
+    <param-name>timezone</param-name>
+    <param-value>GMT-3</param-value>
+  </context-param>
 </web-app>

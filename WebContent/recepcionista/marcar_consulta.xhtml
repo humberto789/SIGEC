@@ -18,14 +18,13 @@
 	<div class="menu-lateral">
 		<img src="../img/logo_site.png" class="logo"></img>
 		<nav class="menu">
-			<ul>
-				<li><h:link value = "MEU PERFIL" outcome = "home_paciente" class="link"/></li>
-				<li><h:link value = "MINHAS CONSULTAS" outcome = "minhas_consultas" class="link"/></li>
-				<li><h:link value = "MEUS ATESTADOS" outcome = "exibir_atestados" class="link"/></li>
-				<li><h:link value = "MEUS PRONTUARIOS" outcome = "exibir_prontuarios" class="link"/></li>
-				<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta" class="link"/></li>
-				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
-			</ul>
+			<div >
+				<ul>
+					<li><h:link value = "MEU PERFIL" outcome = "home_recepcionista" class="link"/></li>
+					<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta" class="link"/></li>
+					<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
+				</ul>
+			</div>
 		</nav>
 	</div>
 
@@ -35,11 +34,13 @@
             
         	<p:messages />
         	
+        	<h:outputLabel class="label_campo">CPF DO PACIENTE</h:outputLabel>
+         	<p:inputMask value="#{marcarConsultaMB.consulta.paciente.pessoa.cpf}" a:placeholder="Insira o cpf do paciente" class="campo" required="true" mask="999.999.999-99" />
             <h:outputLabel class="label_campo">CRM DO MEDICO</h:outputLabel>
-            <h:inputText value="#{marcarConsultaMB.consulta.medico.crm}" a:placeholder="Insira o crm do médico" class="campo" required="true"/>
+            <h:inputText value="#{marcarConsultaMB.consulta.medico.crm}" a:placeholder="Insira o crm do m�dico" class="campo" required="true"/>
             <h:outputLabel class="label_campo">DIA E HORA DA CONSULTA</h:outputLabel>
-         	<p:inputMask value="#{marcarConsultaMB.consulta.horario}" class="campo" required="true" mask="99/99/9999-99" >
-         		<f:convertDateTime pattern="dd/MM/yyyy HH" timeZone="#{initParam.timezone}"/>
+         	<p:inputMask value="#{marcarConsultaMB.consulta.horario}" class="campo" required="true" mask="99/99/9999 99" >
+         		<f:convertDateTime pattern="dd/MM/yyyy HH" timeZone="#{initParam.timezone}"/> />
          	</p:inputMask>
             
             <h:commandButton class="botao_cadastro" action="#{marcarConsultaMB.marcar}" value="MARCAR"/>
