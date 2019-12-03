@@ -140,8 +140,9 @@ INSERT INTO recepcionista(id_pessoa) value((select id from pessoa where cpf = "3
 INSERT INTO administrador(id_pessoa) value((select id from pessoa where cpf = "444.444.444-44"));
 INSERT INTO administrador(id_pessoa) value((select id from pessoa where cpf = "555.555.555-55"));
 
-INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f41", "2019-10-10", "2019-10-12", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
-INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("f45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
+INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F41", "2019-10-10", "2019-10-12", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
+INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
+INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F44", "2019-03-05", "2019-05-05", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "111.111.111-11"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
 
 
 

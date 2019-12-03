@@ -7,44 +7,66 @@
 
 <h:head>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="../css/meu_perfil.css" />
+	<link rel="stylesheet" href="../css/cadastro.css" />
 	<title>SIGEC - MEUS ATESTADOS</title>
 </h:head>
 <body>
 	<div class="menu-lateral">
 		<img src="../img/logo_site.png" class="logo"></img>
-	
+
 		<nav class="menu">
-			<ul>
-				<li><h:link value = "MEU PERFIL" outcome = "home_paciente" class="link"/></li>
-				<li><h:link value = "MINHAS CONSULTAS" outcome = "minhas_consultas" class="link"/></li>
-				<li><h:link value = "MEUS ATESTADOS" outcome = "exibir_atestados" class="link"/></li>
-				<li><h:link value = "MEUS PRONTUARIOS" outcome = "exibir_prontuarios" class="link"/></li>
-				<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta" class="link"/></li>
-				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
-			</ul>
+		<ul>
+			<li><h:link value="MEU PERFIL" outcome="home_paciente"
+					class="link" /></li>
+			<li><h:link value="MINHAS CONSULTAS" outcome="minhas_consultas"
+					class="link" /></li>
+			<li><h:link value="MEUS ATESTADOS" outcome="exibir_atestados"
+					class="link" /></li>
+			<li><h:link value="MEUS PRONTUARIOS"
+					outcome="exibir_prontuarios" class="link" /></li>
+			<li><h:link value="MARCAR CONSULTA" outcome="marcar_consulta"
+					class="link" /></li>
+			<li><h:link value="SAIR" outcome="#" class="link" /></li>
+		</ul>
 		</nav>
 	</div>
 
 	<div class="container">
-	
-	<p:dataTable value="#{meusAtestadosMBean.meusAtestados}" var="atestado">
-		<p:column headerText="Nome do Médico">
-			<h:outputText value="#{atestado.medico.pessoa.nomeCompleto}" />
-		</p:column>
-		<p:column headerText="Data de Emissão">
-			<h:outputText value="#{atestado.dataEmissao}" />
-		</p:column>
-		<p:column style="width:32px;text-align: center">
-             <p:commandButton oncomplete="PF('carDialog').show()" icon="pi pi-search" title="View">
-                <f:setPropertyActionListener value="#{atestado}" target="#{meusAtestadosMBean.meusAtestados}" />
-            </p:commandButton>
-        </p:column>
-	</p:dataTable>		
-	
+
+		<h1 class="titulo">ATESTADOS</h1>
+
+		<p:dataTable value="#{meusAtestadosMBean.meusAtestados}"
+			var="atestado" class="tabela">
+			<p:column headerText="Nome do Médico">
+				<h:outputText value="#{atestado.medico.pessoa.nomeCompleto}" />
+			</p:column>
+			<p:column headerText="CRM do Médico">
+				<h:outputText value="#{atestado.medico.crm}" />
+			</p:column>
+			<p:column headerText="Data de Emissão">
+				<h:outputText value="#{atestado.dataEmissao}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="Data de Vencimento">
+				<h:outputText value="#{atestado.dataVencimento}">
+					<f:convertDateTime pattern="dd/MM/yyyy" />
+				</h:outputText>
+			</p:column>
+			<p:column headerText="CID">
+				<h:outputText value="#{atestado.cid}" />
+			</p:column>
+			<p:column style="width:32px;text-align: center">
+				<p:commandButton oncomplete="PF('atestadoD').show()"
+					icon="pi pi-search" title="View">
+					<f:setPropertyActionListener value="#{atestado}"
+						target="#{meusAtestadosMBean.meusAtestados}" />
+				</p:commandButton>
+			</p:column>
+
+		</p:dataTable>
+
 	</div>
-
 	<footer> </footer>
-
 </body>
 </html>
