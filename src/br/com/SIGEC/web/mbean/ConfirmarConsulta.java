@@ -65,6 +65,7 @@ public class ConfirmarConsulta {
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
+		
 
 	}
 	
@@ -95,5 +96,8 @@ public class ConfirmarConsulta {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	}
 
-}
+
