@@ -1,7 +1,6 @@
 package br.com.SIGEC.model;
 
 import java.util.Date;
-import java.util.List;
 
 
 
@@ -59,11 +58,29 @@ public class VerConsultas {
 		this.especialidade = especialidade;
 	}
 
-	public void add(List<VerConsultas> minhasConsultas) {
+	public void add(VerConsultas consulta) {
 		// TODO Auto-generated method stub
 		
 	}
-}
+
+	public void setDataConsulta(Date date) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPaciente(Paciente paciente2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setMedico(Medico medico2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+		
+	}
+
 
 
 
