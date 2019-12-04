@@ -42,7 +42,7 @@ public class ProntuarioDAO extends AbstractDao {
 				prontuario.setAlergia(resultadoBusca.getString("prontuario.alergia"));
 				prontuario.setAltura(resultadoBusca.getDouble("prontuario.altura"));
 				prontuario.setPeso(resultadoBusca.getDouble("prontuario.peso"));
-				prontuario.setQueixa(resultadoBusca.getString("prontuario.Queixa"));
+				prontuario.setQueixa(resultadoBusca.getString("prontuario.queixa"));
 				prontuario.setTemperatura(resultadoBusca.getDouble("prontuario.temperatura"));
 
 				meusProntuarios.add(prontuario);
