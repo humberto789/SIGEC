@@ -27,16 +27,21 @@ body{
 .cabecalho{
 	background-color: rgb(2,0,75);
 	padding: 0.3%;
+	display: flex;
+	align-items: center;
+}
+.cabecalho figure, .cabecalho nav {
+	display: inline-block !important;
 }
 .cabecalho li{
-	display: inline;
+	display: inline-block;
 }
 .links{
 	background-color: rgb(2,0,75);
 	color: rgb(255,255,255);
 	border: none;
 	font-size: 120%;
-	margin-left:4%;
+	margin-left: 15px;
 	text-decoration: none;
 }
 .cabecalho button{
@@ -45,18 +50,16 @@ body{
 	border: none;
 	font-size: 120%;
 }
-.logohome {
-	position:absolute;
-	clear:both;
-	top:0;
-}
+
 .logohome img{
 	display: block;
-	width: 15%;
+	width: 60px;
 	margin-top: 0;
+	
 }
 .menuPrincipal{
 	margin-left: 5%;
+	width: 350px;
 }
 h1{
 	color: rgb(2,0,75)
