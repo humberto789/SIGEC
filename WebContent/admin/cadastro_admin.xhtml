@@ -23,7 +23,7 @@
 				<li><h:link value = "CADASTRO PACIENTE" outcome = "cadastro_paciente" class="link"/></li>
 				<li><h:link value = "CADASTRO RECEPCIONISTA" outcome = "cadastro_recepcionista" class="link"/></li>
 				<li><h:link value = "BLOQUEAR USUÁRIO" outcome = "bloquear" class="link"/></li>
-				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
+				<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
 			</ul>
 		</nav>
 	</div>

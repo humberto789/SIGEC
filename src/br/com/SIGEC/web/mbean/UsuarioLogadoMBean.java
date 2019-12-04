@@ -62,6 +62,22 @@ public class UsuarioLogadoMBean extends AbstractMBean{
 		}
 		
 	}
+	
+	public void deslogar() {
+		FacesContext fc = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) fc.getExternalContext().getSession(true);
+
+		super.exibirMensagemDeErro("Opa");
+        usuario = new Usuario();
+        session.removeAttribute("usuario_logado");
+        try {
+			fc.getExternalContext().redirect("home.jsf");
+		} catch (IOException e) {
+			super.exibirMensagemDeErro("Ocorreu algum erro ao tentar direcionar para o página principal");
+			e.printStackTrace();
+		}
+        
+	}
 
 	private String descobrindoTipoDeUsuario(Usuario umUsuario) {
 		Paciente paciente = PacienteDAO.buscarPacientePeloLoginDoUsuario(umUsuario.getLogin());

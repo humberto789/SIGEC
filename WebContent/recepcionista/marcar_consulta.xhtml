@@ -22,7 +22,7 @@
 				<ul>
 					<li><h:link value = "MEU PERFIL" outcome = "home_recepcionista" class="link"/></li>
 					<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta" class="link"/></li>
-					<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
+					<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
 				</ul>
 			</div>
 		</nav>
