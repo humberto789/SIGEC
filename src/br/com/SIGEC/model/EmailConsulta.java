@@ -3,9 +3,10 @@ package br.com.SIGEC.model;
 import br.com.SIGEC.web.mbean.Consulta;
 
 public class EmailConsulta {
+	Usuario user = new Usuario();
 
 	private String remetente = "sigec.info4m@gmail.com"; 
-	private String destinatario; 
+	private String destinatario = user.getEmail(); 
 	private String senha = "sigec2019"; 
 	private String assunto = "Confirmação de Consulta - SIGEC";
 	private Consulta data;

@@ -83,7 +83,9 @@ public class ConfirmarConsultaMB extends AbstractMBean{
 	
 
 	// método de enviar email
-	public void enviarEmail(EmailConsulta email, Usuario user) {
+	public void enviarEmail() {
+		Usuario user = new Usuario();
+		EmailConsulta email = new EmailConsulta();
 		String meuemail = email.getRemetente();
 		String minhasenha = email.getSenha();
 		String destinatario = user.getEmail();
