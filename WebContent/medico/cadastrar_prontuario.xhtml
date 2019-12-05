@@ -3,7 +3,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
       
 
 <h:head>
@@ -22,7 +23,7 @@
 				<ul>
 					<li><h:link value = "MEU PERFIL" outcome = "home_medico" class="link"/></li>
 					<li><h:link value = "MINHA AGENDA" outcome = "agenda_medica" class="link"/></li>
-					<li><h:link value = "CADASTRAR PRONTUARIO" outcome = "cadastrar_prontuario" class="link"/></li>
+					<li><h:link value = "REGISTRAR PRONTUARIO" outcome = "cadastrar_prontuario" class="link"/></li>
 					<li><h:link value = "EMITIR_ATESTADO" outcome = "emitir_atestado" class="link"/></li>
 					<li><h:commandLink value = "CHAMAR PACIENTE" action="#{chamarPacienteMB.chamarPaciente}" class="link"/></li>
 					<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
@@ -32,21 +33,23 @@
 	</div>
     <div class="container">
         <h:form class="formulario_login">
-            <h1>CADASTRAR MEDICO</h1>
-            <h:outputLabel class="label_campo">peso</h:outputLabel>
+            <h1>REGISTRAR PRONTUARIO</h1>
+            
+            <p:messages />
+            <h:outputLabel class="label_campo">CPF DO PACIENTE</h:outputLabel>
+            <p:inputMask mask="999.999.999-99" maxlength="14" value="#{cadastrarProntuarioMB.prontuario.paciente.pessoa.cpf}" styleClass="campo" placeholder="Insira o CPF do paciente" required="true"/>
+            <h:outputLabel class="label_campo">PESO</h:outputLabel>
             <h:inputText value="#{cadastrarProntuarioMB.prontuario.peso}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">altura</h:outputLabel>
+            <h:outputLabel class="label_campo">ALTURA</h:outputLabel>
             <h:inputText value="#{cadastrarProntuarioMB.prontuario.altura}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">id</h:outputLabel>
-            <h:inputText value="#{cadastrarProntuarioMB.prontuario.id}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">alergia</h:outputLabel>
+            <h:outputLabel class="label_campo">ALERGIA</h:outputLabel>
             <h:inputText value="#{cadastrarProntuarioMB.prontuario.alergia}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">queixa</h:outputLabel>
+            <h:outputLabel class="label_campo">QUEIXA</h:outputLabel>
             <h:inputText value="#{cadastrarProntuarioMB.prontuario.queixa}" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">temperatura</h:outputLabel>
+            <h:outputLabel class="label_campo">TEMPERATURA</h:outputLabel>
             <h:inputText value="#{cadastrarProntuarioMB.prontuario.temperatura}" a:placeholder="" class="campo"/>
             
-            <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="CADASTRAR"/>
+            <h:commandButton class="botao_cadastro" action="#{cadastrarProntuarioMB.cadastrar}" value="REGISTRAR"/>
         </h:form>
     </div>
     <footer>
