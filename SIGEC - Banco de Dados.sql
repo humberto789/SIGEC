@@ -84,8 +84,9 @@ create table prontuario(
 	alergia varchar(100),
 	queixa varchar(200),
 	temperatura double not null,
-	id_medico int unique not null,
-	id_paciente int unique not null,
+    horario_cadastro datetime not null,
+	id_medico int not null,
+	id_paciente int not null,
 	primary key(id),
 	foreign key(id_medico) references medico(id) on delete restrict on update cascade,
 	foreign key(id_paciente) references paciente(id) on delete restrict on update cascade
@@ -94,6 +95,7 @@ create table prontuario(
 create table consulta(
 	id int auto_increment not null,
 	horario datetime not null,
+    realizada boolean not null,
 	id_medico int not null,
 	id_paciente int not null,
     constraint indentificador_consulta unique(id_medico, id_paciente, horario),
@@ -104,8 +106,10 @@ create table consulta(
 
 create table fila (
 	id int auto_increment not null primary key,
-	senha int not null,
-	chamado int
+	senha varchar(25) not null,
+	chamado boolean,
+    id_consulta int,
+    foreign key(id_consulta) references consulta(id) on delete restrict on update cascade
 );
 
 
@@ -145,11 +149,15 @@ INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) V
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F44", "2019-03-05", "2019-05-05", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "111.111.111-11"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
 
-INSERT INTO prontuario(peso, altura, alergia, queixa, temperatura, id_paciente, id_medico) VALUES(70.5, 1.80, "poeira", "dor de cabeça", 37.0, (SELECT medico.id FROM medico WHERE medico.crm = "123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"));
+INSERT INTO prontuario(peso, altura, alergia, queixa, temperatura, id_medico, id_paciente, horario_cadastro) VALUES(70.5, 1.80, "poeira", "dor de cabeça", 37.0, (SELECT medico.id FROM medico WHERE medico.crm = "123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), now());
+
+INSERT INTO consulta(id_medico, id_paciente, horario, realizada) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00", 0);
+
 
 SELECT * FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = "705.960.664-31";
-INSERT INTO consulta(id_medico, id_paciente, horario) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00");
 SELECT * FROM consulta INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa ON pessoa.id = paciente.id_pessoa WHERE consulta.horario="2019-10-12 01:00:00" AND medico.crm="123456" AND pessoa.cpf="705.960.664-31";
+SELECT prontuario.*, medico.crm, pessoaMedico.nome as medico, pessoaPaciente.nome as paciente FROM prontuario INNER JOIN medico ON prontuario.id_medico = medico.id INNER JOIN pessoa pessoaMedico ON medico.id_pessoa = pessoaMedico.id INNER JOIN paciente ON prontuario.id_paciente = paciente.id INNER JOIN pessoa pessoaPaciente ON paciente.id_pessoa = pessoaPaciente.id WHERE pessoaPaciente.cpf = "705.960.664-31";
+SELECT consulta.*, medico.crm, pessoaMedico.nome , pessoaPaciente.nome FROM consulta INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa pessoaMedico ON medico.id_pessoa = pessoaMedico.id INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN pessoa pessoaPaciente ON paciente.id_pessoa = pessoaPaciente.id WHERE pessoaPaciente.cpf = "705.960.664-31";
 
 SELECT * FROM endereco;
 SELECT * FROM telefone;
@@ -160,3 +168,5 @@ SELECT * FROM consulta;
 SELECT * FROM recepcionista;
 SELECT * FROM administrador;
 SELECT * FROM prontuario;
+SELECT * FROM atestado;
+SELECT * FROM fila;

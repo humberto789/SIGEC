@@ -31,20 +31,20 @@
 
 	<div class="container">
         <h:form class="formulario_login">
-            <h1>MARCAR CONSULTA</h1>
+            <h1>CONFIRMAR CONSULTA</h1>
             
         	<p:messages />
         	
         	<h:outputLabel class="label_campo">CPF DO PACIENTE</h:outputLabel>
-         	<p:inputMask value="#{marcarConsultaMB.consulta.paciente.pessoa.cpf}" a:placeholder="Insira o cpf do paciente" class="campo" required="true" mask="999.999.999-99" />
+         	<p:inputMask value="#{confirmarConsultaMBean.consulta.paciente.pessoa.cpf}" a:placeholder="Insira o cpf do paciente" class="campo" required="true" mask="999.999.999-99" />
             <h:outputLabel class="label_campo">CRM DO MEDICO</h:outputLabel>
-            <h:inputText value="#{marcarConsultaMB.consulta.medico.crm}" a:placeholder="Insira o crm do m�dico" class="campo" required="true"/>
+            <h:inputText value="#{confirmarConsultaMBean.consulta.medico.crm}" a:placeholder="Insira o crm do médico" class="campo" required="true"/>
             <h:outputLabel class="label_campo">DIA E HORA DA CONSULTA</h:outputLabel>
-         	<p:inputMask value="#{marcarConsultaMB.consulta.horario}" class="campo" required="true" mask="99/99/9999 99" >
-         		<f:convertDateTime pattern="dd/MM/yyyy HH" timeZone="#{initParam.timezone}"/> />
+         	<p:inputMask value="#{confirmarConsultaMBean.consulta.horario}" class="campo" required="true" mask="99/99/9999 99" >
+         		<f:convertDateTime pattern="dd/MM/yyyy HH" timeZone="#{initParam.timezone}"/>
          	</p:inputMask>
             
-            <h:commandButton class="botao_cadastro" action="#{marcarConsultaMB.marcar}" value="MARCAR"/>
+            <h:commandButton class="botao_cadastro" action="#{confirmarConsultaMBean.confirmar}" value="CONFIRMAR CONSULTA"/>
         </h:form>
 	</div>
 

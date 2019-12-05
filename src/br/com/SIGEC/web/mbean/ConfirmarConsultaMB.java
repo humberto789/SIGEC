@@ -9,18 +9,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.SimpleEmail;
 
+import br.com.SIGEC.control.ConsultaDAO;
+import br.com.SIGEC.control.MedicoDAO;
+import br.com.SIGEC.control.PacienteDAO;
 import br.com.SIGEC.model.EmailConsulta;
 import br.com.SIGEC.model.Paciente;
 import br.com.SIGEC.model.Usuario;
+import br.com.SIGEC.model.Consulta;
 import br.com.SIGEC.observer.EnviarEmail;
 import br.com.SIGEC.observer.Observador;
 
 @ManagedBean
-public class ConfirmarConsulta {
+@RequestScoped
+public class ConfirmarConsultaMB extends AbstractMBean{
 
 	/*NECESSÁRIO INSERIR O QUARTZ; BIBLIOTECAS JÁ ADICIONDADAS
 	 * */
@@ -36,10 +42,11 @@ public class ConfirmarConsulta {
 	//Padrão Observer
 	private final List<Observador> observadores;
 	
-	public ConfirmarConsulta() {
+	public ConfirmarConsultaMB() {
 		this.observadores = new ArrayList<>();
 		
 		this.observadores.add(new EnviarEmail());
+		
 	}
 	
 	public void confirmar(Paciente paciente, Consulta consulta) {
@@ -47,7 +54,7 @@ public class ConfirmarConsulta {
 		
 		//Para cada observador, chama-se o método que irá realizar sua devida ação:
 		for (Observador obs : this.observadores) {
-			obs.notificar(paciente, consulta);
+			//obs.notificar(paciente, consulta);
 		}
 	}
 	
@@ -63,8 +70,8 @@ public class ConfirmarConsulta {
 			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 			PreparedStatement sttmt = conexao.prepareStatement(consultar);
 			ResultSet dados = sttmt.executeQuery("SELECT * FROM consulta");
-			consulta.setDataConsulta(dados.getDate(0));
-			consulta.setEspecialidade(dados.getString(0));
+			//consulta.setDataConsulta(dados.getDate(0));
+			//consulta.setEspecialidade(dados.getString(0));
 
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
@@ -102,6 +109,8 @@ public class ConfirmarConsulta {
 	}
 	
 	
-	}
+	
+	
+}
 
 

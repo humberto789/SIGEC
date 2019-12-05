@@ -1,24 +1,57 @@
 package br.com.SIGEC.web.mbean;
 
-import br.com.SIGEC.model.*;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
+
+import br.com.SIGEC.control.MedicoDAO;
+import br.com.SIGEC.control.PacienteDAO;
 import br.com.SIGEC.control.ProntuarioDAO;
+import br.com.SIGEC.model.Prontuario;
+import br.com.SIGEC.model.Usuario;
 
-//Cadastrar um prontuario (em qual página?)
-//formulário com peso, temperatura, altura, queixa, id (automatico pelo banco)
-//jogar dados para o banco insert into
-
-
-
-public class CadastrarProntuarioMB {
-	
+@ManagedBean
+@RequestScoped
+public class CadastrarProntuarioMB extends AbstractMBean{
 	
 	private Prontuario prontuario;
 	
-	Prontuario pront = new Prontuario();
-	ProntuarioDAO dao = new ProntuarioDAO();
+	public CadastrarProntuarioMB() {
+		prontuario = new Prontuario();
+		
+		FacesContext fc = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+		Usuario usuario = (Usuario) session.getAttribute("usuario_logado");
+		
+		if(usuario.getTipoUsuario()=="medico") {
+			prontuario.setMedico(MedicoDAO.buscarMedicoPeloLoginDoUsuario(usuario.getLogin()));
+		}
+	}
 	
-	public void cadastro() {
-		dao.cadastrarProntuario(pront);
+	public Prontuario getProntuario() {
+		return prontuario;
+	}
+
+	public void setProntuario(Prontuario prontuario) {
+		this.prontuario = prontuario;
+	}
+
+	public void cadastrar() {
+		if(MedicoDAO.buscarMedicoPeloCRM(prontuario.getMedico().getCrm())!=null) {
+			if(PacienteDAO.buscarPacientePeloCPF(prontuario.getPaciente().getPessoa().getCpf())!=null) {
+				if(ProntuarioDAO.cadastrarProntuario(prontuario)) {
+					super.exibirMensagemInformativa("Prontuario cadastrado com sucesso");
+				}else {
+					super.exibirMensagemInformativa("Houve algum erro ao cadastrar o prontuario");
+				}
+			}else {
+				super.exibirMensagemDeErro("O paciente com esse CPF não existe");
+			}
+		}else {
+			super.exibirMensagemDeErro("O médico com esse CRM não existe");
+		}
+		
 	}
 
 	

@@ -9,9 +9,7 @@ import br.com.SIGEC.control.ChamarPacienteDAO;
 // Botar o botão chamar próximo
 
 @ManagedBean
-
-
-public class ChamarPacienteMB {
+public class ChamarPacienteMB extends AbstractMBean{
 	//botão próximo acionado
 	
 	public void chamarPaciente(Fila fila) {
