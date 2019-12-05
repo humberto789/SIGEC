@@ -162,7 +162,7 @@ SELECT * FROM consulta INNER JOIN paciente ON consulta.id_paciente = paciente.id
 SELECT prontuario.*, medico.crm, pessoaMedico.nome as medico, pessoaPaciente.nome as paciente FROM prontuario INNER JOIN medico ON prontuario.id_medico = medico.id INNER JOIN pessoa pessoaMedico ON medico.id_pessoa = pessoaMedico.id INNER JOIN paciente ON prontuario.id_paciente = paciente.id INNER JOIN pessoa pessoaPaciente ON paciente.id_pessoa = pessoaPaciente.id WHERE pessoaPaciente.cpf = "705.960.664-31";
 SELECT consulta.*, medico.crm, pessoaMedico.nome , pessoaPaciente.nome FROM consulta INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa pessoaMedico ON medico.id_pessoa = pessoaMedico.id INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN pessoa pessoaPaciente ON paciente.id_pessoa = pessoaPaciente.id WHERE pessoaPaciente.cpf = "705.960.664-31";
 
-UPDATE fila SET chamado = true WHERE senha = (SELECT senha FROM fila as filas WHERE chamado = false ORDER BY id LIMIT 1);
+SELECT senha FROM fila as filas WHERE chamado = false ORDER BY id LIMIT 1;
 
 SELECT * FROM endereco;
 SELECT * FROM telefone;
