@@ -15,20 +15,22 @@
 		<img src="../img/logo_site.png" class="logo"></img>
 
 		<nav class="menu">
-		<ul>
-			<li><h:link value="MEU PERFIL" outcome="home_paciente"
-					class="link" /></li>
-			<li><h:link value="MINHAS CONSULTAS" outcome="minhas_consultas"
-					class="link" /></li>
-			<li><h:link value="MEUS ATESTADOS" outcome="exibir_atestados"
-					class="link" /></li>
-			<li><h:link value="MEUS PRONTUARIOS"
-					outcome="exibir_prontuarios" class="link" /></li>
-			<li><h:link value="MARCAR CONSULTA" outcome="marcar_consulta"
-					class="link" /></li>
-			<li><h:commandLink value="SAIR"
-					action="#{usuarioLogadoMBean.deslogar}" class="link" /></li>
-		</ul>
+			<h:form>
+				<ul>
+					<li><h:link value="MEU PERFIL" outcome="home_paciente"
+							class="link" /></li>
+					<li><h:link value="MINHAS CONSULTAS" outcome="minhas_consultas"
+							class="link" /></li>
+					<li><h:link value="MEUS ATESTADOS" outcome="exibir_atestados"
+							class="link" /></li>
+					<li><h:link value="MEUS PRONTUARIOS"
+							outcome="exibir_prontuarios" class="link" /></li>
+					<li><h:link value="MARCAR CONSULTA" outcome="marcar_consulta"
+							class="link" /></li>
+					<li><h:commandLink value="SAIR"
+							action="#{usuarioLogadoMBean.deslogar}" class="link" /></li>
+				</ul>
+			</h:form>
 		</nav>
 	</div>
 
