@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
@@ -16,6 +18,7 @@ import org.primefaces.model.ScheduleModel;
 
 import br.com.SIGEC.control.MedicoDAO;
 import br.com.SIGEC.model.Medico;
+import br.com.SIGEC.model.Usuario;
 
 /**
  * 
@@ -32,8 +35,11 @@ public class AgendaMedica implements Serializable {
 	public void construir() {
 		this.schedule = new DefaultScheduleModel();
 	    
-		Medico medico = new Medico();
-		medico.setId(1);
+		FacesContext fc = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+		Usuario usuario = (Usuario) session.getAttribute("usuario_logado");
+		
+		Medico medico = MedicoDAO.buscarMedicoPeloLoginDoUsuario(usuario.getLogin());
 		carregarConsultasNaAgenda(medico);
 	}
 	
@@ -59,7 +65,7 @@ public class AgendaMedica implements Serializable {
 		this.schedule.addEvent(eventoConsulta);
 	}
 	
-	//O fim da consulta é 1hroa depois
+	//O fim da consulta é 1 hora depois
 	private Date fimDeConsulta(Date horarioDaConsulta) {
 		LocalDateTime ldt = Instant.ofEpochMilli(horarioDaConsulta.getTime())
 			      .atZone(ZoneId.systemDefault())

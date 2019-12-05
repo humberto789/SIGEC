@@ -2,10 +2,13 @@ package br.com.SIGEC.web.mbean;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import br.com.SIGEC.control.ConsultaDAO;
+import br.com.SIGEC.control.MedicoDAO;
 import br.com.SIGEC.model.Medico;
-import br.com.SIGEC.model.Pessoa;
+import br.com.SIGEC.model.Usuario;
 
 @ManagedBean
 @ViewScoped
@@ -14,13 +17,12 @@ public class EditarConsultaBean {
 	private int id;
 	
 	public void carregarConsulta() {
-		Medico medico = new Medico();
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNomeCompleto("Pierre Carlos de Brito");
-		medico.setCrm("893482");
-		medico.setPessoa(pessoa);
+		FacesContext fc = FacesContext.getCurrentInstance();
+		HttpSession session = (HttpSession) fc.getExternalContext().getSession(false);
+		Usuario usuario = (Usuario) session.getAttribute("usuario_logado");
+		
+		Medico medico = MedicoDAO.buscarMedicoPeloLoginDoUsuario(usuario.getLogin());
 		this.consulta = ConsultaDAO.buscar(this.id, medico);	
-		System.out.println(this.consulta.getHorario());
 	}
 	
 	public String cancelarConsulta() {

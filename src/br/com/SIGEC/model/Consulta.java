@@ -47,15 +47,10 @@ public class Consulta {
 	public void setId(int id) {
 		this.id = id;
 	}
-<<<<<<< HEAD
-	
-	
-=======
 	public boolean isRealizada() {
 		return realizada;
 	}
 	public void setRealizada(boolean realizada) {
 		this.realizada = realizada;
 	}
->>>>>>> bb6da0818e5fa64b82a9cea8bdbe87ac61270eb8
 }

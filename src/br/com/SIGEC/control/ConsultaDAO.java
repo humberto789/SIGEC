@@ -10,24 +10,21 @@ import java.util.List;
 import br.com.SIGEC.model.Consulta;
 import br.com.SIGEC.model.Medico;
 import br.com.SIGEC.model.Paciente;
-<<<<<<< HEAD
+
 import br.com.SIGEC.model.Pessoa;
-=======
->>>>>>> bb6da0818e5fa64b82a9cea8bdbe87ac61270eb8
 
 
 public class ConsultaDAO extends AbstractDao{
 	private static final String SQL_INSERT_CONSULTA = "INSERT INTO consulta(id_medico, id_paciente, horario, realizada) VALUES ((SELECT id FROM medico WHERE crm=?), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf=?), ?, 0)";
 	private static final String SQL_SELECT_CONSULTA_POR_HORARIO_POR_CPF_PACIENTE_POR_CRM_MEDICO = "SELECT * FROM consulta INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa ON pessoa.id = paciente.id_pessoa WHERE consulta.horario=? AND medico.crm=? AND pessoa.cpf=?";
-<<<<<<< HEAD
 	private static final String SQL_SELECT_MEDICO_CONSULTA = "SELECT cons.id, cons.horario, pes.nome, pes.cpf FROM consulta cons INNER JOIN paciente p ON cons.id_paciente = p.id " +
 																	" INNER JOIN pessoa pes ON p.id_pessoa = pes.id" + 
 																	" WHERE cons.id = ?;";
 	private static final String SQL_DELETE_CONSULTA = "DELETE FROM consulta WHERE id = ?;";
 	private static final String SQL_UPDATE_CONSULTA = "UPDATE consulta SET horario = ? WHERE id = ?;";
 	
-	public static void confirmarConsulta(Consulta consulta) {}
-=======
+
+
 	private static final String SQL_SELECT_CONSULTA_POR_CPF_DO_PACIENTE = "SELECT consulta.*, medico.crm, pessoaMedico.nome , pessoaPaciente.nome FROM consulta INNER JOIN medico ON consulta.id_medico = medico.id INNER JOIN pessoa pessoaMedico ON medico.id_pessoa = pessoaMedico.id INNER JOIN paciente ON consulta.id_paciente = paciente.id INNER JOIN pessoa pessoaPaciente ON paciente.id_pessoa = pessoaPaciente.id WHERE pessoaPaciente.cpf = ?";
 	private static final String SQL_UPDATE_CONFIRMAR_CONSULTA = "UPDATE consulta SET realizada = true WHERE id_paciente = (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf=?) AND id_medico = (SELECT id FROM medico WHERE crm = ?) AND horario = ?";
 	
@@ -49,7 +46,6 @@ public class ConsultaDAO extends AbstractDao{
 			return false;
 		}
 	}
->>>>>>> bb6da0818e5fa64b82a9cea8bdbe87ac61270eb8
 	
 	public static boolean cadastrarConsulta(Consulta consulta) {
 		try {
@@ -89,7 +85,6 @@ public class ConsultaDAO extends AbstractDao{
 			return false;
 		}
 	}
-<<<<<<< HEAD
 
 	/**
 	 * 
@@ -145,8 +140,8 @@ public class ConsultaDAO extends AbstractDao{
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	      
-=======
+		}	   
+	}
 	
 	public static List<Consulta> buscarConsultaPorCPF(String cpf) {
 		List<Consulta> minhasConsultas = new ArrayList<>();
@@ -177,6 +172,5 @@ public class ConsultaDAO extends AbstractDao{
 		}
 
 		return minhasConsultas;
->>>>>>> bb6da0818e5fa64b82a9cea8bdbe87ac61270eb8
 	}
 }
