@@ -3,19 +3,21 @@ package br.com.SIGEC.web.mbean;
 import br.com.SIGEC.model.Fila;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 
-import br.com.SIGEC.control.ChamarPacienteDAO;
+import br.com.SIGEC.control.FilaDAO;
 
 // Botar o botão chamar próximo
 
 @ManagedBean
+@RequestScoped
 public class ChamarPacienteMB extends AbstractMBean{
 	//botão próximo acionado
 	
-	public void chamarPaciente(Fila fila) {
-		ChamarPacienteDAO proximo = new ChamarPacienteDAO();
-		proximo.recuperarLista(fila);
-		proximo.chamarProximo(fila);
+	public void chamarPaciente() {
+		String senha = FilaDAO.chamarProximo();
+		
+		super.exibirMensagemInformativa("A senha do paciente é: " + senha);
 	}
 	
 	
