@@ -17,9 +17,20 @@ body{
 .cabecalho{
 	background-color: rgb(2,0,75);
 	padding: 0.3%;
+	display: flex;
+	align-items: center;
 }
+.cabecalho figure, .cabecalho nav {
+	display: inline-block !important;
+}
+
+.cabecalho nav {
+	width: 350px;
+}
+
 .cabecalho li{
-	display: inline;
+	display: inline-block;
+	margin-left: 15px;
 }
 .links{
 	background-color: rgb(2,0,75);
@@ -36,13 +47,9 @@ body{
 	font-size: 120%;
 	margin-left:4%;
 }
-.logohome {
-	position: absolute;
-	top:0;
-}
 .logohome img{
 	display: block;
-	width: 16%;
+	width: 60px;
 }
 .menuPrincipal{
 	margin-left: 5%;

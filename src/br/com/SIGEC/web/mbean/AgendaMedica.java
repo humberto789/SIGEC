@@ -1,24 +1,21 @@
 package br.com.SIGEC.web.mbean;
 
+import java.io.Serializable;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
-import org.primefaces.event.ScheduleEntryMoveEvent;
-import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleModel;
 
 import br.com.SIGEC.control.MedicoDAO;
 import br.com.SIGEC.model.Medico;
-import br.com.SIGEC.model.Pessoa;
 
 /**
  * 
@@ -27,78 +24,53 @@ import br.com.SIGEC.model.Pessoa;
  *Essa classe é só para iniciar o componente de agenda do Primefaces
  */
 @ManagedBean
-@ViewScoped
-public class AgendaMedica {
-	private ScheduleModel eventModel;
+public class AgendaMedica implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private ScheduleModel schedule;
 	
 	@PostConstruct
-	public void init() {
-		this.eventModel = new DefaultScheduleModel();
-		
-		DefaultScheduleEvent consulta = new DefaultScheduleEvent("Exame do toque", hoje1DaTarde(), hoje2DaTarde());
-		consulta.setDescription("Vá com calma com paciente, pois já está com 80 anos.");
-		this.eventModel.addEvent(consulta);
-		
+	public void construir() {
+		this.schedule = new DefaultScheduleModel();
+	    
 		Medico medico = new Medico();
 		medico.setId(1);
-		Pessoa pessoa = new Pessoa();
-		pessoa.setNomeCompleto("Pierre Carlos de Brito");
-		medico.setPessoa(pessoa);
-		
 		carregarConsultasNaAgenda(medico);
-		
 	}
 	
-	private void  carregarConsultasNaAgenda(Medico medico) {
-		List<DefaultScheduleEvent> eventosConsultas = new ArrayList<>();
+	private void  carregarConsultasNaAgenda(Medico medico) {	
+		List<br.com.SIGEC.model.Consulta> consultas = MedicoDAO.listarConsultas(medico);
+		System.out.println(consultas.size());
 		
-		List<Consulta> consultas = MedicoDAO.listarConsultas(medico);
-		consultas.forEach(c -> {
-			DefaultScheduleEvent evento = new DefaultScheduleEvent("Consulta com " + c.getPaciente(), c.getDataConsulta(), ultimaHoraDeHoje());
-			evento.setDescription("Consulta marcada com o paciente de CPF...");
-			evento.setAllDay(true);
-			eventosConsultas.add(evento);
-		});
-		
-		eventosConsultas.forEach(e -> this.eventModel.addEvent(e));
+		for (br.com.SIGEC.model.Consulta consulta : consultas) {
+			adicionarConsulta(consulta);
+		}	
 
 	}
 	
-	public void eventoSelecionado(SelectEvent evento) {
-		DefaultScheduleEvent consulta = (DefaultScheduleEvent) evento.getSource();
-		System.out.println(consulta.getTitle());
-		System.out.println("EPAA");
-    }
-	
-	public void eventoMovido(ScheduleEntryMoveEvent evento) {
-		DefaultScheduleEvent consulta = (DefaultScheduleEvent) evento.getSource();
-		System.out.println(consulta.getTitle());
-		System.out.println("EPAA");
-    }
-    
-	
-	private Date ultimaHoraDeHoje() {
-        LocalDateTime ldt = LocalDateTime.now().withHour(23).withMinute(59).withSecond(59).withNano(0);
-        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-    }
-	
-	private Date hoje1DaTarde() {
-        LocalDateTime ldt = LocalDateTime.now().withHour(13).withMinute(0).withSecond(0).withNano(0);
-        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-    }
-	
-	
-	private Date hoje2DaTarde() {
-        LocalDateTime ldt = LocalDateTime.now().withHour(14).withMinute(0).withSecond(0).withNano(0);
-        return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
-    }
-
-	public ScheduleModel getEventModel() {
-		return eventModel;
-	}
-
-	public void setEventModel(ScheduleModel eventModel) {
-		this.eventModel = eventModel;
-	}
+	private void adicionarConsulta(br.com.SIGEC.model.Consulta consulta) {
+		DefaultScheduleEvent eventoConsulta = new DefaultScheduleEvent();
+		eventoConsulta.setTitle(consulta.getPaciente().getPessoa().getNomeCompleto());
+		eventoConsulta.setDescription("Consulta marcada com paciente de CPF " + consulta.getPaciente().getPessoa().getCpf());
+		eventoConsulta.setStartDate(consulta.getHorario());
+		eventoConsulta.setEndDate(fimDeConsulta(consulta.getHorario()));
+		eventoConsulta.setUrl("http://google.com");
+		eventoConsulta.setEditable(false);//Ninguém move na agenda
 		
+		this.schedule.addEvent(eventoConsulta);
+	}
+	
+	//O fim da consulta é 1hroa depois
+	private Date fimDeConsulta(Date horarioDaConsulta) {
+		LocalDateTime ldt = Instant.ofEpochMilli(horarioDaConsulta.getTime())
+			      .atZone(ZoneId.systemDefault())
+			      .toLocalDateTime()
+			      .plusHours(1);
+		
+		return Date.from(ldt.atZone(ZoneId.systemDefault()).toInstant());
+	}
+
+	public ScheduleModel getSchedule() {
+		return schedule;
+	}
+	
 }

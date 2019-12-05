@@ -5,16 +5,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import br.com.SIGEC.model.Consulta;
 import br.com.SIGEC.model.Medico;
 import br.com.SIGEC.model.Paciente;
 import br.com.SIGEC.model.Pessoa;
 import br.com.SIGEC.model.Usuario;
-import br.com.SIGEC.web.mbean.Consulta;
 
 public class MedicoDAO extends AbstractDao {
 
 	private static final String SQL_INSERT_MEDICO = "insert into medico (crm, id_pessoa) values (?, (select id from pessoa where cpf = ?)); ";
-	private static final String SQL_SELECT_MEDICO_CONSULTAS = "SELECT cons.dataConsulta, pes.nome, pes.cpf FROM consulta cons INNER JOIN paciente p ON cons.id_paciente = p.id " + 
+	private static final String SQL_SELECT_MEDICO_CONSULTAS = "SELECT cons.horario, pes.nome, pes.cpf FROM consulta cons INNER JOIN paciente p ON cons.id_paciente = p.id " + 
 																															  "INNER JOIN pessoa pes ON p.id_pessoa = pes.id " + 
 																															  "WHERE id_medico = ?;";
 	private static final String SQL_SELECT_MEDICO_POR_LOGIN = "SELECT * FROM medico INNER JOIN pessoa ON medico.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = ?;";
@@ -82,9 +83,9 @@ public class MedicoDAO extends AbstractDao {
 				paciente.setPessoa(pessoa);
 				
 				Consulta consulta = new Consulta();
-				consulta.setMedico(medico.getPessoa().getNomeCompleto());	
-				consulta.setDataConsulta(rs.getDate("cons.dataConsulta"));
-				consulta.setPaciente(pessoa.getNomeCompleto());
+				consulta.setPaciente(paciente);
+				consulta.setHorario(new java.util.Date(rs.getTimestamp("cons.horario").getTime()));
+				consulta.setMedico(medico);
 
 				consultas.add(consulta);
 			}

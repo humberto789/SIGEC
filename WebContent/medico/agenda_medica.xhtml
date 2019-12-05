@@ -33,51 +33,39 @@
 			</div>
 			
 			<div id="container-agenda">
-				<p:schedule locale="pt_BR" id="schedule" widgetVar="schedule" value="#{agendaMedica.eventModel}" view="basicWeek" >
-					<p:ajax event="eventSelect" listener="#{agendaMedica.eventoSelecionado}" update="eventDetails" oncomplete="PF('janela').show();" />  
-       				<p:ajax event="eventMove" listener="#{agendaMedica.eventoMovido}" />  
+				<p:schedule locale="pt_BR" id="schedule" widgetVar="schedule" value="#{agendaMedica.schedule}">
 				</p:schedule>
-				
-				<p:dialog widgetVar="janela" header="Detalhe da consulta" showEffect="clip" hideEffect="clip">
-			        <h:panelGrid id="eventDetails" columns="2">
-			            <p:outputLabel for="title" value="Titles:" />
-			            <p:inputText id="title" value="Opa" required="true" />
-			 
-			            <p:commandButton type="reset" value="Reset" />
-			            <p:commandButton id="addButton" value="Save" oncomplete="PF('schedule').update();PF('dialogo').hide();" />
-			        </h:panelGrid>
-    			</p:dialog>    
 			</div>			
 		</main>
 		
 		<script>
-			PrimeFaces.locales['pt_BR'] = {
-	                closeText: 'Fechar',
-	                prevText: 'Anterior',
-	                nextText: 'Próximo',
-	                currentText: 'Começo',
-	                monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-	                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
-	                dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
-	                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
-	                dayNamesMin: ['D','S','T','Q','Q','S','S'],
-	                weekHeader: 'Semana',
-	                firstDay: 1,
-	                isRTL: false,
-	                showMonthAfterYear: false,
-	                yearSuffix: '',
-	                timeOnlyTitle: 'Só Horas',
-	                timeText: 'Tempo',
-	                hourText: 'Hora',
-	                minuteText: 'Minuto',
-	                secondText: 'Segundo',
-	                currentText: 'Data Atual',
-	                ampm: false,
-	                month: 'Mês',
-	                week: 'Semana',
-	                day: 'Dia',
-	                allDayText : 'Todo Dia'
-	            };
+			//PrimeFaces.locales['pt_BR'] = {
+	                //closeText: 'Fechar',
+	                //prevText: 'Anterior',
+	                //nextText: 'Próximo',
+	               // currentText: 'Começo',
+	                //monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+	               // monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+	                //dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+	                //dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'],
+	                //dayNamesMin: ['D','S','T','Q','Q','S','S'],
+	                //weekHeader: 'Semana',
+	               // firstDay: 1,
+	                //isRTL: false,
+	                //showMonthAfterYear: false,
+	               // yearSuffix: '',
+	               // timeOnlyTitle: 'Só Horas',
+	                //timeText: 'Tempo',
+	                //hourText: 'Hora',
+	                //minuteText: 'Minuto',
+	                //secondText: 'Segundo',
+	                //currentText: 'Data Atual',
+	               // ampm: false,
+	                //month: 'Mês',
+	               // week: 'Semana',
+	               // day: 'Dia',
+	               // allDayText : 'Todo Dia'
+	           // };
 		</script>
 	</h:body>
 </html>

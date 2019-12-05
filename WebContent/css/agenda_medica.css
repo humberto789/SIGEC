@@ -28,8 +28,8 @@ img {
 	margin-bottom: 50px;
 }
 
-#menu ul {
-	list-style-type: none;
+.menu ul {
+	list-style: none;
 	padding: 0;
 }
 
