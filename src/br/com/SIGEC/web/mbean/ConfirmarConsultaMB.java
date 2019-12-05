@@ -26,93 +26,84 @@ import br.com.SIGEC.observer.Observador;
 
 @ManagedBean
 @RequestScoped
-public class ConfirmarConsultaMB extends AbstractMBean{
+public class ConfirmarConsultaMB extends AbstractMBean {
 
-	/*NECESSÁRIO INSERIR O QUARTZ; BIBLIOTECAS JÁ ADICIONDADAS
-	 * */
-	
-	
+	/*
+	 * NECESSÁRIO INSERIR O QUARTZ; BIBLIOTECAS JÁ ADICIONDADAS
+	 */
+
 	// Acessar o banco
 
 	private final static String consultar = "SELECT especialidade data FROM consulta";
 	private static final String URL = "jdbc:mysql://localhost:3306/SIGEC?useLegacyDatetimeCode=false&serverTimezone=America/Fortaleza";
 	private static final String USUARIO = "root";
 	private static final String SENHA = "12345";
-	
-	//Padrão Observer
+
+	// Padrão Observer
 	private final List<Observador> observadores;
-	
+
 	public ConfirmarConsultaMB() {
 		this.observadores = new ArrayList<>();
-		
+
 		this.observadores.add(new EnviarEmail());
-		
+
 	}
-	
+
 	public void confirmar(Paciente paciente, Consulta consulta) {
-		//Lógica para o BD
-		
-		//Para cada observador, chama-se o método que irá realizar sua devida ação:
+		// Lógica para o BD
+
+		// Para cada observador, chama-se o método que irá realizar sua devida ação:
 		for (Observador obs : this.observadores) {
-			//obs.notificar(paciente, consulta);
+			// obs.notificar(paciente, consulta);
 		}
 	}
-	
-	
 
-	// Recuperar dados da consulta
-
-	public void RecuperaConsulta(Consulta consulta) {
-
+	// método de enviar email
+	public void enviarEmail() {
+		// Recuperar dados da consulta
+		Consulta consulta = new Consulta();
 		Connection conexao;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
 			PreparedStatement sttmt = conexao.prepareStatement(consultar);
 			ResultSet dados = sttmt.executeQuery("SELECT * FROM consulta");
-			//consulta.setDataConsulta(dados.getDate(0));
-			//consulta.setEspecialidade(dados.getString(0));
+			// consulta.setDataConsulta(dados.getDate(0));
+			// consulta.setEspecialidade(dados.getString(0));
+			consulta.isRealizada();
 
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 
-	}
-	
-	
+		if (consulta.isRealizada() == true) {
+			Usuario user = new Usuario();
+			EmailConsulta email = new EmailConsulta();
+			String meuemail = email.getRemetente();
+			String minhasenha = email.getSenha();
+			String destinatario = user.getEmail();
+			String msg = "teste";
 
-	// método de enviar email
-	public void enviarEmail() {
-		Usuario user = new Usuario();
-		EmailConsulta email = new EmailConsulta();
-		String meuemail = email.getRemetente();
-		String minhasenha = email.getSenha();
-		String destinatario = user.getEmail();
-		String msg = "teste";
+			SimpleEmail emailconfig = new SimpleEmail();
+			emailconfig.setHostName("smtp.gmail.com");
+			emailconfig.setSmtpPort(465);
+			emailconfig.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
+			emailconfig.setSSLOnConnect(true);
 
-		SimpleEmail emailconfig = new SimpleEmail();
-		emailconfig.setHostName("smtp.gmail.com");
-		emailconfig.setSmtpPort(465);
-		emailconfig.setAuthenticator(new DefaultAuthenticator(meuemail, minhasenha));
-		emailconfig.setSSLOnConnect(true);
+			try {
+				emailconfig.setFrom(meuemail);
+				emailconfig.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA");
+				emailconfig.setMsg(msg);
+				emailconfig.addTo(destinatario);
+				emailconfig.send();
+				System.out.println("email enviado!");
 
-		try {
-			emailconfig.setFrom(meuemail);
-			emailconfig.setSubject("SIGEC - CONFIRMAÇÃO DE CONSULTA");
-			emailconfig.setMsg(msg);
-			emailconfig.addTo(destinatario);
-			emailconfig.send();
-			System.out.println("email enviado!");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
+
 	}
-	
-	
-	
-	
+
 }
-
-

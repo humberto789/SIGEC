@@ -151,7 +151,7 @@ INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) V
 
 INSERT INTO prontuario(peso, altura, alergia, queixa, temperatura, id_medico, id_paciente, horario_cadastro) VALUES(70.5, 1.80, "poeira", "dor de cabeça", 37.0, (SELECT medico.id FROM medico WHERE medico.crm = "123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), now());
 
-INSERT INTO consulta(id_medico, id_paciente, horario, realizada) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00", 0);
+INSERT INTO consulta(id_medico, id_paciente, horario, realizada) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00", );
 
 INSERT INTO fila(senha, id_consulta, chamado) VALUES ("123456", 1, true);
 INSERT INTO fila(senha, id_consulta, chamado) VALUES ("789123", 1, false);
