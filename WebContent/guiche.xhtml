@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+
+<h:head>
+    <link rel="stylesheet" href="css/guiche.css"/>
+    <title> SIGEC - GUICHÊ </title>
+	
+	<script type="text/javascript">
+       	function Atualizar(){
+			window.location.reload();
+	    }
+	</script>
+</h:head>
+
+<body onload="setInterval('Atualizar()', 500)">
+		<div id="guiche">
+        	<h1 class="senha">Senha: #{guicheMBean.senha}</h1> 
+        	Já ta tarde e não consegui colocar o websocket pra funcionar :c
+        </div>
+        
+        
+</body>
+</html>

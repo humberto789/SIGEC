@@ -52,24 +52,7 @@ public class FilaDAO extends AbstractDao{
 		}
 	}
 	
-	public static void recuperarLista(Fila fila) {
-		String recuperarLista = "select senha from fila where chamado = null limit 1";
-		
-		try {
-			PreparedStatement sttmt = ConexaoBanco.conexaoComBancoMySQL().prepareStatement(recuperarLista);
-			ResultSet dados = sttmt.executeQuery();
-			
-			dados.next();
-			int numero = dados.getInt("senha");
-			String numeroNome = Integer.toString(numero);
-			fila.setSenha(numeroNome);
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
-	
-	public static String chamarProximo() {
+	public static String recuperarUltimaSenha() {
 		try {
 			PreparedStatement statement = getConexao().prepareStatement(SQL_SELECT_ULTIMA_SENHA_NAO_CHAMADA);
 			
@@ -79,17 +62,29 @@ public class FilaDAO extends AbstractDao{
 			
 			if (resultadoBusca.next()) {
 				ultima_senha = resultadoBusca.getString("senha");
+				return ultima_senha;
 			}else {
 				return "SEM PACIENTES";
 			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return "OCORREU UM ERRO";
+		}
+	}
+	
+	public static String chamarProximo() {
+		try {
+			PreparedStatement statement = getConexao().prepareStatement(SQL_UPDATE_CHAMAR_PROXIMA_SENHA);
 			
-			statement = getConexao().prepareStatement(SQL_UPDATE_CHAMAR_PROXIMA_SENHA);
-			statement.setString(1, ultima_senha);
+			String senha = recuperarUltimaSenha();
+			
+			statement.setString(1, senha);
 			
 			int linhas_alteradas = statement.executeUpdate();
 			
 			if(linhas_alteradas>0) {
-				return ultima_senha;
+				return senha;
 			}
 			return "OCORREU UM ERRO";
 			
