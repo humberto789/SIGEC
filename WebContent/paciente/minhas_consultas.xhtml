@@ -1,71 +1,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <link rel="stylesheet" href="../css/VerConsultas.css"/>
-   
-    <title> SIGEC - Minhas Consultas </title>
+	<link rel="stylesheet" href="../css/cadastro.css" />
+
+	<title>SIGEC - Minhas Consultas</title>
 </h:head>
 
 <body>
 	<div class="menu-lateral">
 		<img src="../img/logo_site.png" class="logo"></img>
-		
-		<nav class="menu">
-			<h:form>
-				<ul>
-					<li><h:link value = "MEU PERFIL" outcome = "home_paciente" class="link"/></li>
-					<li><h:link value = "MINHAS CONSULTAS" outcome = "minhas_consultas" class="link"/></li>
-					<li><h:link value = "MEUS ATESTADOS" outcome = "exibir_atestados" class="link"/></li>
-					<li><h:link value = "MEUS PRONTUARIOS" outcome = "exibir_prontuarios" class="link"/></li>
-					<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta" class="link"/></li>
-					<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
-				</ul>
-			</h:form>
-		</nav>
+
+		<nav class="menu"> <h:form>
+			<ul>
+				<li><h:link value="MEU PERFIL" outcome="home_paciente"
+						class="link" /></li>
+				<li><h:link value="MINHAS CONSULTAS" outcome="minhas_consultas"
+						class="link" /></li>
+				<li><h:link value="MEUS ATESTADOS" outcome="exibir_atestados"
+						class="link" /></li>
+				<li><h:link value="MEUS PRONTUARIOS"
+						outcome="exibir_prontuarios" class="link" /></li>
+				<li><h:link value="MARCAR CONSULTA" outcome="marcar_consulta"
+						class="link" /></li>
+				<li><h:commandLink value="SAIR"
+						action="#{usuarioLogadoMBean.deslogar}" class="link" /></li>
+			</ul>
+		</h:form> </nav>
 	</div>
 	<div class="container">
-	
-		<div class="alinhar">
-		
-		<div class="cabecalho">
-			<h2 class="bem_vindo"><strong>Bem vindo</strong>, nomedousuario!</h2>
-		</div>
-		
-			
-		</div>
-			
-	
-	
-		<div class="container">
-	
-	<p:dataTable value="#{minhasConsultasMBean.VerConsultas}" var="VerConsultas">
-		<p:column headerText="MEDICO">
-			<h:outputText value="#{VerConsultas.medico}" />
-		</p:column>
-		<p:column headerText="ESPECIALIDADE">
-			<h:outputText value="#{VerConsultas.medico.especialidade}" />
-		</p:column>
-		<p:column headerText="DATA DA CONSULTA">
-			<h:outputText value="#{atestado.dataConsulta}" />
-		</p:column>
-	</p:dataTable>		
-	
+		<h1 class="titulo">MINHAS CONSULTAS</h1>
+		<p:dataTable value="#{minhasConsultasMB.minhasConsultas}"
+			var="consulta" class="tabela">
+			<p:column headerText="Nome do Médico">
+				<h:outputText value="#{consulta.medico.pessoa.nomeCompleto}" />
+			</p:column>
+			<p:column headerText="CRM do Médico">
+				<h:outputText value="#{consulta.medico.crm}" />
+			</p:column>
+			<p:column headerText="Horario da consulta">
+				<h:outputText value="#{consulta.horario}">
+					<f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="#{initParam.timezone}"/>
+				</h:outputText>
+			</p:column>
+		</p:dataTable>
 	</div>
-	
-			
-
-			
-			
-	
-		
-	<footer> 
-	</footer>
-	
-	
-</div>
-</body>	
+</body>
 </html>
