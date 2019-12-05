@@ -11,6 +11,7 @@ import br.com.SIGEC.model.Usuario;
 public class AdminDAO {
 	
 	private static final String SQL_SELECT_ADMIN_POR_LOGIN = "SELECT * FROM administrador INNER JOIN pessoa ON administrador.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = ?;";
+	private static final String SQL_INSERT_ADMIN = "INSERT INTO administrador ( id_pessoa) VALUES ((SELECT id FROM pessoa WHERE cpf = ?));";
 
 	
 	public static Admin buscarAdminPeloLoginDoUsuario(String umLogin) {
@@ -45,5 +46,36 @@ public class AdminDAO {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public static boolean cadastrarAdmin(Admin admin) {
+
+		if (PessoaDAO.buscarPessoaPorCpf(admin.getPessoa().getCpf()) == null) {
+			if (PessoaDAO.cadastrarPessoa(admin.getPessoa())) {
+				if (UsuarioDAO.cadastrarUsuario(admin.getPessoa().getUsuario().getEmail(),
+						admin.getPessoa().getCpf(), admin.getPessoa().getUsuario().getSenha(),
+						admin.getPessoa().getCpf())) {
+					try {
+						PreparedStatement statement = ConexaoBanco.conexaoComBancoMySQL()
+								.prepareStatement(SQL_INSERT_ADMIN);
+
+						statement.setString(1, admin.getPessoa().getCpf());
+
+						int linhasAlteradas = statement.executeUpdate();
+						if (linhasAlteradas > 0)
+							return true;
+
+						return false;
+
+					} catch (SQLException e) {
+						e.printStackTrace();
+						return false;
+					}
+				}
+				return false;
+			}
+			return false;
+		}
+		return false;
 	}
 }

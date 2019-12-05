@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+	<h:head>
+		<title>SIGEC - MODIFICAÇÃO DE CONSULTA</title>
+		<link rel="stylesheet" href="../css/agenda_medica.css"/>
+		<meta charset="utf-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    	<h:outputScript library="primefaces" name="jquery/jquery-plugins.js"></h:outputScript>
+	</h:head> 
+	<h:body>
+		<!-- Parâmetros na URL  -->
+		<f:metadata>
+		    <f:viewParam name="cons" value="#{editarConsultaBean.id}"/>
+		    <f:viewAction action="#{editarConsultaBean.carregarConsulta}"/>
+		</f:metadata>
+	
+		<div id="menu-lateral">
+			<img src="../img/logo_site.png" id="logo"></img>
+			
+			<nav class="menu">
+				<h:form>
+					<ul>
+						<li><h:link value = "MEU PERFIL" outcome = "home_medico" class="link"/></li>
+						<li><h:link value = "MINHA AGENDA" outcome = "agenda_medica" class="link"/></li>
+						<li><h:link value = "CADASTRAR PRONTUARIO" outcome = "cadastrar_prontuario" class="link"/></li>
+						<li><h:link value = "EMITIR_ATESTADO" outcome = "emitir_atestado" class="link"/></li>
+						<li><h:commandLink value = "CHAMAR PACIENTE" action="#{chamarPacienteMB.chamarPaciente}" class="link"/></li>
+						<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
+					</ul>
+				</h:form>
+			</nav>
+		</div>
+		
+		<main id="conteudo-principal">
+			<h1 id="titulo">Modificação da consulta</h1>
+			<div id="container-data">
+				Data e hora atual: <p:clock pattern="dd/MM HH:mm"/>
+			</div>
+			<div id="container-agenda">
+				  <h:form class="formulario_login">        
+			            <p:panelGrid columns="2" style="width: 100%;">
+			            	<h:outputLabel styleClass="label">Paciente</h:outputLabel>
+			            	<h:outputText value="#{editarConsultaBean.consulta.paciente.pessoa.nomeCompleto}"/>
+			            	<h:outputLabel styleClass="label">Médico</h:outputLabel>
+			            	<h:outputText value="#{editarConsultaBean.consulta.medico.pessoa.nomeCompleto}"/>
+			            	<h:outputLabel class="label">Dia e Horário</h:outputLabel>
+							<p:datePicker value="#{editarConsultaBean.consulta.horario}" showTime="true" pattern="dd-MMM-yyyy HH:mm" />
+			            </p:panelGrid>
+			            
+			            <div style="margin-top: 10px;text-align: right;">
+				            <h:commandButton class="botao salvar" action="#{editarConsultaBean.salvar}" value="SALVAR"/>
+				            <h:commandButton class="botao nao-editar"  value="NÃO EDITAR" onclick="window.close()"/>
+				            <h:commandButton class="botao cancelar"  value="CANCELAR CONSULTA" action="#{editarConsultaBean.cancelarConsulta}"/>
+			            </div>
+		        </h:form>
+			</div>			
+		</main>
+		
+	</h:body>
+</html>

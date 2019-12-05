@@ -19,14 +19,17 @@
 		<img src="../img/logo_site.png" class="logo"></img>
 
 		<nav class="menu">
-			<ul>
-				<li><h:link value = "MEU PERFIL" outcome = "home_admin" class="link"/></li>
-				<li><h:link value = "CADASTRAR MÉDICO" outcome = "cadastro_medico" class="link"/></li>
-				<li><h:link value = "CADASTRO PACIENTE" outcome = "cadastro_paciente" class="link"/></li>
-				<li><h:link value = "CADASTRO RECEPCIONISTA" outcome = "cadastro_recepcionista" class="link"/></li>
-				<li><h:link value = "BLOQUEAR USUÁRIO" outcome = "bloquear" class="link"/></li>
-				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
-			</ul>
+			<h:form>
+				<ul>
+					<li><h:link value = "MEU PERFIL" outcome = "home_admin" class="link"/></li>
+					<li><h:link value = "CADASTRAR MÉDICO" outcome = "cadastro_medico" class="link"/></li>
+					<li><h:link value = "CADASTRO PACIENTE" outcome = "cadastro_paciente" class="link"/></li>
+					<li><h:link value = "CADASTRO RECEPCIONISTA" outcome = "cadastro_recepcionista" class="link"/></li>
+					<li><h:link value = "CADASTRO ADMIN" outcome = "cadastro_admin" class="link"/></li>
+					<li><h:link value = "BLOQUEAR USUÁRIO" outcome = "bloquear" class="link"/></li>
+					<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
+				</ul>
+			</h:form>
 		</nav>
 	</div>
 	<div class="container" style="padding: 11em">

@@ -63,10 +63,41 @@ img {
 	font-family: sans-serif;
 }
 
+.mensagem {
+	margin-bottom: 10px;
+}
+
 #container-agenda {
 	padding: 2em;
 }
 
+.label {
+	font-weight: bold;
+}
+
+.botao {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	color: #FFFFFF;
+	border: none;
+	cursor: pointer;
+}
+
+.salvar {
+	background-color: #81C788;
+	margin-right: 10px;
+}
+
+.cancelar {
+	background-color: #D43D05;
+}
+
+.nao-editar {
+	background-color: #F9D776;
+	margin-right: 10px;
+}
 
 @media (max-width: 1100px) {
 	#menu-lateral {

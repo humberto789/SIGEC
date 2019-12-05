@@ -53,7 +53,7 @@ public class AgendaMedica implements Serializable {
 		eventoConsulta.setDescription("Consulta marcada com paciente de CPF " + consulta.getPaciente().getPessoa().getCpf());
 		eventoConsulta.setStartDate(consulta.getHorario());
 		eventoConsulta.setEndDate(fimDeConsulta(consulta.getHorario()));
-		eventoConsulta.setUrl("http://google.com");
+		eventoConsulta.setUrl("editar_consulta.jsf?cons=" + consulta.getId());
 		eventoConsulta.setEditable(false);//Ninguém move na agenda
 		
 		this.schedule.addEvent(eventoConsulta);

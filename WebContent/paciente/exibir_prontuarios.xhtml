@@ -8,7 +8,8 @@
 <h:head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="../css/cadastro.css" />
-	<title>SIGEC - MEUS ATESTADOS</title>
+
+	<title>SIGEC - MEU PERFIL</title>
 </h:head>
 <body>
 	<div class="menu-lateral">
@@ -36,32 +37,35 @@
 
 	<div class="container">
 
-		<h1 class="titulo">ATESTADOS</h1>
+		<h1 class="titulo">PRONTUÁRIOS</h1>
 
-		<p:dataTable value="#{meusAtestadosMBean.meusAtestados}"
-			var="atestado" class="tabela">
+		<p:dataTable value="#{meusProntuariosMBean.meusProntuarios}"
+			var="prontuario" class="tabela">
 			<p:column headerText="Nome do Médico">
-				<h:outputText value="#{atestado.medico.pessoa.nomeCompleto}" />
+				<h:outputText value="#{prontuario.medico.pessoa.nomeCompleto}" />
 			</p:column>
-			<p:column headerText="CRM do Médico">
-				<h:outputText value="#{atestado.medico.crm}" />
+			<p:column headerText="Peso">
+				<h:outputText value="#{prontuario.peso}" />
 			</p:column>
-			<p:column headerText="Data de Emissão">
-				<h:outputText value="#{atestado.dataEmissao}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
+			<p:column headerText="Altura">
+				<h:outputText value="#{prontuario.altura}">
 				</h:outputText>
 			</p:column>
-			<p:column headerText="Data de Vencimento">
-				<h:outputText value="#{atestado.dataVencimento}">
-					<f:convertDateTime pattern="dd/MM/yyyy" />
+			<p:column headerText="Alergia">
+				<h:outputText value="#{prontuario.alergia}">
 				</h:outputText>
 			</p:column>
-			<p:column headerText="CID">
-				<h:outputText value="#{atestado.cid}" />
+			<p:column headerText="Queixa">
+				<h:outputText value="#{prontuario.queixa}" />
+			</p:column>
+			<p:column headerText="Temperatura">
+				<h:outputText value="#{prontuario.temperatura}" />
 			</p:column>
 		</p:dataTable>
-
 	</div>
+
 	<footer> </footer>
+
 </body>
+
 </html>

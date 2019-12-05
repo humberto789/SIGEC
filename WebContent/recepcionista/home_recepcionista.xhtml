@@ -13,19 +13,21 @@
 <body>
 	<header> <figure class="logo"> <img src="../img/logo_site.png" alt="Logo SIGEC" /> </figure> 
 		<nav class="menu-principal">
-		<ul class="links-menu">
-			<div class="links">
-				<li><h:link value = "MEU PERFIL" outcome = "home_recepcionista" /></li>
-				<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta"/></li>
-				<li><h:link value = "SAIR" outcome = "#"/></li>
-			</div>
-		</ul>
+			<h:form>
+				<ul class="links-menu">
+					<div class="links">
+						<li><h:link value = "MEU PERFIL" outcome = "home_recepcionista" /></li>
+						<li><h:link value = "MARCAR CONSULTA" outcome = "marcar_consulta"/></li>
+						<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}"/></li>
+					</div>
+				</ul>
+			</h:form>
 		</nav> 
 	</header>
 	
 	<div class="container">
 	
-		<h2 class="bem_vindo">Bem vindo, nomedousuario!</h2>	
+		<h2 class="bem_vindo">Bem vindo, #{meuPerfilMB.pessoa.nomeCompleto}!</h2>	
 		<a href="#">SAIR</a>
 	
 		

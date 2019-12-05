@@ -104,7 +104,8 @@ create table consulta(
 
 create table fila (
 	id int auto_increment not null primary key,
-	senha int
+	senha int not null,
+	chamado int
 );
 
 
@@ -144,7 +145,7 @@ INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) V
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F45", "2019-10-13", "2019-10-16", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "705.960.664-32"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-33"));
 INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) VALUES("F44", "2019-03-05", "2019-05-05", (select medico.id from medico inner join pessoa on medico.id_pessoa = pessoa.id where cpf = "111.111.111-11"), (select paciente.id from paciente inner join pessoa on paciente.id_pessoa = pessoa.id where cpf = "705.960.664-31"));
 
-
+INSERT INTO prontuario(peso, altura, alergia, queixa, temperatura, id_paciente, id_medico) VALUES(70.5, 1.80, "poeira", "dor de cabeça", 37.0, (SELECT medico.id FROM medico WHERE medico.crm = "123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"));
 
 SELECT * FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = "705.960.664-31";
 INSERT INTO consulta(id_medico, id_paciente, horario) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00");
@@ -156,3 +157,6 @@ SELECT * FROM pessoa;
 SELECT * FROM paciente;
 SELECT * FROM usuario;
 SELECT * FROM consulta;
+SELECT * FROM recepcionista;
+SELECT * FROM administrador;
+SELECT * FROM prontuario;

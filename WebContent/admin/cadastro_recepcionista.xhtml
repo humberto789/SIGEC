@@ -3,7 +3,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"> 
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
     <meta charset="UTF-8"/>
@@ -17,53 +18,58 @@
 		<img src="../img/logo_site.png" class="logo"></img>
 		
 		<nav class="menu">
-			<ul>
-				<li><h:link value = "MEU PERFIL" outcome = "home_admin" class="link"/></li>
-				<li><h:link value = "CADASTRAR MÉDICO" outcome = "cadastro_medico" class="link"/></li>
-				<li><h:link value = "CADASTRO PACIENTE" outcome = "cadastro_paciente" class="link"/></li>
-				<li><h:link value = "CADASTRO RECEPCIONISTA" outcome = "cadastro_recepcionista" class="link"/></li>
-				<li><h:link value = "BLOQUEAR USUÁRIO" outcome = "bloquear" class="link"/></li>
-				<li><h:link value = "SAIR" outcome = "#" class="link"/></li>
-			</ul>
+			<h:form>
+				<ul>
+					<li><h:link value = "MEU PERFIL" outcome = "home_admin" class="link"/></li>
+					<li><h:link value = "CADASTRAR MÉDICO" outcome = "cadastro_medico" class="link"/></li>
+					<li><h:link value = "CADASTRO PACIENTE" outcome = "cadastro_paciente" class="link"/></li>
+					<li><h:link value = "CADASTRO RECEPCIONISTA" outcome = "cadastro_recepcionista" class="link"/></li>
+					<li><h:link value = "CADASTRO ADMIN" outcome = "cadastro_admin" class="link"/></li>
+					<li><h:link value = "BLOQUEAR USUÁRIO" outcome = "bloquear" class="link"/></li>
+					<li><h:commandLink value = "SAIR" action="#{usuarioLogadoMBean.deslogar}" class="link"/></li>
+				</ul>
+			</h:form>
 		</nav>
 	</div>
     <div class="container">
         <h:form class="formulario_login">
-            <h1>CADASTRAR RECEPCIONISTA</h1>
+            <h1>CADASTRAR ADMINISTRADOR</h1>
+            <p:messages />
             <h:outputLabel class="label_campo">NOME COMPLETO</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.nomeCompleto}" a:placeholder="Insira seu nome completo" class="campo" required="true"/>
             <h:outputLabel class="label_campo">CPF</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <p:inputMask mask="999.999.999-99" maxlength="14" value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.cpf}" styleClass="campo" placeholder="Insira o seu CPF" required="true"/>
             <h:outputLabel class="label_campo">EMAIL</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.usuario.email}" a:placeholder="Insira o seu email" class="campo" required="true"/>
             <h:outputLabel class="label_campo">SENHA</h:outputLabel>
-            <h:inputSecret value="" a:placeholder="" class="campo"/>
+            <h:inputSecret value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.usuario.senha}" a:placeholder="Insira a sua senha" class="campo" required="true"/>
             <h:outputLabel class="label_campo">SEXO</h:outputLabel>
-            <h:selectOneMenu value = "" class="campo"> 
-	            <f:selectItem itemValue = "0" itemLabel = "Masculino" /> 
-	            <f:selectItem itemValue = "1" itemLabel = "Feminino" />    
+            <h:selectOneMenu value = "#{cadastrarRecepcionistaMB.recepcionista.pessoa.sexo}" class="campo"> 
+	            <f:selectItem itemValue = "masculino" itemLabel = "Masculino" /> 
+	            <f:selectItem itemValue = "feminino" itemLabel = "Feminino" />    
          	</h:selectOneMenu>
          	<h:outputLabel class="label_campo">DATA DE NASCIMENTO</h:outputLabel>
-            <h:inputText value="" size="20" required="true" class="campo">	
-				<f:convertDateTime pattern="dd-MM-yyyy" />
-		  	</h:inputText>
-            <h:outputLabel class="label_campo">TELEFONE</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+         	<p:inputMask value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.dataNascimento}" class="campo" required="true" mask="99/99/9999" >
+         		<f:convertDateTime pattern="dd/MM/yyyy" />
+         	</p:inputMask>
+         	<h:outputLabel class="label_campo">TELEFONE</h:outputLabel>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.telefone.numero}" a:placeholder="Insira seu numero de telefone" class="campo" required="true"/>
             <h:outputLabel class="label_campo">ESTADO</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
-            <h:outputLabel class="label_campo">CEP</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.estado}" a:placeholder="Insira seu estado" class="campo" required="true"/>
+            <h:outputLabel class="label_campo" >CEP</h:outputLabel>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.cep}" a:placeholder="Insira o seu CEP" class="campo" required="true" mask="99999-999"/>
             <h:outputLabel class="label_campo">CIDADE</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.cidade}" a:placeholder="Insira a sua cidade" class="campo" required="true"/>
             <h:outputLabel class="label_campo"> BAIRRO</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.bairro}" a:placeholder="Insiara o seu bairro" class="campo" required="true"/>
             <h:outputLabel class="label_campo">RUA</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.rua}" a:placeholder="Insira a sua rua" class="campo" required="true"/>
             <h:outputLabel class="label_campo">NÚMERO</h:outputLabel>
-            <h:inputText value="" a:placeholder="" class="campo"/>
+            <h:inputText value="#{cadastrarRecepcionistaMB.recepcionista.pessoa.endereco.numero}" a:placeholder="Insira o número da sua casa" class="campo" required="true"/>
             
-            <h:commandButton class="botao_cadastro" action="#{clienteMBean.cadastrar()}" value="CADASTRAR"/>
-        </h:form>
+            
+            <h:commandButton class="botao_cadastro" action="#{cadastrarRecepcionistaMB.cadastrar}" value="CADASTRAR"/>
+    	</h:form>
     </div>
     <footer>
     </footer>

@@ -22,6 +22,10 @@ import br.com.SIGEC.observer.Observador;
 @ManagedBean
 public class ConfirmarConsulta {
 
+	/*NECESSÁRIO INSERIR O QUARTZ; BIBLIOTECAS JÁ ADICIONDADAS
+	 * */
+	
+	
 	// Acessar o banco
 
 	private final static String consultar = "SELECT especialidade data FROM consulta";

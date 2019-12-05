@@ -15,7 +15,7 @@ import br.com.SIGEC.model.Usuario;
 public class MedicoDAO extends AbstractDao {
 
 	private static final String SQL_INSERT_MEDICO = "insert into medico (crm, id_pessoa) values (?, (select id from pessoa where cpf = ?)); ";
-	private static final String SQL_SELECT_MEDICO_CONSULTAS = "SELECT cons.horario, pes.nome, pes.cpf FROM consulta cons INNER JOIN paciente p ON cons.id_paciente = p.id " + 
+	private static final String SQL_SELECT_MEDICO_CONSULTAS = "SELECT cons.id, cons.horario, pes.nome, pes.cpf FROM consulta cons INNER JOIN paciente p ON cons.id_paciente = p.id " + 
 																															  "INNER JOIN pessoa pes ON p.id_pessoa = pes.id " + 
 																															  "WHERE id_medico = ?;";
 	private static final String SQL_SELECT_MEDICO_POR_LOGIN = "SELECT * FROM medico INNER JOIN pessoa ON medico.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = ?;";
@@ -86,6 +86,7 @@ public class MedicoDAO extends AbstractDao {
 				consulta.setPaciente(paciente);
 				consulta.setHorario(new java.util.Date(rs.getTimestamp("cons.horario").getTime()));
 				consulta.setMedico(medico);
+				consulta.setId(rs.getInt("cons.id"));
 
 				consultas.add(consulta);
 			}

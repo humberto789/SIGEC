@@ -7,13 +7,34 @@ public class Prontuario {
 	private String alergia;
 	private String queixa;
 	private double temperatura;
+	private Medico medico;
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+
+	private Paciente paciente;
 	
 	public Prontuario() {
+		this.medico = new Medico();
+		this.paciente = new Paciente();
 	}
 	
 	public Prontuario(Double peso, Double altura, int id, String alergia, String queixa, double temperatura) {
 		super();
-		
+		this.medico = new Medico();
+		this.paciente = new Paciente();
 		this.peso = peso;
 		this.altura = altura;
 		this.id = id;
