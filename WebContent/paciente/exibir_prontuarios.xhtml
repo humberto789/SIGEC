@@ -40,7 +40,7 @@
 		<h1 class="titulo">PRONTUÁRIOS</h1>
 
 		<p:dataTable value="#{meusProntuariosMBean.meusProntuarios}"
-			var="protuario" class="tabela">
+			var="prontuario" class="tabela">
 			<p:column headerText="Nome do Médico">
 				<h:outputText value="#{prontuario.medico.pessoa.nomeCompleto}" />
 			</p:column>
@@ -60,14 +60,6 @@
 			</p:column>
 			<p:column headerText="Temperatura">
 				<h:outputText value="#{prontuario.temperatura}" />
-			</p:column>
-			<p:column style="width:35px; text-align: center">
-				<p:commandButton update=":form:carDetail"
-					oncomplete="PF('carDialog').show()" icon="pi pi-search"
-					title="View">
-					<f:setPropertyActionListener value="#{car}"
-						target="#{dtSelectionView.selectedCar}" />
-				</p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</div>

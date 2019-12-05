@@ -12,7 +12,7 @@ import br.com.SIGEC.model.VerConsultas;
 
 @ManagedBean
 @ViewScoped
-public class MinhasConsultasMbean extends AbstractMBean{
+public class MinhasConsultasMB extends AbstractMBean{
 	
 	
 		private List<VerConsultas> minhasConsultas = new ArrayList<>();

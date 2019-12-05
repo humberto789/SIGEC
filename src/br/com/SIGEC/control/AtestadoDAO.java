@@ -27,10 +27,10 @@ public class AtestadoDAO extends AbstractDao {
 	 * @return um {@link List} contendo todos os {@link Atestado} do paciente.
 	 */
 
-	public List<Atestado> buscarAtestadosPorCPF(String cpf) {
+	public static List<Atestado> buscarAtestadosPorCPF(String cpf) {
 		List<Atestado> meusAtestados = new ArrayList<>();
 		try {
-			PreparedStatement stmt = super.getConexao().prepareStatement(SQL_CONSULTA_POR_CPF);
+			PreparedStatement stmt = getConexao().prepareStatement(SQL_CONSULTA_POR_CPF);
 			stmt.setString(1, cpf);
 			ResultSet rs = stmt.executeQuery();
 

@@ -59,14 +59,6 @@
 			<p:column headerText="CID">
 				<h:outputText value="#{atestado.cid}" />
 			</p:column>
-			<p:column style="width:35px; text-align: center">
-				<p:commandButton oncomplete="PF('atestadoDialog').show()"
-					icon="pi pi-search" title="View">
-					<f:setPropertyActionListener value="#{atestado}"
-						target="#{meusAtestadosMBean.meusAtestados}" />
-				</p:commandButton>
-			</p:column>
-
 		</p:dataTable>
 
 	</div>
