@@ -1,28 +1,30 @@
 package br.com.SIGEC.model;
 
-import java.util.ArrayList;
-
 public class Fila {
 	private String senha;
-	private ArrayList<String> lista; //Não está sendo útil por enquanto
-	private int chamado;
+	private boolean chamado;
+	private Consulta consulta;
 	
+	public Fila() {
+		consulta = new Consulta();
+	}
+	
+	public Consulta getConsulta() {
+		return consulta;
+	}
+	public void setConsulta(Consulta consulta) {
+		this.consulta = consulta;
+	}
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String string) {
 		this.senha = string;
 	}
-	public ArrayList<String> getLista() {
-		return lista;
-	}
-	public void setLista(ArrayList<String> lista) {
-		this.lista = lista;
-	}
-	public int getChamado() {
+	public boolean isChamado() {
 		return chamado;
 	}
-	public void setChamado(int chamado) {
+	public void setChamado(boolean chamado) {
 		this.chamado = chamado;
 	}
 	

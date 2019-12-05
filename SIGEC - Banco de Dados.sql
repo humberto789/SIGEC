@@ -95,6 +95,7 @@ create table prontuario(
 create table consulta(
 	id int auto_increment not null,
 	horario datetime not null,
+    realizada boolean not null,
 	id_medico int not null,
 	id_paciente int not null,
     constraint indentificador_consulta unique(id_medico, id_paciente, horario),
@@ -105,8 +106,10 @@ create table consulta(
 
 create table fila (
 	id int auto_increment not null primary key,
-	senha int not null,
-	chamado int
+	senha varchar(25) not null,
+	chamado boolean,
+    id_consulta int,
+    foreign key(id_consulta) references consulta(id) on delete restrict on update cascade
 );
 
 
@@ -148,7 +151,7 @@ INSERT INTO atestado(cid, dataEmissao, dataVencimento, id_medico, id_paciente) V
 
 INSERT INTO prontuario(peso, altura, alergia, queixa, temperatura, id_medico, id_paciente, horario_cadastro) VALUES(70.5, 1.80, "poeira", "dor de cabeça", 37.0, (SELECT medico.id FROM medico WHERE medico.crm = "123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), now());
 
-INSERT INTO consulta(id_medico, id_paciente, horario) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00");
+INSERT INTO consulta(id_medico, id_paciente, horario, realizada) VALUES ((SELECT id FROM medico WHERE crm="123456"), (SELECT paciente.id FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id WHERE pessoa.cpf="705.960.664-31"), "2019-10-12 01:00:00", 0);
 
 
 SELECT * FROM paciente INNER JOIN pessoa ON paciente.id_pessoa = pessoa.id INNER JOIN usuario ON usuario.id_pessoa = pessoa.id WHERE usuario.login = "705.960.664-31";
@@ -166,3 +169,4 @@ SELECT * FROM recepcionista;
 SELECT * FROM administrador;
 SELECT * FROM prontuario;
 SELECT * FROM atestado;
+SELECT * FROM fila;
