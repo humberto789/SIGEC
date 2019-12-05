@@ -157,3 +157,5 @@ SELECT * FROM pessoa;
 SELECT * FROM paciente;
 SELECT * FROM usuario;
 SELECT * FROM consulta;
+SELECT * FROM recepcionista;
+SELECT * FROM administrador;
