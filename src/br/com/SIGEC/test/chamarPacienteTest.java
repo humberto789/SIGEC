@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.Assert;
 
-import br.com.SIGEC.control.ChamarPacienteDAO;
+import br.com.SIGEC.control.FilaDAO;
 import br.com.SIGEC.control.GuicheDAO;
 import br.com.SIGEC.model.Fila;
 
@@ -17,7 +17,7 @@ class chamarPacienteTest {
 	void testComPaciente() {
 		//Cenário
 		Fila fila = new Fila();
-		ChamarPacienteDAO proximo = new ChamarPacienteDAO();
+		FilaDAO proximo = new FilaDAO();
 		GuicheDAO.guicheSenha();
 		proximo.recuperarLista(fila);
 		
