@@ -7,6 +7,7 @@ public class Consulta {
 	private Paciente paciente;
 	private Date horario;
 	private int id;
+	private boolean realizada;
 	
 	public Consulta() {
 		super();
@@ -14,12 +15,13 @@ public class Consulta {
 		paciente = new Paciente();
 	}
 	
-	public Consulta(Medico medico, Paciente paciente, Date horario, int id) {
+	public Consulta(Medico medico, Paciente paciente, Date horario, int id, boolean realizada) {
 		super();
 		this.medico = medico;
 		this.paciente = paciente;
 		this.horario = horario;
 		this.id = id;
+		this.realizada = realizada;
 	}
 	public Medico getMedico() {
 		return medico;
@@ -45,8 +47,10 @@ public class Consulta {
 	public void setId(int id) {
 		this.id = id;
 	}
-	
-	
-	
-	
+	public boolean isRealizada() {
+		return realizada;
+	}
+	public void setRealizada(boolean realizada) {
+		this.realizada = realizada;
+	}
 }

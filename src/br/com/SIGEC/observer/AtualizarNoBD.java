@@ -8,7 +8,7 @@ public class AtualizarNoBD implements Observador {
 	
 	@Override
 	public void notificar(Paciente paciente, Consulta consulta) {
-		ConsultaDAO.confirmarConsulta(consulta);
+		//ConsultaDAO.confirmarConsulta(consulta);
 	}
 
 }
