@@ -1,47 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
-      xmlns:p="http://primefaces.org/ui"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:p="http://primefaces.org/ui"
+>
+  <h:head>
+    <link rel="stylesheet" href="css/login.css" />
+    <title>SIGEC - LOGIN</title>
+  </h:head>
 
-<h:head>
-    <link rel="stylesheet" href="css/login.css"/>
-    <title> SIGEC - LOGIN </title>
-</h:head>
+  <body>
+    <div></div>
+    <header class="cabecalho">
+      <figure class="logohome">
+        <img src="img/logo_site.png" />
+      </figure>
+      <nav>
+        <ul class="menuPrincipal">
+          <li><h:link value="HOME" outcome="home" class="links" /></li>
+          <li><h:link value="SOBRE" outcome="home#sobre" class="links" /></li>
+          <li>
+            <h:link value="CONTATO" outcome="home#contato" class="links" />
+          </li>
+          <li class="login_cabecalho_home">
+            <h:link value="LOGIN" outcome="login" class="links" />
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
-		<header class="cabecalho">
-	<figure class="logohome">
-		<img src ="img/logo_site.png"/>
-	</figure>
-		<nav>
-			<ul class="menuPrincipal">
-				<li><h:link value = "HOME" outcome = "home" class="links"/></li>
-				<li><h:link value = "SOBRE" outcome = "home#sobre" class="links"/></li>
-				<li><h:link value = "CONTATO" outcome = "home#contato" class="links"/></li>
-				<li class="login_cabecalho_home"><h:link value = "LOGIN" outcome = "login" class="links"/></li>
-			</ul>
-		</nav>
-	</header>
-	
-	<div class= "login">
-	 
-		<figure class="banner_login">
-            <img src="img/banner_login.jpg" alt="Banner Login SIGEC"/>
-        </figure>
-        
-        <div class="formulario_login">
-        	<h1>BEM VINDO!</h1>
-	        <h:form>
-	        	<p:messages />
-            	<h:inputText value="#{usuarioLogadoMBean.usuario.login}" a:placeholder="Login" styleClass="campo"/>
-            	
-           		<h:inputSecret value="#{usuarioLogadoMBean.usuario.senha}" a:placeholder="Senha" class="campo"/>
-            	<p:commandButton class="botao" value="ENVIAR" action="#{usuarioLogadoMBean.autenticar}" update="@form"/>
-			</h:form>
-   		</div>
-   	</div>
-</body>
+    <div class="login">
+      <figure class="banner_login">
+        <img src="img/banner_login.jpg" alt="Banner Login SIGEC" />
+      </figure>
+
+      <div class="formulario_login">
+        <h1>BEM VINDO!</h1>
+        <h:form>
+          <p:messages />
+          <h:inputText
+            value="#{usuarioLogadoMBean.usuario.login}"
+            a:placeholder="Login"
+            styleClass="campo"
+          />
+
+          <h:inputSecret
+            value="#{usuarioLogadoMBean.usuario.senha}"
+            a:placeholder="Senha"
+            class="campo"
+          />
+          <p:commandButton
+            class="botao"
+            value="ENVIAR"
+            action="#{usuarioLogadoMBean.autenticar}"
+            update="@form"
+          />
+        </h:form>
+      </div>
+    </div>
+  </body>
 </html>
